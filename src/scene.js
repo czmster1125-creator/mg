@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {createHexWorld} from './hex-scene.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {createWorld as createIslandWorld} from './island-scene.js';
 import {stepBoat,angleDelta,waterBounds,clamp} from './motion.js';
@@ -8,16 +9,16 @@ const NAMES=['浅滩鱼群','珊瑚秘境','大鱼出没'];
 export function createWorld(container,onSpot,onBuilding,onMotion=()=>{},onBaseBuilding=()=>{},onCollect=()=>{}){
  const fishingHost=document.createElement('div');fishingHost.className='world-layer';container.append(fishingHost);
  const fishing=createFishingWorld(fishingHost,onSpot,onMotion);
- let island=null,islandHost=null,current='fish',lastState=null,lastRegion=0,frozen=false;
+ let hex=null,hexHost=null,island=null,islandHost=null,current='fish',lastState=null,lastRegion=0,frozen=false;
  const api={
   select:i=>fishing.select(i),cast:(v)=>fishing.cast(v),
   approach:()=>fishing.approach(),isMoving:()=>fishing.isMoving(),feedback:v=>fishing.feedback(v),catchFish:f=>fishing.catchFish(f),
-  freeze(v){frozen=v;fishing.freeze(v||current!=='fish');island?.freeze(v||!['map','base'].includes(current));},
-  view(v){current=v;if(['map','base'].includes(v)&&!island){islandHost=document.createElement('div');islandHost.className='world-layer';container.append(islandHost);island=createIslandWorld(islandHost,onBuilding,onBaseBuilding,onCollect);if(lastState)island.update(lastState,lastRegion);}fishingHost.hidden=v!=='fish';if(islandHost)islandHost.hidden=!['map','base'].includes(v);island?.view(v);api.freeze(frozen);},
-  selectBuilding:i=>island?.select(i),clearSelection:()=>island?.clearSelection(),collect:()=>island?.collect(),
+  freeze(v){frozen=v;fishing.freeze(v||current!=='fish');island?.freeze(v||current!=='base');hex?.freeze(v||current!=='map');},
+  view(v){current=v;if(v==='map'&&!hex){hexHost=document.createElement('div');hexHost.className='world-layer';container.append(hexHost);hex=createHexWorld(hexHost,onBuilding);if(lastState)hex.update(lastState,lastRegion);}if(v==='base'&&!island){islandHost=document.createElement('div');islandHost.className='world-layer';container.append(islandHost);island=createIslandWorld(islandHost,onBuilding,onBaseBuilding,onCollect);if(lastState)island.update(lastState,lastRegion);}fishingHost.hidden=v!=='fish';if(hexHost)hexHost.hidden=v!=='map';if(islandHost)islandHost.hidden=v!=='base';island?.view('base');api.freeze(frozen);},
+  selectBuilding:i=>{if(current==='base')island?.select(i);},clearSelection:()=>island?.clearSelection(),collect:()=>island?.collect(),
   zone:z=>fishing.zone(z),
-  update(s,r=0){lastState=s;lastRegion=r;island?.update(s,r);},
-  reset(){current!=='fish'?island?.reset():fishing.reset();},
+  update(s,r=0){lastState=s;lastRegion=r;island?.update(s,r);hex?.update(s,r);},
+  reset(){current==='map'?hex?.reset():current==='base'?island?.reset():fishing.reset();},
   getInfo:()=>fishing.getInfo(),
  };
  return api;
