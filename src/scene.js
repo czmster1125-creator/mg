@@ -5,18 +5,19 @@ import {stepBoat,angleDelta,waterBounds,clamp} from './motion.js';
 
 const SPOTS=[new T.Vector3(-2.9,.05,.4),new T.Vector3(2.8,.05,-3.2),new T.Vector3(2.6,.05,5.8)];
 const NAMES=['浅滩鱼群','珊瑚秘境','大鱼出没'];
-export function createWorld(container,onSpot,onBuilding,onMotion=()=>{}){
+export function createWorld(container,onSpot,onBuilding,onMotion=()=>{},onBaseBuilding=()=>{},onCollect=()=>{}){
  const fishingHost=document.createElement('div');fishingHost.className='world-layer';container.append(fishingHost);
  const fishing=createFishingWorld(fishingHost,onSpot,onMotion);
  let island=null,islandHost=null,current='fish',lastState=null,lastRegion=0,frozen=false;
  const api={
   select:i=>fishing.select(i),cast:(v)=>fishing.cast(v),
   approach:()=>fishing.approach(),isMoving:()=>fishing.isMoving(),feedback:v=>fishing.feedback(v),catchFish:f=>fishing.catchFish(f),
-  freeze(v){frozen=v;fishing.freeze(v||current!=='fish');island?.freeze(v||current!=='map');},
-  view(v){current=v;if(v==='map'&&!island){islandHost=document.createElement('div');islandHost.className='world-layer';container.append(islandHost);island=createIslandWorld(islandHost,onSpot,onBuilding);island.view('map');if(lastState)island.update(lastState,lastRegion);}fishingHost.hidden=v!=='fish';if(islandHost)islandHost.hidden=v!=='map';api.freeze(frozen);},
+  freeze(v){frozen=v;fishing.freeze(v||current!=='fish');island?.freeze(v||!['map','base'].includes(current));},
+  view(v){current=v;if(['map','base'].includes(v)&&!island){islandHost=document.createElement('div');islandHost.className='world-layer';container.append(islandHost);island=createIslandWorld(islandHost,onBuilding,onBaseBuilding,onCollect);if(lastState)island.update(lastState,lastRegion);}fishingHost.hidden=v!=='fish';if(islandHost)islandHost.hidden=!['map','base'].includes(v);island?.view(v);api.freeze(frozen);},
+  selectBuilding:i=>island?.select(i),clearSelection:()=>island?.clearSelection(),collect:()=>island?.collect(),
   zone:z=>fishing.zone(z),
   update(s,r=0){lastState=s;lastRegion=r;island?.update(s,r);},
-  reset(){current==='map'?island.reset():fishing.reset();},
+  reset(){current!=='fish'?island?.reset():fishing.reset();},
   getInfo:()=>fishing.getInfo(),
  };
  return api;

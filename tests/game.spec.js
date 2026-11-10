@@ -6,7 +6,7 @@ test('end-to-end fishing, selling, construction, base and persistent progress',a
  await page.getByRole('button',{name:'前往鱼舱出售'}).click();await expect(page.locator('.fish-row')).toHaveCount(1);
  const locked=page.locator('[aria-label^="解锁"]');if(await locked.count())await locked.click();await page.locator('[data-act="sell-all"]').click();await expect(page.locator('.empty-state')).toBeVisible();
  await page.locator('.close-button').click();await page.locator('.nav-item[data-tab="map"]').click();await page.locator('[data-act="build-next"]').click();await page.locator('[data-act="build-confirm"]').click();await expect(page.locator('#modal-root')).toBeHidden();await expect(page.locator('#map-banner small')).toContainText('1 / 25');
- await page.locator('.nav-item[data-tab="base"]').click();await page.locator('[data-act="collect"]').click();await expect(page.locator('#toast')).toContainText('收益');await page.locator('.close-button').click();
+ await page.locator('.nav-item[data-tab="base"]').click();await page.locator('[data-act="collect"]').click();await expect(page.locator('#toast')).toContainText('收益');await expect(page.locator('#stage')).toHaveAttribute('data-view','base');
  await page.reload();await expect(page.locator('#bait')).toHaveText('39');await page.locator('.nav-item[data-tab="map"]').click();await expect(page.locator('#map-banner small')).toContainText('1 / 25');await page.locator('.nav-item[data-tab="book"]').click();await expect(page.locator('.collection-card.discovered')).toHaveCount(1);expect(errors).toEqual([]);
 });
 test('phone layout, spot selection, multiplier and empty inventory guidance',async({page})=>{
@@ -36,4 +36,24 @@ test('water movement and rapid spot changes do not spend bait; final target wins
 test('manual fishing leaves water visible and cancelling preserves single bait deduction',async({page})=>{
  await page.setViewportSize({width:390,height:844});await page.goto('/');await page.locator('[data-act="manual"]').click();await expect(page.locator('#modal-root')).toHaveAttribute('data-mode','manual');const box=await page.locator('.modal').boundingBox();expect(box.y).toBeGreaterThan(844*.5);expect(await page.locator('#modal-root').evaluate(e=>getComputedStyle(e).opacity)).toBe('1');
  await page.locator('#manual-button').focus();await page.keyboard.down('Space');await page.waitForTimeout(400);await page.keyboard.up('Space');await expect(page.locator('#bait')).toHaveText('39');await page.locator('.close-button').click();await expect(page.locator('#modal-root')).toBeHidden();await page.reload();await expect(page.locator('#bait')).toHaveText('39');await expect(page.locator('#cargo-badge')).toHaveText('0');
+});
+
+test('landmark construction replaces empty plots, upgrades visibly and survives reload',async({page})=>{
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.setViewportSize({width:390,height:844});await page.goto('/');await page.locator('.nav-item[data-tab="map"]').click();const world=page.locator('.town-world');await expect(world).toHaveAttribute('data-rendered','0,0,0,0,0');
+ const plot=page.locator('.town-pin').first();await expect(plot).toHaveAttribute('data-level','0');await plot.click();await expect(page.locator('#modal-root')).toHaveAttribute('data-mode','build');await expect(page.locator('.modal')).toBeVisible();expect((await page.locator('.modal').boundingBox()).y).toBeGreaterThan(844*.5);
+ await page.locator('[data-act="build-confirm"]').click();await expect(world).toHaveAttribute('data-rendered','1,0,0,0,0');await expect(page.locator('#coin')).toHaveText('270');await plot.click();await page.locator('[data-act="build-confirm"]').click();await expect(world).toHaveAttribute('data-rendered','2,0,0,0,0');await expect(page.locator('#coin')).toHaveText('150');
+ await plot.click();await expect(page.locator('[data-act="build-confirm"]')).toBeDisabled();await expect(page.locator('[data-act="build-confirm"]')).toContainText('金币不足');await page.keyboard.press('Escape');await page.locator('[data-act="build-next"]').click();await expect(page.locator('#modal-title')).toHaveText('滨海鱼市');await page.keyboard.press('Escape');
+ await page.reload();await page.locator('.nav-item[data-tab="map"]').click();await expect(world).toHaveAttribute('data-rendered','2,0,0,0,0');await expect(page.locator('#coin')).toHaveText('150');expect(errors).toEqual([]);
+});
+test('base is a live town: building upgrades, income bubbles and navigation persist',async({page})=>{
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.setViewportSize({width:390,height:844});await page.goto('/');await page.locator('.nav-item[data-tab="base"]').click();const world=page.locator('.town-world');await expect(world).toHaveAttribute('data-scene','base');await expect(world).toHaveAttribute('data-rendered','1,1,1,1,1');await expect(page.locator('#modal-root')).toBeHidden();await expect(page.locator('.town-pin')).toHaveCount(5);
+ await page.locator('.town-pin').nth(1).click();await expect(page.locator('.town-stats')).toContainText('24 金币/小时');await page.locator('[data-act="base-upgrade"]').click();await expect(world).toHaveAttribute('data-rendered','1,2,1,1,1');await expect(page.locator('#coin')).toHaveText('270');await expect(page.locator('#modal-root')).toBeHidden();
+ await page.locator('.income-pin:visible').first().click();await expect(page.locator('#toast')).toContainText('收益');await expect(page.locator('.income-pin:visible')).toHaveCount(0);await expect(page.locator('[data-act="collect"]')).toBeDisabled();
+ for(const target of ['map','base','fish','base']){await page.locator(`.nav-item[data-tab="${target}"]`).click();await expect(page.locator('#stage')).toHaveAttribute('data-view',target);}await expect(page.locator('#world canvas')).toHaveCount(2);
+ await page.reload();await page.locator('.nav-item[data-tab="base"]').click();await expect(world).toHaveAttribute('data-rendered','1,2,1,1,1');expect(errors).toEqual([]);
+});
+test('town buildings remain tappable on small and large portrait screens',async({page})=>{
+ await page.goto('/');await page.locator('.nav-item[data-tab="base"]').click();
+ for(const viewport of [{width:360,height:640},{width:390,height:844},{width:428,height:926}]){await page.setViewportSize(viewport);await expect(page.locator('#base-banner')).toBeInViewport();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ for(let i=0;i<5;i++){const pin=page.locator('.town-pin').nth(i);const r=await pin.boundingBox();expect(r.width).toBeGreaterThanOrEqual(44);expect(r.height).toBeGreaterThanOrEqual(44);await pin.click();await expect(page.locator('#modal-root')).toHaveAttribute('data-mode','base-building');await page.locator('.close-button').click();}}
 });
