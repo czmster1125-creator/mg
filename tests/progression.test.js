@@ -1,3 +1,4 @@
+import {proof} from './manual-helper.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {initialState,settle,action} from '../server/engine.js';

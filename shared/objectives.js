@@ -1,3 +1,4 @@
+import {chapterReady} from './journey.js';
 import {readyOrder} from './orders.js';
 import {repairCost} from './pets.js';
 import {bonuses} from './adventure.js';
@@ -11,6 +12,7 @@ export function collectionReady(s,fish,key) {
 export function nextObjective(s,c) {
   if(s.event)return {title:'完成已保存的海上事件',detail:'奖励和选择已保存，继续完成后再抛竿。',action:'event'};
   if(s.orders&&readyOrder(s))return {title:'领取今日订单奖励',detail:'今日订单已完成，领取鱼饵与建设资源。每日北京时间 00:00 更新。',action:'orders'};
+  if(s.journey&&chapterReady(s))return {title:'领取海岛故事章节奖励',detail:'这一章的条件已达成，领取资源并开启下一段旅程。',action:'journey'};
   const reward=[1,3,6,12,'sea0','sea1'].find(k=>!s.collectionClaims.includes(k)&&collectionReady(s,c.fish,k));
   if(reward!==undefined)return {title:'领取鱼缸收藏奖励',detail:'已达成的收藏奖励可领取金币和宠物粮。',action:'book'};
   const damaged=s.damage.findIndex((v,i)=>v&&i>0);

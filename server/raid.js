@@ -27,7 +27,7 @@ export function raidAction(s,type,p,rng){
  }
  const coin=caught?Math.floor(e.carried*.5):e.carried;
  // NPC principal and the player's reward change together; lost loot returns to the NPC.
- s.rivalVault=Math.max(0,s.rivalVault-Math.ceil(coin/e.bet));s.coin+=coin;s.raidCount++;if(e.lesson)s.raidLesson=true;
- s.reports.unshift({text:`NPC 偷袭${caught?'被发现，保住一半赃物':'撤离成功'}：带回 ${coin} 金币，对方金库余 ${s.rivalVault}`});s.reports=s.reports.slice(0,10);
- const result={type:'raid',coin,caught,turn:e.turn,remaining:s.rivalVault,log:e.log};s.event=null;return result;
+ if(!e.live)s.rivalVault=Math.max(0,s.rivalVault-Math.ceil(coin/e.bet));s.coin+=coin;s.raidCount++;if(e.lesson)s.raidLesson=true;
+ s.reports.unshift({text:`${e.live?e.targetName:'NPC'} 偷袭${caught?'被发现，保住一半赃物':'撤离成功'}：带回 ${coin} 金币，对方金库余 ${s.rivalVault}`});s.reports=s.reports.slice(0,10);
+ const result={type:'raid',coin,caught,turn:e.turn,remaining:e.live?e.initial-coin:s.rivalVault,live:!!e.live,targetName:e.targetName,log:e.log};s.event=null;return result;
 }

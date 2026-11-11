@@ -11,6 +11,7 @@ function run(seed){let random=seed;const rng=()=>((random=(random*1664525+101390
    if(s.bait<1){empty++;break;}spent++;casts++;act('fishing',{bet:1,spot:0});
    if(s.event?.type==='attack')act('event/attack',{id:s.event.id,target:0});
    if(s.event?.type==='raid'){const id=s.event.id;act('event/infiltrate',{id});while(s.event)act('event/steal',{id,route:0});}
+   if(s.event?.type==='encounter')act('event/encounter',{id:s.event.id,choice:'leave'});
    if(s.event?.type==='treasure'){const id=s.event.id;for(let cell=0;cell<3;cell++)act('event/dig',{id,cell});}
    for(const d of ORDER_DEFS)if(s.orders.counts[d.id]>=d.target&&!s.orders.claimed.includes(d.id))act('orders/claim',{id:d.id});
    for(let i=1;i<5;i++)if(s.damage[i]&&s.coin>=20*s.base[i]){act('base/repair',{index:i});repairs++;}
@@ -22,6 +23,6 @@ function run(seed){let random=seed;const rng=()=>((random=(random*1664525+101390
  }
  return {seed,casts,spent,empty,repairs,sessions};
 }
-const report={model:'20 deterministic seeds; 3 sessions × up to 60 casts, 1 hour between sessions; x1, safe raids, bank attacks, expand-first, daily rewards; no pets, no bank upgrades, no advertisements',bankIncrementalPaybackHours:[1,2,3,4].map(l=>+(UPGRADE_COSTS[l]/(BANK_RATES[l+1]-BANK_RATES[l])).toFixed(2)),runs:Array.from({length:20},(_,i)=>run(i+1))};
-report.summary={firstSessionLandRange:[Math.min(...report.runs.map(r=>r.sessions[0].land)),Math.max(...report.runs.map(r=>r.sessions[0].land))],castsRange:[Math.min(...report.runs.map(r=>r.casts)),Math.max(...report.runs.map(r=>r.casts))],totalEmptySessionStops:report.runs.reduce((n,r)=>n+r.empty,0)};
+const report={buildCosts:C.buildCosts,milestoneBait:[10,10,10,10,30],model:'20 deterministic seeds; 3 sessions × up to 60 casts, 1 hour between sessions; x1, safe raids, bank attacks, expand-first, daily rewards; no pets, no bank upgrades, no advertisements',bankIncrementalPaybackHours:[1,2,3,4].map(l=>+(UPGRADE_COSTS[l]/(BANK_RATES[l+1]-BANK_RATES[l])).toFixed(2)),runs:Array.from({length:20},(_,i)=>run(i+1))};
+report.summary={secondIslandAfter180:[Math.min(...report.runs.map(r=>r.sessions[2].secondIsland)),Math.max(...report.runs.map(r=>r.sessions[2].secondIsland))],firstSessionLandRange:[Math.min(...report.runs.map(r=>r.sessions[0].land)),Math.max(...report.runs.map(r=>r.sessions[0].land))],castsRange:[Math.min(...report.runs.map(r=>r.casts)),Math.max(...report.runs.map(r=>r.casts))],totalEmptySessionStops:report.runs.reduce((n,r)=>n+r.empty,0)};
 console.log(JSON.stringify(report,null,2));

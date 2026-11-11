@@ -1,0 +1,820 @@
+{
+  "buildCosts": [
+    80,
+    140,
+    220,
+    320,
+    440
+  ],
+  "milestoneBait": [
+    10,
+    10,
+    10,
+    10,
+    30
+  ],
+  "model": "20 deterministic seeds; 3 sessions × up to 60 casts, 1 hour between sessions; x1, safe raids, bank attacks, expand-first, daily rewards; no pets, no bank upgrades, no advertisements",
+  "bankIncrementalPaybackHours": [
+    4,
+    5,
+    6,
+    6.25
+  ],
+  "runs": [
+    {
+      "seed": 1,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 2,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 24,
+          "secondIsland": 0,
+          "coin": 377,
+          "bait": 59,
+          "materials": 16,
+          "food": 17
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 14,
+          "coin": 432,
+          "bait": 80,
+          "materials": 25,
+          "food": 33
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 21,
+          "coin": 698,
+          "bait": 52,
+          "materials": 41,
+          "food": 47
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 3,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 23,
+          "secondIsland": 0,
+          "coin": 338,
+          "bait": 60,
+          "materials": 30,
+          "food": 31
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 15,
+          "coin": 371,
+          "bait": 84,
+          "materials": 43,
+          "food": 47
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 21,
+          "coin": 727,
+          "bait": 46,
+          "materials": 56,
+          "food": 66
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 0,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 22,
+          "secondIsland": 0,
+          "coin": 337,
+          "bait": 65,
+          "materials": 17,
+          "food": 17
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 13,
+          "coin": 273,
+          "bait": 83,
+          "materials": 34,
+          "food": 31
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 20,
+          "coin": 568,
+          "bait": 58,
+          "materials": 41,
+          "food": 54
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 1,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 21,
+          "secondIsland": 0,
+          "coin": 317,
+          "bait": 60,
+          "materials": 28,
+          "food": 16
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 12,
+          "coin": 34,
+          "bait": 92,
+          "materials": 45,
+          "food": 42
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 20,
+          "coin": 606,
+          "bait": 61,
+          "materials": 46,
+          "food": 59
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 1,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 22,
+          "secondIsland": 0,
+          "coin": 430,
+          "bait": 58,
+          "materials": 7,
+          "food": 20
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 13,
+          "coin": 310,
+          "bait": 83,
+          "materials": 8,
+          "food": 29
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 20,
+          "coin": 739,
+          "bait": 50,
+          "materials": 6,
+          "food": 46
+        }
+      ]
+    },
+    {
+      "seed": 6,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 0,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 22,
+          "secondIsland": 0,
+          "coin": 271,
+          "bait": 57,
+          "materials": 11,
+          "food": 14
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 12,
+          "coin": 66,
+          "bait": 75,
+          "materials": 38,
+          "food": 42
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 20,
+          "coin": 142,
+          "bait": 51,
+          "materials": 44,
+          "food": 60
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 0,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 21,
+          "secondIsland": 0,
+          "coin": 383,
+          "bait": 57,
+          "materials": 14,
+          "food": 18
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 11,
+          "coin": 99,
+          "bait": 77,
+          "materials": 19,
+          "food": 26
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 18,
+          "coin": 365,
+          "bait": 41,
+          "materials": 36,
+          "food": 50
+        }
+      ]
+    },
+    {
+      "seed": 8,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 0,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 23,
+          "secondIsland": 0,
+          "coin": 424,
+          "bait": 60,
+          "materials": 23,
+          "food": 25
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 13,
+          "coin": 238,
+          "bait": 86,
+          "materials": 32,
+          "food": 29
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 22,
+          "coin": 275,
+          "bait": 52,
+          "materials": 36,
+          "food": 46
+        }
+      ]
+    },
+    {
+      "seed": 9,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 0,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 24,
+          "secondIsland": 0,
+          "coin": 58,
+          "bait": 57,
+          "materials": 16,
+          "food": 19
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 14,
+          "coin": 363,
+          "bait": 71,
+          "materials": 31,
+          "food": 32
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 21,
+          "coin": 603,
+          "bait": 41,
+          "materials": 41,
+          "food": 43
+        }
+      ]
+    },
+    {
+      "seed": 10,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 0,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 21,
+          "secondIsland": 0,
+          "coin": 350,
+          "bait": 58,
+          "materials": 16,
+          "food": 29
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 14,
+          "coin": 162,
+          "bait": 73,
+          "materials": 34,
+          "food": 48
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 20,
+          "coin": 395,
+          "bait": 41,
+          "materials": 52,
+          "food": 66
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 1,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 22,
+          "secondIsland": 0,
+          "coin": 152,
+          "bait": 58,
+          "materials": 12,
+          "food": 14
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 12,
+          "coin": 150,
+          "bait": 86,
+          "materials": 31,
+          "food": 35
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 19,
+          "coin": 256,
+          "bait": 62,
+          "materials": 42,
+          "food": 56
+        }
+      ]
+    },
+    {
+      "seed": 12,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 0,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 22,
+          "secondIsland": 0,
+          "coin": 159,
+          "bait": 54,
+          "materials": 7,
+          "food": 12
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 10,
+          "coin": 415,
+          "bait": 80,
+          "materials": 15,
+          "food": 29
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 19,
+          "coin": 234,
+          "bait": 45,
+          "materials": 19,
+          "food": 39
+        }
+      ]
+    },
+    {
+      "seed": 13,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 0,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 22,
+          "secondIsland": 0,
+          "coin": 140,
+          "bait": 58,
+          "materials": 17,
+          "food": 14
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 11,
+          "coin": 235,
+          "bait": 77,
+          "materials": 21,
+          "food": 26
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 19,
+          "coin": 42,
+          "bait": 41,
+          "materials": 27,
+          "food": 52
+        }
+      ]
+    },
+    {
+      "seed": 14,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 3,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 23,
+          "secondIsland": 0,
+          "coin": 340,
+          "bait": 56,
+          "materials": 8,
+          "food": 18
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 14,
+          "coin": 60,
+          "bait": 72,
+          "materials": 8,
+          "food": 25
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 21,
+          "coin": 777,
+          "bait": 44,
+          "materials": 24,
+          "food": 54
+        }
+      ]
+    },
+    {
+      "seed": 15,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 0,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 23,
+          "secondIsland": 0,
+          "coin": 196,
+          "bait": 64,
+          "materials": 23,
+          "food": 26
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 12,
+          "coin": 317,
+          "bait": 82,
+          "materials": 32,
+          "food": 39
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 20,
+          "coin": 200,
+          "bait": 56,
+          "materials": 40,
+          "food": 55
+        }
+      ]
+    },
+    {
+      "seed": 16,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 1,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 22,
+          "secondIsland": 0,
+          "coin": 416,
+          "bait": 54,
+          "materials": 15,
+          "food": 14
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 13,
+          "coin": 124,
+          "bait": 76,
+          "materials": 15,
+          "food": 21
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 21,
+          "coin": 381,
+          "bait": 45,
+          "materials": 19,
+          "food": 35
+        }
+      ]
+    },
+    {
+      "seed": 17,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 2,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 24,
+          "secondIsland": 0,
+          "coin": 364,
+          "bait": 56,
+          "materials": 15,
+          "food": 13
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 16,
+          "coin": 67,
+          "bait": 86,
+          "materials": 25,
+          "food": 41
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 22,
+          "coin": 820,
+          "bait": 39,
+          "materials": 32,
+          "food": 48
+        }
+      ]
+    },
+    {
+      "seed": 18,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 1,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 23,
+          "secondIsland": 0,
+          "coin": 72,
+          "bait": 59,
+          "materials": 15,
+          "food": 29
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 11,
+          "coin": 238,
+          "bait": 76,
+          "materials": 24,
+          "food": 39
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 18,
+          "coin": 491,
+          "bait": 48,
+          "materials": 43,
+          "food": 55
+        }
+      ]
+    },
+    {
+      "seed": 19,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 1,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 23,
+          "secondIsland": 0,
+          "coin": 402,
+          "bait": 52,
+          "materials": 15,
+          "food": 11
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 13,
+          "coin": 72,
+          "bait": 75,
+          "materials": 23,
+          "food": 40
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 20,
+          "coin": 399,
+          "bait": 45,
+          "materials": 35,
+          "food": 58
+        }
+      ]
+    },
+    {
+      "seed": 20,
+      "casts": 180,
+      "spent": 180,
+      "empty": 0,
+      "repairs": 0,
+      "sessions": [
+        {
+          "session": 1,
+          "casts": 60,
+          "land": 24,
+          "secondIsland": 0,
+          "coin": 374,
+          "bait": 62,
+          "materials": 31,
+          "food": 18
+        },
+        {
+          "session": 2,
+          "casts": 120,
+          "land": 25,
+          "secondIsland": 15,
+          "coin": 245,
+          "bait": 96,
+          "materials": 38,
+          "food": 34
+        },
+        {
+          "session": 3,
+          "casts": 180,
+          "land": 25,
+          "secondIsland": 21,
+          "coin": 574,
+          "bait": 59,
+          "materials": 45,
+          "food": 59
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "secondIslandAfter180": [
+      18,
+      22
+    ],
+    "firstSessionLandRange": [
+      21,
+      24
+    ],
+    "castsRange": [
+      180,
+      180
+    ],
+    "totalEmptySessionStops": 0
+  }
+}

@@ -16,5 +16,5 @@ export const GUIDES=[
 export const points=s=>s.nodes[0].reduce((a,b)=>a+b,0);
 export const slots=s=>points(s)>=10?3:points(s)>=5?2:1;
 export const role=(id,fish)=>PET_SKILLS[id]?.role??fish.findIndex(f=>f.id===id)%3;
-export function bonuses(s,fish){const b={gold:0,bank:0,attack:0,explore:0,steal:0,cover:0,salvage:0,repair:0,food:0,treasureFood:0,hint:false};for(const id of s.equipped||[]){const e=petEffects(id,s.pets?.[id]?.level||0);for(const [k,v] of Object.entries(e))if(k==='hint')b.hint ||= v;else b[k]+=v;}for(const [k,cap] of Object.entries({gold:.3,bank:.15,attack:120,explore:.3,steal:.4,cover:30,repair:.2,food:1,treasureFood:1}))b[k]=Math.min(cap,b[k]);return b;}
+export function bonuses(s,fish){const b={gold:0,bank:0,attack:0,explore:0,steal:0,cover:0,salvage:0,repair:0,food:0,treasureFood:0,hint:false};for(const id of s.equipped||[]){const e=petEffects(id,s.pets?.[id]?.level||0,s.mastery?.[id]);for(const [k,v] of Object.entries(e))if(k==='hint')b.hint ||= v;else b[k]+=v;}for(const [k,cap] of Object.entries({gold:.3,bank:.15,attack:120,explore:.3,steal:.4,cover:30,repair:.2,food:1,treasureFood:1}))b[k]=Math.min(cap,b[k]);return b;}
 export function rates(s,base,fish){const b=bonuses(s,fish);return base.map((v,i)=>{const value=i===1?BANK_RATES[s.base[i]]:v.rate*s.base[i];return value*(i===1?1+b.gold+b.bank:1)*(i&&s.damage?.[i]?.5:1);});}

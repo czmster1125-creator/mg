@@ -1,3 +1,4 @@
+import {proof} from './manual-helper.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {FIGHT_PROFILES,createFight,stepFight,fightPhase,perfectCast} from '../shared/fishing.js';
@@ -40,14 +41,14 @@ test('precision window gives actual starting advantage; rod upgrade lowers tensi
 test('manual session chooses fish before the fight and settlement keeps that species',()=>{
  const s=fresh();s.zone=1;const r=action(s,'manual/start',{spot:1},now,()=>.99);
  assert.equal(r.species,'manta');assert.equal(s.manual.species,r.species);assert.ok(FIGHT_PROFILES[r.profile]);
- const reward=action(s,'manual/finish',{session:r.session,success:true},now+10000,()=>0);
+ const reward=action(s,'manual/finish',{session:r.session,success:true,...proof(s.manual?.profile||0)},now+10000,()=>0);
  assert.equal(reward.fish[0].species,r.species);assert.equal(s.bait,39);
- assert.throws(()=>action(s,'manual/finish',{session:r.session,success:true},now+11000),/已结束/);
+ assert.throws(()=>action(s,'manual/finish',{session:r.session,success:true,...proof(s.manual?.profile||0)},now+11000),/已结束/);
 });
 test('expired or malformed success rejects; stale cancellation cannot end a newer session',()=>{
  const s=fresh();const r=action(s,'manual/start',{spot:0},now);
  assert.throws(()=>action(s,'manual/finish',{session:r.session,success:'true'},now+10000),/无效/);
- assert.throws(()=>action(s,'manual/finish',{session:r.session,success:true},now+46000),/超时/);
+ assert.throws(()=>action(s,'manual/finish',{session:r.session,success:true,...proof(s.manual?.profile||0)},now+46000),/超时/);
  action(s,'manual/cancel',{session:r.session},now+46000);
  const next=action(s,'manual/start',{spot:2},now+47000);
  assert.throws(()=>action(s,'manual/cancel',{session:r.session},now+47000),/不匹配/);
