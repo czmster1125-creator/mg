@@ -1,6 +1,7 @@
+import {HOME_BUILDINGS} from '../shared/home.js';
 import {EXTRA_FISH,WORLD_REGIONS,WORLD_ZONES} from '../shared/content.js';
 export const config = {
- version:'tidebloom-0.9.0', capacity:12, baitCap:50,
+ version:'tidebloom-0.10.0', capacity:12, baitCap:50,
  fish:[
   {id:'clown',name:'小丑鱼',en:'Clownfish',rarity:0,color:'#ed8e55',base:42,min:350,max:950,zone:0},
   {id:'blue',name:'蓝倒吊',en:'Blue tang',rarity:0,color:'#4d99bd',base:48,min:500,max:1500,zone:0},
@@ -20,7 +21,7 @@ export const config = {
  zones:WORLD_ZONES,
  regions:WORLD_REGIONS,
  buildCosts:[80,140,220,320,440],
- base:[{name:'渔业总部',icon:'flag',unit:'鱼饵',rate:5},{name:'海岛银行',icon:'landmark',unit:'金币',rate:12},{name:'钓具工坊',icon:'hammer',unit:'零件',rate:1.5},{name:'海风集市',icon:'store',unit:'建材',rate:0.4},{name:'宠物乐园',icon:'paw-print',unit:'宠物粮',rate:0.5}],
+ base:HOME_BUILDINGS,
  gear:[{name:'珊瑚钓竿',icon:'fishing-rod',effect:'每级减少 8% 张力增长'},{name:'灵香鱼饵',icon:'shell',effect:'每级提高 6% 稀有鱼相对权重'},{name:'潮汐护符',icon:'gem',effect:'每级增加 8% 鱼获售价'}],
- missions:[{name:'第一桶鱼',desc:'捕获 3 条鱼',event:'catch',target:3,coin:45,xp:30},{name:'渐入佳境',desc:'再捕获 5 条鱼',event:'catch',target:5,coin:70,xp:45},{name:'满载而归',desc:'再捕获并结算 3 条鱼',event:'sell',target:3,coin:100,bait:10},{name:'小岛的新模样',desc:'扩张 1 块海岛土地',event:'build',target:1,coin:60,xp:40},{name:'坐享海风',desc:'领取 1 次基地收益',event:'collect',target:1,parts:2},{name:'梦想建筑师',desc:'再扩张 5 块海岛土地',event:'build',target:5,bait:20},{name:'驶向蔚蓝',desc:'前往珊瑚海岸',event:'zone',target:1,coin:200,xp:80}]
+ missions:[{name:'第一桶鱼',desc:'捕获 3 条鱼',event:'catch',target:3,coin:45,xp:30},{name:'渐入佳境',desc:'再捕获 5 条鱼',event:'catch',target:5,coin:70,xp:45},{name:'满载而归',desc:'再捕获并结算 3 条鱼',event:'sell',target:3,coin:100,bait:10},{name:'小岛的新模样',desc:'扩张 1 块海岛土地',event:'build',target:1,coin:60,xp:40},{name:'坐享海风',desc:'领取 1 次基地收益',event:'collect',target:1,supplies:2},{name:'梦想建筑师',desc:'再扩张 5 块海岛土地',event:'build',target:5,bait:20},{name:'驶向蔚蓝',desc:'前往珊瑚海岸',event:'zone',target:1,coin:200,xp:80}]
 };

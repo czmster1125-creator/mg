@@ -13,15 +13,15 @@ function run(seed){let state=seed;const rng=()=>((state=(state*1664525+101390422
     if(s.unlocked.includes(zone)&&s.zone!==zone)act('zone',{zone});
     if(s.bait<1){if(now-s.rescueAt>=6*3600000)act('rescue/claim');else{stops++;break;}}
     act('fishing',{spot:0,bet:1});casts++;
-    const e=s.event;if(e?.type==='attack')act('event/attack',{id:e.id,target:0});if(e?.type==='raid'){act('event/infiltrate',{id:e.id});while(s.event)act('event/steal',{id:e.id,route:0});}if(e?.type==='treasure')for(let cell=0;cell<3;cell++)act('event/dig',{id:e.id,cell});if(e?.type==='encounter')act('event/encounter',{id:e.id,choice:s.food>=ENCOUNTERS[e.kind].food?'rescue':'leave'});
+    const e=s.event;if(e?.type==='attack')act('event/attack',{id:e.id,target:0});if(e?.type==='raid'){act('event/infiltrate',{id:e.id});while(s.event)act('event/steal',{id:e.id,route:0});}if(e?.type==='treasure')for(let cell=0;s.event?.type==='treasure'&&cell<9;cell++)act('event/dig',{id:e.id,cell});if(e?.type==='encounter')act('event/encounter',{id:e.id,choice:s.food>=ENCOUNTERS[e.kind].food?'rescue':'leave'});
     for(const d of ORDER_DEFS)if(s.orders.counts[d.id]>=d.target&&!s.orders.claimed.includes(d.id))act('orders/claim',{id:d.id});
     for(const d of weeklyDefs(s.weekly))if(s.weekly.counts[d.id]>=d.target&&!s.weekly.claimed.includes(d.id))act('weekly/claim',{id:d.id});
-    for(let k=1;k<5;k++)if(s.damage[k]&&s.coin>=20*s.base[k])act('base/repair',{index:k});
-    const n=owned(s,r).length,cost=C.buildCosts[Math.floor(n/5)]*(r+1),materials=n>=10&&(n+1)%5===0?2:0;if(region>=0&&s.coin>=cost+(s.unlocked.includes(zone)?0:reserve)&&s.materials>=materials)act('expand',{region:r,tile:frontier(s,r)[0].id});
+    for(let k=1;k<C.base.length;k++)if(s.damage[k]&&s.coin>=20*s.base[k])act('base/repair',{index:k});
+    const n=owned(s,r).length,cost=C.buildCosts[Math.floor(n/5)]*(r+1),supplies=n>=10&&(n+1)%5===0?2:0;if(region>=0&&s.coin>=cost+(s.unlocked.includes(zone)?0:reserve)&&s.supplies>=supplies)act('expand',{region:r,tile:frontier(s,r)[0].id});
     if(s.nodes[0].reduce((a,b)=>a+b,0)>=5&&s.base[1]<3&&s.coin>500)act('base/upgrade',{index:1});
     const pets=Object.keys(s.pets);const wantedLevel=goals.find(([key,n])=>key==='petLevel'&&(v[key]||0)<n);const target=wantedLevel?pets.sort((a,b)=>s.pets[b].level-s.pets[a].level)[0]:pets.find(id=>s.pets[id].level<5)||pets.find(id=>s.pets[id].level<10);if(target&&s.food>=s.pets[target].level*3)act('pet/feed',{id:target});
-    const skilled=pets.find(id=>s.pets[id].level>=5&&!s.mastery[id]);if(skilled&&s.parts>=8&&s.materials>=6)act('pet/mastery',{id:skilled,branch:'economy'});
-    for(let k=0;k<6;k++)if(owned(s,k).length>=10&&(s.decor[k]||0)<2&&s.coin>1500&&s.materials>=3*((s.decor[k]||0)+1)+3)act('island/decorate',{region:k});
+    const skilled=pets.find(id=>s.pets[id].level>=5&&!s.mastery[id]);if(skilled&&s.supplies>=14)act('pet/mastery',{id:skilled,branch:'economy'});
+    for(let k=0;k<6;k++)if(owned(s,k).length>=10&&(s.decor[k]||0)<2&&s.coin>1500&&s.supplies>=3*((s.decor[k]||0)+1)+3)act('island/decorate',{region:k});
     while(chapterReady(s))act('journey/claim');now+=12000;
    }
   }

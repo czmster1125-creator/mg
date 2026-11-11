@@ -2,10 +2,10 @@ import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 
 export const MAP_STAGES=['待建空地','主体落成','门廊扩建','二层加盖','庭院完善','地标竣工'];
-export const BASE_STAGES=['','基础营业','门前扩建','二层营业','专属设施','旗舰基地'];
+export const BASE_STAGES=['','小屋落成','门廊添新','二层小屋','庭院相伴','海边家园'];
 export function landmarkStages(index,region=0){
  const kind=region===0?['home','market','dock','light','store'][index]:['market','workshop','bank','home','pet'][index];
- const stages={home:['主体落成','门廊扩建','二层加盖','侧翼庭院','旗帜花园'],store:['仓库落成','装卸门廊','二层仓储','侧翼仓房','港口地标'],market:['鱼摊开业','门廊货箱','二层营业','侧翼货场','市集花园'],dock:['木栈桥落成','码头棚屋','装卸吊机','码头货场','帆旗与泊船'],light:['灯塔点亮','观景围栏','塔楼附屋','滨海庭院','守望旗帜'],workshop:['工坊营业','工坊门廊','二层车间','锻造工作台','工坊花园'],bank:['银行开业','入口台阶','二层营业','侧翼金库','银行花园'],pet:['乐园开门','小屋与门廊','二层小屋','活动拱门','乐园花园']};
+ const stages={home:['主体落成','门廊扩建','二层加盖','侧翼庭院','旗帜花园'],store:['仓库落成','装卸门廊','二层仓储','侧翼仓房','港口地标'],market:['鱼摊开业','门廊货箱','二层营业','侧翼货场','市集花园'],dock:['木栈桥落成','码头棚屋','装卸吊机','码头货场','帆旗与泊船'],light:['灯塔点亮','观景围栏','塔楼附屋','滨海庭院','守望旗帜'],workshop:['工坊营业','工坊门廊','二层车间','锻造工作台','工坊花园'],bank:['小铺开业','入口台阶','二层营业','侧翼库房','小铺花园'],pet:['乐园开门','小屋与门廊','二层小屋','活动拱门','乐园花园']};
  return ['待建空地',...stages[kind]];
 }
 const materials=new Map();
@@ -46,8 +46,8 @@ function lighthouse(p,level){
  cyl(p,.95,.18,colors.wood,0,h,0);cyl(p,.62,.65,0x8bc6bf,0,h+.4,0);for(let j=0;j<6;j++){const a=j*Math.PI/3;cyl(p,.045,.75,colors.cream,Math.cos(a)*.66,h+.43,Math.sin(a)*.66);}shape(p,new T.ConeGeometry(.95,.8,8),0xe76948,0,h+1.13,0);ball(p,.12,colors.trim,0,h+1.57,0);door(p,0,0,1);if(level>=2){cyl(p,1.24,.14,colors.cream,0,h-.12,0);for(let j=0;j<10;j++){const a=j*Math.PI/5;cyl(p,.035,.42,colors.wood,Math.cos(a)*1.15,h+.12,Math.sin(a)*1.15);}}if(level>=3){const g=group(p,-1.25,0,.1);box(g,1.1,1.1,1.4,colors.cream,0,.55,0);roof(g,1.4,1.7,1.2,colors.teal,.5);}if(level>=4){fence(p,0,1.65,3.1);planter(p,-1.6,1.2);}if(level>=5)flag(p,1.2,1.5,0);return h+1.6;
 }
 function dock(p,level){for(let j=0;j<9+level;j++)box(p,2.7,.15,.28,0xb78042,0,.18,(j-4)*.3);for(const x of [-1.4,1.4])for(const z of [-1.2,1.1]){cyl(p,.12,1.1,colors.wood,x,.45,z);cyl(p,.17,.09,colors.trim,x,1,z);}if(level>=2){const shed=group(p,-.3,.25,-.8);box(shed,1.7,1.25,1.1,0x37a09a,0,.62,0);roof(shed,2,1.4,1.3,colors.red,.65);door(shed,0,0,.59);}if(level>=3){const crane=group(p,1,0,-.8);box(crane,.2,2.8,.2,colors.trim,0,1.4,0);box(crane,1.4,.18,.18,colors.trim,-.6,2.7,0);cyl(crane,.018,1.7,colors.wood,-1.2,1.85,0);}if(level>=4){crates(p,-.7,1);crates(p,.2,1.1);}if(level>=5){flag(p,-1.3,1,-1.1);const b=ball(p,.7,colors.cream,1.9,.2,.3);b.scale.set(.6,.4,1.8);}return level>=3?3.1:2.3;}
-function headquarters(p,level){const h=cottage(p,level,0);p.children.filter(o=>o.material===material(0xd96344)).forEach(o=>o.material=material(colors.purple));
- const tower=group(p,-1.05,0,-.35);box(tower,1.25,2.6+level*.16,1.35,0xe5af5d,0,1.3+level*.08,0);roof(tower,1.6,1.7,2.7+level*.16,colors.purple,1.05);window(tower,0,2.3, .72);flag(p,-1.05,3.9+level*.16,-.35);sign(p,0,1.65);if(level>=4){const t=group(p,1.45,0,-.4);cyl(t,.5,3.4,colors.cream,0,1.7,0);shape(t,new T.ConeGeometry(.7,1.15,8),colors.purple,0,3.95,0);}return Math.max(h,5+level*.16);}
+function tideCottage(p,level){const h=cottage(p,level,0);sign(p,0,1.65);const basket=cyl(p,.3,.35,0xc3995a,-1.3,.25,1.2);for(let k=0;k<3;k++)ball(p,.09,0xe7a579,-1.3+k*.12,.48,1.2);if(level>=2)planter(p,1.35,1.25);return h;}
+
 function bank(p,level){
  const h=level>=3?2.6:1.8;box(p,2.9,.25,2.55,0xb9b19a,0,.13,0);box(p,2.5,h,2.1,0xf1d49a,0,h/2+.25,0);door(p,0,.2,1.09);for(const x of [-1,-.55,.55,1]){cyl(p,.13,1.65,colors.cream,x,1.12,1.22);box(p,.35,.16,.35,colors.trim,x,.35,1.22);box(p,.35,.16,.35,colors.trim,x,1.9,1.22);}roof(p,3.1,2.65,h+.3,0x499d91,.9);coin(p,0,h+.55,1.36,1.1);if(level>=2){for(let j=0;j<3;j++)box(p,3-j*.15,.13,.3,colors.cream,0,.1+j*.12,1.5-j*.17);crates(p,-1.6,.3);}if(level>=3){window(p,-.65,2.4,1.08,.4,.45);window(p,.65,2.4,1.08,.4,.45);}if(level>=4){const vault=group(p,1.65,0,-.15);box(vault,1.05,1.45,1.7,0x9bb6b1,0,.75,0);const v=cyl(vault,.45,.14,colors.wood,0,.8,.94);v.rotation.x=Math.PI/2;coin(vault,0,.8,1.04,.7);}if(level>=5){flag(p,0,h+1.2,0);planter(p,-1.5,1.6);planter(p,1.5,1.6);}return h+2.5;
 }
@@ -60,7 +60,7 @@ export function createLandmark(index,level,region=0){const p=new T.Group();p.use
  }else{const type=region===0?['house','market','dock','light','store'][index]:['market','workshop','bank','house','pet'][index];p.userData.height=type==='market'?market(p,level):type==='dock'?dock(p,level):type==='light'?lighthouse(p,level):type==='workshop'?workshop(p,level):type==='bank'?bank(p,level):type==='pet'?petPark(p,level):cottage(p,level,type==='store'?2:0);}
  return p;
 }
-export function createBaseBuilding(index,level){const p=new T.Group();p.userData={index,level,kind:'base'};p.userData.height=[headquarters,bank,workshop,market,petPark][index](p,level);return p;}
+export function createBaseBuilding(index,level){const p=new T.Group();p.userData={index,level,kind:'base'};p.userData.height=[tideCottage,bank,workshop,market,petPark][index](p,level);return p;}
 // Merge static parts within one replaceable model. Moving wheels remain separate.
 export function mergeStatic(root){
  root.updateMatrixWorld(true);const buckets=new Map(),inverse=new T.Matrix4().copy(root.matrixWorld).invert();

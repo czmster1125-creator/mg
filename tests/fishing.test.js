@@ -62,6 +62,6 @@ test('next objective prioritizes saved events, available rewards and damaged pro
 });
 test('expansion objectives route missing resources and continue beyond two islands without suggesting a seventh',()=>{
  const s=fresh();s.coin=0;assert.match(nextObjective(s,C).title,/领取/);s.pending[1]=0;assert.equal(nextObjective(s,C).action,'fish');
- s.coin=10000;s.nodes[0]=[5,5,4,0,0];s.base[3]=1;assert.equal(nextObjective(s,C).index,3);s.materials=2;assert.equal(nextObjective(s,C).action,'island');
+ s.coin=10000;s.nodes[0]=[5,5,4,0,0];s.base[2]=1;s.supplies=0;assert.equal(nextObjective(s,C).index,2);s.supplies=2;assert.equal(nextObjective(s,C).action,'island');
  s.nodes=[[5,5,5,5,5],[5,5,5,5,5]];assert.equal(nextObjective(s,C).region,2);s.nodes=Array.from({length:6},()=>[5,5,5,5,5]);assert.equal(nextObjective(s,C).action,'zones');
 });

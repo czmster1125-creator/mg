@@ -1,0 +1,905 @@
+{
+  "model": "12 fixed seeds; 30 simulated days; two sessions daily, up to 45 casts; NPC safe routes; expansion-first, chapter-aware seas; claim orders/chapters, feed and specialize pets; no purchase or ads. Not real retention data.",
+  "runs": [
+    {
+      "seed": 1,
+      "casts": 2700,
+      "stops": 0,
+      "history": [
+        {
+          "day": 1,
+          "casts": 90,
+          "land": [
+            25,
+            11,
+            0,
+            0,
+            0,
+            0
+          ],
+          "species": 8,
+          "chapters": 3,
+          "badges": 0,
+          "bait": 154,
+          "coin": 52
+        },
+        {
+          "day": 7,
+          "casts": 630,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            3
+          ],
+          "species": 32,
+          "chapters": 12,
+          "badges": 0,
+          "bait": 258,
+          "coin": 301
+        },
+        {
+          "day": 14,
+          "casts": 1260,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 1,
+          "bait": 107,
+          "coin": 108034
+        },
+        {
+          "day": 30,
+          "casts": 2700,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 1,
+          "bait": 13,
+          "coin": 430045
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "casts": 2700,
+      "stops": 0,
+      "history": [
+        {
+          "day": 1,
+          "casts": 90,
+          "land": [
+            25,
+            13,
+            0,
+            0,
+            0,
+            0
+          ],
+          "species": 9,
+          "chapters": 4,
+          "badges": 0,
+          "bait": 148,
+          "coin": 197
+        },
+        {
+          "day": 7,
+          "casts": 630,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            11
+          ],
+          "species": 34,
+          "chapters": 13,
+          "badges": 0,
+          "bait": 244,
+          "coin": 563
+        },
+        {
+          "day": 14,
+          "casts": 1260,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 1,
+          "bait": 18,
+          "coin": 114542
+        },
+        {
+          "day": 30,
+          "casts": 2700,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 1,
+          "bait": 11,
+          "coin": 437387
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "casts": 2700,
+      "stops": 0,
+      "history": [
+        {
+          "day": 1,
+          "casts": 90,
+          "land": [
+            25,
+            12,
+            0,
+            0,
+            0,
+            0
+          ],
+          "species": 9,
+          "chapters": 4,
+          "badges": 1,
+          "bait": 164,
+          "coin": 348
+        },
+        {
+          "day": 7,
+          "casts": 630,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            7
+          ],
+          "species": 33,
+          "chapters": 13,
+          "badges": 1,
+          "bait": 277,
+          "coin": 384
+        },
+        {
+          "day": 14,
+          "casts": 1260,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 42,
+          "coin": 115840
+        },
+        {
+          "day": 30,
+          "casts": 2700,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 15,
+          "coin": 437337
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "casts": 2700,
+      "stops": 0,
+      "history": [
+        {
+          "day": 1,
+          "casts": 90,
+          "land": [
+            25,
+            12,
+            0,
+            0,
+            0,
+            0
+          ],
+          "species": 8,
+          "chapters": 4,
+          "badges": 0,
+          "bait": 148,
+          "coin": 143
+        },
+        {
+          "day": 7,
+          "casts": 630,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            24,
+            0
+          ],
+          "species": 29,
+          "chapters": 11,
+          "badges": 0,
+          "bait": 257,
+          "coin": 2063
+        },
+        {
+          "day": 14,
+          "casts": 1260,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 1,
+          "bait": 140,
+          "coin": 109052
+        },
+        {
+          "day": 30,
+          "casts": 2700,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 1,
+          "bait": 8,
+          "coin": 431313
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "casts": 2700,
+      "stops": 0,
+      "history": [
+        {
+          "day": 1,
+          "casts": 90,
+          "land": [
+            25,
+            11,
+            0,
+            0,
+            0,
+            0
+          ],
+          "species": 10,
+          "chapters": 4,
+          "badges": 1,
+          "bait": 172,
+          "coin": 421
+        },
+        {
+          "day": 7,
+          "casts": 630,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            0
+          ],
+          "species": 30,
+          "chapters": 12,
+          "badges": 1,
+          "bait": 273,
+          "coin": 3718
+        },
+        {
+          "day": 14,
+          "casts": 1260,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 36,
+          "coin": 116649
+        },
+        {
+          "day": 30,
+          "casts": 2700,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 31,
+          "coin": 429211
+        }
+      ]
+    },
+    {
+      "seed": 6,
+      "casts": 2700,
+      "stops": 0,
+      "history": [
+        {
+          "day": 1,
+          "casts": 90,
+          "land": [
+            25,
+            11,
+            0,
+            0,
+            0,
+            0
+          ],
+          "species": 8,
+          "chapters": 4,
+          "badges": 1,
+          "bait": 160,
+          "coin": 4
+        },
+        {
+          "day": 7,
+          "casts": 630,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            3
+          ],
+          "species": 32,
+          "chapters": 12,
+          "badges": 1,
+          "bait": 231,
+          "coin": 403
+        },
+        {
+          "day": 14,
+          "casts": 1260,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 59,
+          "coin": 107367
+        },
+        {
+          "day": 30,
+          "casts": 2700,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 7,
+          "coin": 436681
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "casts": 2700,
+      "stops": 0,
+      "history": [
+        {
+          "day": 1,
+          "casts": 90,
+          "land": [
+            25,
+            8,
+            0,
+            0,
+            0,
+            0
+          ],
+          "species": 9,
+          "chapters": 3,
+          "badges": 0,
+          "bait": 124,
+          "coin": 73
+        },
+        {
+          "day": 7,
+          "casts": 630,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            0
+          ],
+          "species": 29,
+          "chapters": 12,
+          "badges": 0,
+          "bait": 242,
+          "coin": 2636
+        },
+        {
+          "day": 14,
+          "casts": 1260,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 1,
+          "bait": 55,
+          "coin": 105281
+        },
+        {
+          "day": 30,
+          "casts": 2700,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 1,
+          "bait": 21,
+          "coin": 419725
+        }
+      ]
+    },
+    {
+      "seed": 8,
+      "casts": 2700,
+      "stops": 0,
+      "history": [
+        {
+          "day": 1,
+          "casts": 90,
+          "land": [
+            25,
+            11,
+            0,
+            0,
+            0,
+            0
+          ],
+          "species": 9,
+          "chapters": 4,
+          "badges": 0,
+          "bait": 150,
+          "coin": 263
+        },
+        {
+          "day": 7,
+          "casts": 630,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            2
+          ],
+          "species": 32,
+          "chapters": 12,
+          "badges": 0,
+          "bait": 270,
+          "coin": 327
+        },
+        {
+          "day": 14,
+          "casts": 1260,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 1,
+          "bait": 76,
+          "coin": 113432
+        },
+        {
+          "day": 30,
+          "casts": 2700,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 1,
+          "bait": 15,
+          "coin": 428327
+        }
+      ]
+    },
+    {
+      "seed": 9,
+      "casts": 2700,
+      "stops": 0,
+      "history": [
+        {
+          "day": 1,
+          "casts": 90,
+          "land": [
+            25,
+            15,
+            0,
+            0,
+            0,
+            0
+          ],
+          "species": 7,
+          "chapters": 4,
+          "badges": 0,
+          "bait": 148,
+          "coin": 3
+        },
+        {
+          "day": 7,
+          "casts": 630,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            9
+          ],
+          "species": 33,
+          "chapters": 13,
+          "badges": 0,
+          "bait": 245,
+          "coin": 153
+        },
+        {
+          "day": 14,
+          "casts": 1260,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 14,
+          "coin": 118331
+        },
+        {
+          "day": 30,
+          "casts": 2700,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 17,
+          "coin": 446297
+        }
+      ]
+    },
+    {
+      "seed": 10,
+      "casts": 2700,
+      "stops": 0,
+      "history": [
+        {
+          "day": 1,
+          "casts": 90,
+          "land": [
+            25,
+            13,
+            0,
+            0,
+            0,
+            0
+          ],
+          "species": 8,
+          "chapters": 4,
+          "badges": 1,
+          "bait": 160,
+          "coin": 177
+        },
+        {
+          "day": 7,
+          "casts": 630,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            9
+          ],
+          "species": 32,
+          "chapters": 13,
+          "badges": 1,
+          "bait": 278,
+          "coin": 304
+        },
+        {
+          "day": 14,
+          "casts": 1260,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 95,
+          "coin": 114101
+        },
+        {
+          "day": 30,
+          "casts": 2700,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 17,
+          "coin": 435308
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "casts": 2700,
+      "stops": 0,
+      "history": [
+        {
+          "day": 1,
+          "casts": 90,
+          "land": [
+            25,
+            12,
+            0,
+            0,
+            0,
+            0
+          ],
+          "species": 8,
+          "chapters": 4,
+          "badges": 1,
+          "bait": 158,
+          "coin": 88
+        },
+        {
+          "day": 7,
+          "casts": 630,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            24,
+            0
+          ],
+          "species": 29,
+          "chapters": 11,
+          "badges": 1,
+          "bait": 207,
+          "coin": 1630
+        },
+        {
+          "day": 14,
+          "casts": 1260,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 69,
+          "coin": 103748
+        },
+        {
+          "day": 30,
+          "casts": 2700,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 35,
+          "coin": 413161
+        }
+      ]
+    },
+    {
+      "seed": 12,
+      "casts": 2700,
+      "stops": 0,
+      "history": [
+        {
+          "day": 1,
+          "casts": 90,
+          "land": [
+            25,
+            9,
+            0,
+            0,
+            0,
+            0
+          ],
+          "species": 7,
+          "chapters": 3,
+          "badges": 0,
+          "bait": 132,
+          "coin": 99
+        },
+        {
+          "day": 7,
+          "casts": 630,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            24,
+            0
+          ],
+          "species": 28,
+          "chapters": 11,
+          "badges": 0,
+          "bait": 192,
+          "coin": 2133
+        },
+        {
+          "day": 14,
+          "casts": 1260,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 31,
+          "coin": 102576
+        },
+        {
+          "day": 30,
+          "casts": 2700,
+          "land": [
+            25,
+            25,
+            25,
+            25,
+            25,
+            25
+          ],
+          "species": 36,
+          "chapters": 15,
+          "badges": 2,
+          "bait": 17,
+          "coin": 411498
+        }
+      ]
+    }
+  ]
+}
