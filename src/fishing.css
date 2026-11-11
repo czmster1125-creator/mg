@@ -1,0 +1,27 @@
+.modal-backdrop[data-mode=manual] .manual-instructions p {
+  display:block;font-size:10px;line-height:1.5;color:#648575;margin:4px 0;
+}
+.manual-profile {font-size:10px;color:#718b73;margin:6px 0;}
+.fight-status {padding:8px 10px;margin:7px 0 10px;border-radius:9px;background:#e1eddb;color:#396b56;font-size:11px;font-weight:650;}
+.fight-status[data-phase=warning] {background:#fff0c1;color:#8f681c;}
+.fight-status[data-phase=surge] {background:#f9dfd0;color:#a54c34;}
+.fight-status[data-phase=recovery] {background:#c9ebdd;color:#20735c;}
+.manual-meters .progress-track {position:relative;overflow:visible;}
+.cast-sweet-zone {display:none;position:absolute;left:65%;width:20%;top:-3px;bottom:-3px;border:2px solid #258566;background:#6ccc9c66;z-index:1;pointer-events:none;border-radius:3px;}
+.charging .cast-sweet-zone {display:block;}
+.hold-button.danger {background:#be604c;border-color:#8c4337;}
+.manual-failure {text-align:center;padding:16px 0;}
+.manual-failure>svg {width:64px;height:64px;color:#c29d62;margin-bottom:18px;}
+.manual-failure h3 {font-size:16px;line-height:1.7;}
+.manual-failure p {font-size:11px;margin:16px 0;color:#82927a;}
+.bank-return,.expansion-preview {padding:10px;border-radius:10px;background:#e6efda;font-size:12px;line-height:1.6;color:#46745e;}
+.bank-return small {display:block;font-size:9px;margin-top:5px;color:#829275;}
+.modal-backdrop[data-mode=manual] .modal-body {overflow-y:auto;}
+@media(max-height:720px) {
+ .modal-backdrop[data-mode=manual] .modal {max-height:48%;}
+ .fight-status {margin:5px 0 7px;padding:6px 8px;font-size:10px;}
+ .manual-profile {margin:4px 0;font-size:9px;}
+}
+@media(prefers-reduced-motion:reduce) {
+ .bite-callout,.catch-rays,.catch-confetti i {animation:none;}
+}

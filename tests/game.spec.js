@@ -22,8 +22,38 @@ test('guided adventure: unified island, aquarium, saved attack and treasure, pet
  await page.locator('[data-act="reports"]').click();await page.locator('[data-act="drill"]').click();await expect(page.locator('.report-list')).toContainText('护盾挡住');await page.locator('.close-button').click();expect(errors).toEqual([]);
 });
 test('bank on island upgrades and damage can be repaired without losing land',async({page})=>{
- await page.setViewportSize({width:390,height:844});await page.goto('/');await page.locator('.nav-item[data-tab="map"]').click();await page.locator('.island-building[data-index="1"]').click();await expect(page.locator('.town-stats')).toContainText('32.0');await page.locator('[data-act="base-upgrade"]').click();await page.locator('[data-act="reports"]').click();await page.locator('[data-act="drill"]').click();await page.locator('.close-button').click();await expect(page.locator('.island-building[data-index="1"]')).toContainText('需维修');await page.locator('.island-building[data-index="1"]').click();await page.locator('[data-act="repair"]').click();await expect(page.locator('.island-building[data-index="1"]')).toContainText('Lv.2');await expect(page.locator('.hex-world')).toHaveAttribute('data-rendered','0');
+ await page.setViewportSize({width:390,height:844});await page.goto('/');await page.locator('.nav-item[data-tab="map"]').click();await page.locator('.island-building[data-index="1"]').click();await expect(page.locator('.town-stats')).toContainText('32.0');await expect(page.locator('.bank-return')).toContainText('4.0 小时');await page.locator('[data-act="base-upgrade"]').click();await page.locator('[data-act="reports"]').click();await page.locator('[data-act="drill"]').click();await page.locator('.close-button').click();await expect(page.locator('.island-building[data-index="1"]')).toContainText('需维修');await page.locator('.island-building[data-index="1"]').click();await page.locator('[data-act="repair"]').click();await expect(page.locator('.island-building[data-index="1"]')).toContainText('Lv.2');await expect(page.locator('.hex-world')).toHaveAttribute('data-rendered','0');
 });
 test('catch and collection rewards are idempotent, locked treasure payload remains hidden',async({request})=>{
  await request.get('/api/bootstrap');const id=crypto.randomUUID(),data={requestId:id,bet:1,spot:0};const first=await(await request.post('/api/fishing',{data})).json();const repeat=await(await request.post('/api/fishing',{data})).json();expect(repeat).toEqual(first);const pet=first.result.fish[0].species;await request.post('/api/pet/equip',{data:{id:pet,requestId:crypto.randomUUID()}});await request.post('/api/expand',{data:{tile:'-2,0',region:0,requestId:crypto.randomUUID()}});const attack=await(await request.post('/api/fishing',{data:{bet:1,spot:0,requestId:crypto.randomUUID()}})).json();await request.post('/api/event/attack',{data:{id:attack.state.event.id,target:0,requestId:crypto.randomUUID()}});const treasure=await(await request.post('/api/fishing',{data:{bet:1,spot:0,requestId:crypto.randomUUID()}})).json();expect(treasure.state.event.type).toBe('treasure');expect(treasure.state.event.loot).toBeUndefined();const claim={key:1,requestId:crypto.randomUUID()};const a=await(await request.post('/api/collection/claim',{data:claim})).json();const b=await(await request.post('/api/collection/claim',{data:claim})).json();expect(b).toEqual(a);expect((await request.post('/api/collection/claim',{data:{key:1,requestId:crypto.randomUUID()}})).status()).toBe(400);
+});
+
+
+test('manual fight can be won by reacting to fish surges and tension',async({page})=>{
+ test.setTimeout(90000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.setViewportSize({width:390,height:844});await page.goto('/');await page.locator('[data-act="manual"]').click();
+ const button=page.locator('#manual-button');await button.focus();await page.keyboard.down('Space');await page.waitForTimeout(1100);await page.keyboard.up('Space');
+ await expect(button).toHaveAttribute('data-phase','hook',{timeout:10000});await expect(button).toBeFocused();await page.keyboard.press('Space');await expect(button).toHaveAttribute('data-phase','reel');
+ let held=false;const deadline=Date.now()+35000;
+ while(Date.now()<deadline&&await button.count()){
+  const status=await button.evaluate(b=>({phase:b.dataset.phase,behavior:b.dataset.behavior,tension:Number(b.dataset.tension)}));
+  if(status.phase!=='reel')break;
+  let next=held;if(status.behavior==='surge'||status.tension>72)next=false;else if(status.tension<40||status.behavior==='recovery')next=true;
+  if(next!==held){if(next)await page.keyboard.down('Space');else await page.keyboard.up('Space');held=next;}
+  await page.waitForTimeout(100);
+ }
+ await page.keyboard.up('Space');await expect(page.locator('.catch-details')).toContainText('皇家神仙鱼',{timeout:15000});await expect(page.locator('#bait')).toHaveText('42');expect(errors).toEqual([]);
+});
+
+test('missed hook explains failure and refreshing a new fight clears only that session',async({page})=>{
+ test.setTimeout(60000);await page.setViewportSize({width:360,height:640});await page.goto('/');await page.locator('[data-act="manual"]').click();
+ const button=page.locator('#manual-button');await expect(page.locator('#fight-status')).toBeInViewport();await button.focus();await page.keyboard.down('Space');await page.waitForTimeout(300);await page.keyboard.up('Space');
+ await expect(page.locator('#modal-title')).toHaveText('提竿晚了一步',{timeout:15000});await expect(page.locator('.manual-failure')).toContainText('5 金币补偿');await expect(page.locator('#bait')).toHaveText('39');
+ await page.locator('.modal-footer [data-act="manual"]').click();await button.focus();await page.keyboard.down('Space');await page.waitForTimeout(300);await page.keyboard.up('Space');await expect(page.locator('#bait')).toHaveText('38');
+ await page.reload();await expect(page.locator('#bait')).toHaveText('38');const snapshot=await(await page.request.get('/api/bootstrap')).json();expect(snapshot.state.manual).toBeNull();await page.locator('.nav-item[data-tab="map"]').click();await page.locator('.hex-expand').first().click();await page.locator('[data-act="expand-confirm"]').click();await expect(page.locator('.hex-world')).toHaveAttribute('data-rendered','1');
+});
+
+test('post-tutorial objective leads to island expansion and previews actual unlock',async({page})=>{
+ await page.setViewportSize({width:390,height:844});await page.goto('/');await expect(page.locator('#cast')).toBeVisible();await page.request.post('/api/guide/skip',{data:{requestId:crypto.randomUUID()}});await page.reload();
+ await expect(page.locator('#mobile-mission')).toContainText('扩张至 1 块');await page.locator('[data-act="guide"]').click();await expect(page.locator('.guide-detail')).toContainText('解锁钓具工坊');await page.locator('[data-act="guide-go"]').click();await expect(page.locator('#stage')).toHaveAttribute('data-view','map');await page.locator('.hex-expand').first().click();await expect(page.locator('.expansion-preview')).toContainText('钓具工坊自动建成');await page.locator('[data-act="expand-confirm"]').click();await expect(page.locator('.island-building[data-index="2"]')).toContainText('Lv.1');await expect(page.locator('#mobile-mission')).toContainText('扩张至 5 块');
 });

@@ -19,10 +19,10 @@ export function settle(s,now=Date.now()) {
 function mission(s,event,n=1){const m=C.missions[s.mission];if(!m||m.event!==event)return null;s.missionProgress+=n;if(s.missionProgress<m.target)return null;for(const k of ['coin','bait','parts','xp'])s[k]+=m[k]||0;s.mission++;s.missionProgress=0;return m.name;}
 function spend(s,key,n){if(s[key]<n)fail(key==='coin'?'金币不足，去钓鱼或领取基地收益吧':key==='bait'?'鱼饵不足，稍后恢复或完成建设里程碑':'装备零件不足，可从基地领取');s[key]-=n;}
 function index(v,len){if(!Number.isInteger(v)||v<0||v>=len)fail('无效的选择');return v;}
-function fish(s,spot,manual=false,rng=()=>randomInt(1000000)/1000000){
+function fish(s,spot,manual=false,rng=()=>randomInt(1000000)/1000000,species=null){
  const r=rng(),boost=1+s.gear[1]*.06;
  let rarity=manual?2:r<.005*boost?3:r<(.05+(spot===1?.04:0))*boost?2:r<.22?1:0;
- let pool=C.fish.filter(f=>f.zone===s.zone&&f.rarity===rarity);if(!pool.length)pool=C.fish.filter(f=>f.zone===s.zone);const f=pool[Math.floor(rng()*pool.length)];
+ let pool=C.fish.filter(f=>f.zone===s.zone&&f.rarity===rarity);if(!pool.length)pool=C.fish.filter(f=>f.zone===s.zone);const f=C.fish.find(f=>f.id===species)||pool[Math.floor(rng()*pool.length)];
  const weight=Math.round(f.min+(f.max-f.min)*Math.min(1,rng()+(spot===2?.15:0)));
  const price=Math.floor(f.base*(weight/((f.min+f.max)/2))*(1+s.gear[2]*.08)*(1+bonuses(s,C.fish).gold));
  const result={id:randomUUID(),species:f.id,weight,price,locked:f.rarity>=2,firstDiscovery:!s.book[f.id]};s.coin+=price;
@@ -41,9 +41,9 @@ export function action(s,type,p={},now=Date.now(),rng){
  case 'base/upgrade':{const i=index(p.index,5);if(s.base[i]>=5)fail('已达到最高等级');if(!s.base[i])fail('请先扩张海岛解锁该建筑');spend(s,'coin',UPGRADE_COSTS[s.base[i]]);s.base[i]++;break;}
  case 'gear/upgrade':{const i=index(p.index,3);if(s.gear[i]>=5)fail('装备已满级');const cost=80*(s.gear[i]+1);if(s.parts<2*(s.gear[i]+1))fail('装备零件不足，可从基地领取');spend(s,'coin',cost);spend(s,'parts',2*(s.gear[i]+1));s.gear[i]++;break;}
  case 'zone':{index(p.zone,2);if(!s.unlocked.includes(p.zone)){spend(s,'coin',C.zones[p.zone].cost);s.unlocked.push(p.zone);}s.zone=p.zone;if(p.zone===1)result.mission=mission(s,'zone');break;}
- case 'manual/start':{index(p.spot,3);spend(s,'bait',1);s.manual={id:randomUUID(),started:now,spot:p.spot};result.session=s.manual.id;break;}
- case 'manual/finish':{const m=s.manual;if(!m||m.id!==p.session)fail('挑战已结束，请重新开始');if(p.success&&now-m.started<8000)fail('挑战仍在进行');if(p.success){result.fish=[fish(s,m.spot,true,rng)];result.mission=mission(s,C.missions[s.mission]?.event==='sell'?'sell':'catch');result.guide=guide(s,'catch');}else{s.coin+=5;result.compensation=5;}s.manual=null;break;}
- case 'manual/cancel':{s.manual=null;break;}
+ case 'manual/start':{index(p.spot,3);spend(s,'bait',1);const pool=C.fish.filter(f=>f.zone===s.zone&&f.rarity===2);const species=pool[Math.floor(rng()*pool.length)].id;const profile=(p.spot+(species==='tuna'?1:species==='manta'?2:0))%3;s.manual={id:randomUUID(),started:now,spot:p.spot,species,profile};result={session:s.manual.id,species,profile};break;}
+ case 'manual/finish':{const m=s.manual;if(!m||m.id!==p.session)fail('挑战已结束，请重新开始');if(typeof p.success!=='boolean')fail('挑战结果无效');if(p.success&&now-m.started>45000)fail('挑战已超时，请重新开始');if(p.success&&now-m.started<8000)fail('挑战仍在进行');if(p.success){result.fish=[fish(s,m.spot,true,rng,m.species)];result.mission=mission(s,C.missions[s.mission]?.event==='sell'?'sell':'catch');result.guide=guide(s,'catch');}else{s.coin+=5;result.compensation=5;}s.manual=null;break;}
+ case 'manual/cancel':{if(p.session&&s.manual&&p.session!==s.manual.id)fail('挑战编号不匹配');s.manual=null;break;}
  default:fail('未知操作');
  }
  return result;

@@ -91,7 +91,7 @@ function createFishingWorld(container,onSpot,onMotion){
  function splash(pos,count=14){for(let i=0;i<count;i++){const p=pool.find(p=>p.life<=0);if(!p)break;p.life=.6+Math.random()*.3;p.mesh.visible=true;p.mesh.position.copy(pos);p.v.set((Math.random()-.5)*2,1+Math.random()*2,(Math.random()-.5)*2);}ripple(pos.x,pos.z,.4);}
  const targetMarker=new T.Mesh(new T.RingGeometry(.15,.21,24),new T.MeshBasicMaterial({color:0xffffdf,transparent:true,opacity:0}));targetMarker.rotation.x=-Math.PI/2;scene.add(targetMarker);
  const catchModel=fishModel(0xecb465);catchModel.visible=false;scene.add(catchModel);
- let selected=0,paused=false,casting=false,castAt=0,castPhase='idle',progress=0,tension=0,charge=0,held=false,zone=0;
+ let selected=0,paused=false,casting=false,castAt=0,castPhase='idle',progress=0,tension=0,charge=0,held=false,struggle=false,zone=0;
  let body={x:-1.1,z:3.1,heading:-2.55,speed:0,bank:0};let target={x:body.x,z:body.z};let moving=false,arrivalResolvers=[],pointer=null,dragging=false;
  let frameAverage=.016,quality=renderer.getPixelRatio(),qualityFrames=0;
  let last=performance.now()/1000,lastWake=0,lastSplash=0,markerLife=0,jumpAt=-10,catchColor=0xf4c064;
@@ -105,8 +105,8 @@ function createFishingWorld(container,onSpot,onMotion){
  renderer.domElement.addEventListener('pointercancel',()=>{pointer=null;dragging=false;});
  function select(i){selected=i;const pos=SPOTS[i];navigateTo(pos.x+(pos.x<0?1.7:-1.7),pos.z+2.3);}
  function approach(){const p=SPOTS[selected];const near=Math.hypot(body.x-p.x,body.z-p.z);if(near<3.8&&!moving)return Promise.resolve();select(selected);return new Promise(resolve=>arrivalResolvers.push(resolve));}
- function feedback(v){castPhase=v.phase??castPhase;progress=v.progress??progress;tension=v.tension??tension;charge=v.charge??charge;held=v.held??held;container.dataset.phase=castPhase;}
- function cast(v){casting=v;castAt=performance.now()/1000;float.visible=line.visible=v;progressRing.visible=v;progress=0;castPhase=v?'cast':'idle';if(!v){tension=0;charge=0;held=false;}container.dataset.phase=castPhase;}
+ function feedback(v){castPhase=v.phase??castPhase;progress=v.progress??progress;tension=v.tension??tension;charge=v.charge??charge;held=v.held??held;struggle=v.struggle??struggle;container.dataset.phase=castPhase;}
+ function cast(v){casting=v;castAt=performance.now()/1000;float.visible=line.visible=v;progressRing.visible=v;progress=0;castPhase=v?'cast':'idle';if(!v){tension=0;charge=0;held=false;struggle=false;}container.dataset.phase=castPhase;}
  function catchFish(f){catchColor=new T.Color(f?.color||'#edb755');catchModel.traverse(o=>{if(o.isMesh&&o.material.color.getHex()!==0xfff9e7&&o.material.color.getHex()!==0x264e50){o.material=mat(catchColor.getHex());}});jumpAt=performance.now()/1000;catchModel.visible=true;splash(SPOTS[selected],25);}
  const birds=[];for(let i=0;i<3;i++){const b=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(-.25,0,0),new T.Vector3(0,-.06,0),new T.Vector3(.25,0,0)]),new T.LineBasicMaterial({color:0xfff7dd,transparent:true,opacity:.85}));scene.add(b);birds.push(b);}
  const look=new T.Vector3(0,0,2.2),lookTarget=new T.Vector3(),rodStart=new T.Vector3(),end=new T.Vector3();
@@ -126,7 +126,7 @@ function createFishingWorld(container,onSpot,onMotion){
   spotRings.forEach((r,i)=>{r.material.opacity=i===selected?.85:.28;r.material.color.set(i===selected?0xfff5cc:0xb4ecdf);r.scale.setScalar(1+Math.sin(now*2+i)*.018);});
   if(casting){const elapsed=now-castAt;rodStart.copy(new T.Vector3(.2,1.25,1.05));rod.localToWorld(rodStart);end.copy(SPOTS[selected]);end.y=.08+Math.sin(now*7)*.035;const flight=clamp(elapsed/.52,0,1);float.position.lerpVectors(rodStart,end,flight);float.position.y+=Math.sin(flight*Math.PI)*2.2;
    if(elapsed>=.52&&elapsed-dt<.52)splash(end);if((castPhase==='hook'||castPhase==='reel')&&now-lastSplash>.3){lastSplash=now;splash(end,4);}
-   if(castPhase==='hook'){float.position.y-=.12+Math.sin(now*18)*.1;}if(castPhase==='reel'){float.position.x+=Math.sin(now*5)*.16;float.position.z+=Math.cos(now*4)*.1;}
+   if(castPhase==='hook'){float.position.y-=.12+Math.sin(now*18)*.1;}if(castPhase==='reel'){float.position.x+=Math.sin(now*(struggle?11:5))*(struggle?.5:.16);float.position.z+=Math.cos(now*(struggle?9:4))*(struggle?.3:.1);}line.material.color.set(tension>90?0xff745c:struggle?0xffd28a:0xfff7e1);
    for(let i=0;i<=24;i++){const a=i/24;linePositions[i*3]=T.MathUtils.lerp(rodStart.x,float.position.x,a);linePositions[i*3+1]=T.MathUtils.lerp(rodStart.y,float.position.y,a)-Math.sin(a*Math.PI)*(castPhase==='reel'?.06:.25);linePositions[i*3+2]=T.MathUtils.lerp(rodStart.z,float.position.z,a);}lineGeo.attributes.position.needsUpdate=true;
    for(let i=0;i<=64;i++){const a=i/64*Math.PI*2*(progress/100)-Math.PI/2;progressPositions[i*3]=SPOTS[selected].x+Math.cos(a)*1.23;progressPositions[i*3+1]=.1;progressPositions[i*3+2]=SPOTS[selected].z+Math.sin(a)*1.23;}progressGeo.attributes.position.needsUpdate=true;progressRing.material.color.set(tension>85?0xff9a7b:0xffe4a0);
   }
