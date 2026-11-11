@@ -2,6 +2,13 @@ import * as T from 'three';
 import {box,cyl,ball,group,roof} from './town-models.js';
 export function addIslandLandmarks(parent,region,level=0){
  const root=group(parent,0,.64,0),moving=[];
+ if(region>=2){
+  if(region===2){for(let i=0;i<10;i++){const x=Math.sin(i*2.4)*4.7,z=Math.cos(i*2.4)*3;const g=group(root,x,0,z);cyl(g,.45,.3,0xe5ceab,0,-.2,0);for(let k=0;k<4;k++){const branch=cyl(g,.055,.7, i%2?0xe8a6a7:0xc693b3,(k-1.5)*.12,.3,0);branch.rotation.z=(k-1.5)*.25;}ball(g,.17,0xf0c5c7,0,.75,0);}if(level){const shell=group(root,-4.2,0,3);for(let i=0;i<7;i++){const rib=box(shell,.12,.8,.15,0xf8e4b5,(i-3)*.15,.4,0);rib.rotation.z=(i-3)*.18;}cyl(shell,.8,.15,0xcdaaa7,0,0,0);}}
+  if(region===3){const volcano=group(root,-4.7,0,-3);cyl(volcano,1.4,2.3,0x69666a,0,.8,0,.55,9);cyl(volcano,.56,.08,0xe89649,0,1.98,0);for(let i=0;i<5;i++){const lava=box(volcano,.16,1.2,.05,0xe89851,(i-2)*.25,1,.55);lava.rotation.z=(i-2)*.2;}for(let i=0;i<6;i++)cyl(root,.22,.6+i%3*.25,0x5d5d68,Math.cos(i)*4.6,.2,Math.sin(i)*3);if(level){const beacon=group(root,4.6,0,2.4);cyl(beacon,.4,.5+level*.3,0x6b6566,0,.4,0);ball(beacon,.24,0xf0bf6d,0,.8+level*.25,0);}}
+  if(region===4){for(let i=0;i<9;i++){const g=group(root,Math.sin(i*2.4)*4.8,0,Math.cos(i*2.4)*3);cyl(g,.06,.9,0x8a8171,0,.4,0);cyl(g,.4,.8,0x88a9ae,0,.9,0,0,6);cyl(g,.3,.6,0xd9e8e7,0,1.2,0,0,6);}if(level){const igloo=group(root,4.3,.1,3);ball(igloo,.85,0xd7e8e9,0,.35,0);box(igloo,.35,.45,.2,0x6b99af,0,.2,.8);}}
+  if(region===5){for(let i=0;i<8;i++){const x=Math.cos(i*Math.PI/4)*4.7,z=Math.sin(i*Math.PI/4)*3.4;const column=group(root,x,0,z);cyl(column,.23,1.2+i%2*.3,0x9297b5,0,.65,0,.19,7);ball(column,.16,0xc8c6e8,0,1.35+i%2*.3,0);}if(level){const shrine=group(root,0,0,-3.8);cyl(shrine,.9,.18,0x9392b0,0,.1,0);for(const x of[-.5,.5])cyl(shrine,.12,1.3,0xb4b4c8,x,.7,0);box(shrine,1.5,.2,.4,0xc2bbd9,0,1.45,0);}}
+  return moving;
+ }
  if(region===0){
   const palms=[[-4,1],[3,-2],[-2,-3],[4,2]];for(const[x,z]of palms){const g=group(root,x,0,z);cyl(g,.65,.5,0xd8c58d,0,-.35,0,.75,8);cyl(g,.10,1.5,0xaa8654,0,.75,0);for(let k=0;k<5;k++){const leaf=box(g,1,.06,.28,0x47975c,Math.sin(k*1.26)*.4,1.5,Math.cos(k*1.26)*.4);leaf.rotation.y=-k*1.26;leaf.rotation.z=.18;}moving.push({model:g,kind:'palm'});}
   const hill=group(root,-4.1,0,-2.7);cyl(hill,.9,1,0x9abf80,0,.2,0,.7,8);ball(hill,.6,0xaccd8c,0,.65,0);
@@ -16,4 +23,4 @@ export function addIslandLandmarks(parent,region,level=0){
  }
  return moving;
 }
-export function regionalFacade(parent,index,region,level){if(!region)return;box(parent,1.2,.13,.8,0x788c95,0,.07,.4);if(index===2){box(parent,.25,1.6,.25,0x576f79,-.6,.8,-.5);cyl(parent,.16,.35,0xb47e4a,-.6,1.7,-.5);}else if(index===1){for(const x of [-.55,.55])cyl(parent,.09,1,0xc5d5d0,x,.5,.6);}else{const awning=box(parent,1.2,.08,.6,index===3?0xe0a760:0x5095a2,0,.65,.8);awning.rotation.x=.15;box(parent,.8,.5,.3,0xc4935b,.5,.25,.9);}}
+export function regionalFacade(parent,index,region,level){if(!region)return;if(region>=2){const colors=[0,0,0xdca0b3,0x8d7072,0xa7c8db,0xaba0c8];roof(parent,1.15,.9,1.6,colors[region],.35);cyl(parent,.08,.7,colors[region],.6,.4,.5);return;}box(parent,1.2,.13,.8,0x788c95,0,.07,.4);if(index===2){box(parent,.25,1.6,.25,0x576f79,-.6,.8,-.5);cyl(parent,.16,.35,0xb47e4a,-.6,1.7,-.5);}else if(index===1){for(const x of [-.55,.55])cyl(parent,.09,1,0xc5d5d0,x,.5,.6);}else{const awning=box(parent,1.2,.08,.6,index===3?0xe0a760:0x5095a2,0,.65,.8);awning.rotation.x=.15;box(parent,.8,.5,.3,0xc4935b,.5,.25,.9);}}

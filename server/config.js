@@ -1,5 +1,6 @@
+import {EXTRA_FISH,WORLD_REGIONS,WORLD_ZONES} from '../shared/content.js';
 export const config = {
- version:'tidebloom-0.8.0', capacity:12, baitCap:50,
+ version:'tidebloom-0.9.0', capacity:12, baitCap:50,
  fish:[
   {id:'clown',name:'小丑鱼',en:'Clownfish',rarity:0,color:'#ed8e55',base:42,min:350,max:950,zone:0},
   {id:'blue',name:'蓝倒吊',en:'Blue tang',rarity:0,color:'#4d99bd',base:48,min:500,max:1500,zone:0},
@@ -12,11 +13,12 @@ export const config = {
   {id:'grouper',name:'斑纹石斑',en:'Spotted grouper',rarity:1,color:'#96aa78',base:115,min:1900,max:4400,zone:1},
   {id:'tuna',name:'蓝鳍金枪鱼',en:'Bluefin tuna',rarity:2,color:'#618ec3',base:220,min:4000,max:11000,zone:1},
   {id:'manta',name:'月光蝠鲼',en:'Moonlight ray',rarity:2,color:'#a49dd2',base:265,min:5000,max:14000,zone:1},
-  {id:'marlin',name:'星海旗鱼',en:'Starlight marlin',rarity:3,color:'#5bbdc0',base:460,min:9000,max:22000,zone:1}
+  {id:'marlin',name:'星海旗鱼',en:'Starlight marlin',rarity:3,color:'#5bbdc0',base:460,min:9000,max:22000,zone:1},
+  ...EXTRA_FISH
  ],
  rarities:['普通','优秀','稀有','史诗'],
- zones:[{name:'宁静海湾',en:'SERENITY BAY',cost:0},{name:'珊瑚海岸',en:'CORAL COAST',cost:950}],
- regions:[{name:'宁静海湾',en:'Serenity Bay',nodes:['海湾小屋','滨海鱼市','木制码头','守望灯塔','港口仓库']},{name:'繁荣渔港',en:'Prosper Harbor',nodes:['海景餐厅','修船工坊','贸易商站','码头街区','海风商铺']}],
+ zones:WORLD_ZONES,
+ regions:WORLD_REGIONS,
  buildCosts:[80,140,220,320,440],
  base:[{name:'渔业总部',icon:'flag',unit:'鱼饵',rate:5},{name:'海岛银行',icon:'landmark',unit:'金币',rate:12},{name:'钓具工坊',icon:'hammer',unit:'零件',rate:1.5},{name:'海风集市',icon:'store',unit:'建材',rate:0.4},{name:'宠物乐园',icon:'paw-print',unit:'宠物粮',rate:0.5}],
  gear:[{name:'珊瑚钓竿',icon:'fishing-rod',effect:'每级减少 8% 张力增长'},{name:'灵香鱼饵',icon:'shell',effect:'每级提高 6% 稀有鱼相对权重'},{name:'潮汐护符',icon:'gem',effect:'每级增加 8% 鱼获售价'}],

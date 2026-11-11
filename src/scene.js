@@ -141,5 +141,5 @@ function createFishingWorld(container,onSpot,onMotion){
   renderer.render(scene,camera);
  }
  animate();
- return {select,approach,cast,feedback,catchFish,freeze(v){paused=v;},isMoving:()=>moving,zone(z){zone=z;water.material.uniforms.coral.value=z;},reset(){select(selected);},getInfo:()=>renderer.info};
+ return {select,approach,cast,feedback,catchFish,freeze(v){paused=v;},isMoving:()=>moving,zone(z){zone=z;water.material.uniforms.coral.value=Math.min(1,z);},reset(){select(selected);},getInfo:()=>renderer.info};
 }

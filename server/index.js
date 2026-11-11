@@ -1,3 +1,4 @@
+import {weeklyProgress} from '../shared/weekly.js';
 import http from 'node:http';
 import {publicState} from './adventure.js';
 import {DatabaseSync} from 'node:sqlite';
@@ -36,7 +37,7 @@ const server=http.createServer(async(req,res)=>{
    try{
     const prior=db.prepare('SELECT type,result FROM transactions WHERE player=? AND request=?').get(id,p.requestId);if(prior){if(prior.type!==type)throw Error('请求编号已用于其他操作');db.exec('COMMIT');return send(res,200,JSON.parse(prior.result));}
     social.expire();const s=read(id);settle(s);let result=social.action(id,s,type,p),context;
-    if(!result){context=social.complete(id,s,type,p);if(context?.type==='attack'){result=context;recordJourney(s,result);progressOrder(s,'adventure');}else{result=action(s,type,p);if(type==='fishing'&&result.event)social.convert(id,s,p.bet);social.finishRaid(context,result,s);}}
+    if(!result){context=social.complete(id,s,type,p);if(context?.type==='attack'){result=context;recordJourney(s,result);weeklyProgress(s,'attack');progressOrder(s,'adventure');}else{result=action(s,type,p);if(type==='fishing'&&result.event)social.convert(id,s,p.bet);social.finishRaid(context,result,s);}}
     put.run(id,JSON.stringify(s));const out=body(id,s,result);db.prepare('INSERT INTO transactions VALUES (?,?,?,?)').run(id,p.requestId,type,JSON.stringify(out));db.exec('COMMIT');return send(res,200,out);
    }catch(e){db.exec('ROLLBACK');throw e;}
   }catch(e){return send(res,e.status||400,{error:e.message||'请求失败，请重试'});}

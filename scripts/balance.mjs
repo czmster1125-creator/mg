@@ -15,7 +15,7 @@ function run(seed){let random=seed;const rng=()=>((random=(random*1664525+101390
    if(s.event?.type==='treasure'){const id=s.event.id;for(let cell=0;cell<3;cell++)act('event/dig',{id,cell});}
    for(const d of ORDER_DEFS)if(s.orders.counts[d.id]>=d.target&&!s.orders.claimed.includes(d.id))act('orders/claim',{id:d.id});
    for(let i=1;i<5;i++)if(s.damage[i]&&s.coin>=20*s.base[i]){act('base/repair',{index:i});repairs++;}
-   const region=owned(s,0).length>=25?1:0,n=owned(s,region).length,cost=C.buildCosts[Math.floor(n/5)]*(region+1),materials=n>=10&&(n+1)%5===0?2:0;
+   const region=Math.min(C.regions.length-1,C.regions.findIndex((_,i)=>owned(s,i).length<25)<0?C.regions.length-1:C.regions.findIndex((_,i)=>owned(s,i).length<25)),n=owned(s,region).length,cost=C.buildCosts[Math.floor(n/5)]*(region+1),materials=n>=10&&(n+1)%5===0?2:0;
    if(n<25&&s.coin>=cost&&s.materials>=materials)act('expand',{region,tile:frontier(s,region)[0].id});
    now+=12000;
   }

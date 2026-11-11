@@ -1,0 +1,2 @@
+import {weeklyDefs} from '../shared/weekly.js';
+export function weeklyAction(s,type,p){if(type!=='weekly/claim')return null;const d=weeklyDefs(s.weekly).find(d=>d.id===p.id);if(!d||s.weekly.counts[d.id]<d.target||s.weekly.claimed.includes(d.id))throw Error('周委托未完成或已领取');s.weekly.claimed.push(d.id);for(const[k,n]of Object.entries(d.reward))s[k]+=n;if(s.weekly.claimed.length===3)s.weeklyBadges++;return {message:d.name+'奖励已到账'+(s.weekly.claimed.length===3?'，获得本周远航徽章':'')};}
