@@ -12,7 +12,7 @@ export function createWorld(container,onSpot,onBuilding,onMotion=()=>{},onBaseBu
  let hex=null,hexHost=null,island=null,islandHost=null,current='fish',lastState=null,lastRegion=0,frozen=false;
  const api={
   select:i=>fishing.select(i),cast:(v)=>fishing.cast(v),
-  approach:()=>fishing.approach(),isMoving:()=>fishing.isMoving(),feedback:v=>fishing.feedback(v),catchFish:f=>fishing.catchFish(f),
+  approach:()=>fishing.approach(),cancelApproach:()=>fishing.cancelApproach(),isMoving:()=>fishing.isMoving(),feedback:v=>fishing.feedback(v),catchFish:f=>fishing.catchFish(f),
   freeze(v){frozen=v;fishing.freeze(v||current!=='fish');island?.freeze(v||current!=='base');hex?.freeze(v||current!=='map');},
   view(v){current=v;if(v==='map'&&!hex){hexHost=document.createElement('div');hexHost.className='world-layer';container.append(hexHost);hex=createHexWorld(hexHost,onBuilding,onBaseBuilding);if(lastState)hex.update(lastState,lastRegion);}if(v==='base'&&!island){islandHost=document.createElement('div');islandHost.className='world-layer';container.append(islandHost);island=createIslandWorld(islandHost,onBuilding,onBaseBuilding,onCollect);if(lastState)island.update(lastState,lastRegion);}fishingHost.hidden=v!=='fish';if(hexHost)hexHost.hidden=v!=='map';if(islandHost)islandHost.hidden=v!=='base';island?.view('base');api.freeze(frozen);},
   selectBuilding:i=>{if(current==='base')island?.select(i);},clearSelection:()=>island?.clearSelection(),collect:()=>island?.collect(),
@@ -81,7 +81,7 @@ function createFishingWorld(container,onSpot,onMotion){
   const disk=new T.Mesh(new T.CircleGeometry(1.03,64),new T.MeshBasicMaterial({color:0x0c6892,transparent:true,opacity:.15,depthWrite:false}));disk.rotation.x=-Math.PI/2;g.add(disk);
   for(let j=0;j<2;j++){const ring=new T.Mesh(new T.RingGeometry(1.01+j*.15,1.035+j*.15,64),new T.MeshBasicMaterial({color:0xd3fff2,transparent:true,opacity:.3,side:T.DoubleSide,depthWrite:false}));ring.rotation.x=-Math.PI/2;ring.position.y=.015+j*.01;g.add(ring);if(j===0)spotRings.push(ring);}
   for(let j=0;j<3;j++){const f=fishModel([0x3c9298,0x45849b,0x347e8b][i]);f.scale.setScalar(.58+j*.07);scene.add(f);shoals.push({model:f,spot:i,phase:j*2.1,radius:.48+j*.12});}
-  const button=document.createElement('button');button.className='spot-label shoal-hit';button.setAttribute('aria-label',`${NAMES[i]}，点击前往`);button.innerHTML='<span class="shoal-pin"><svg viewBox="0 0 24 24"><path d="M4 12c4-7 10-7 14 0-4 7-10 7-14 0Zm14 0 5-5v10Z"/><circle cx="8" cy="11" r="1"/></svg></span>';button.addEventListener('click',()=>onSpot(i));container.append(button);hitButtons.push(button);
+  const button=document.createElement('button');button.className='spot-label shoal-hit';button.setAttribute('aria-label',`${NAMES[i]}，点击自动钓鱼`);button.innerHTML='<span class="shoal-pin"><svg viewBox="0 0 24 24"><path d="M4 12c4-7 10-7 14 0-4 7-10 7-14 0Zm14 0 5-5v10Z"/><circle cx="8" cy="11" r="1"/></svg></span>';button.addEventListener('click',()=>onSpot(i));container.append(button);hitButtons.push(button);
  });
  const progressPositions=new Float32Array(65*3);const progressGeo=new T.BufferGeometry();progressGeo.setAttribute('position',new T.BufferAttribute(progressPositions,3));const progressRing=new T.Line(progressGeo,new T.LineBasicMaterial({color:0xffe5a1}));progressRing.frustumCulled=false;progressRing.visible=false;scene.add(progressRing);
  const pool=[];const particleGeo=new T.SphereGeometry(.055,5,4),particleMat=new T.MeshBasicMaterial({color:0xe7fff8,transparent:true,opacity:.8});
@@ -141,5 +141,5 @@ function createFishingWorld(container,onSpot,onMotion){
   renderer.render(scene,camera);
  }
  animate();
- return {select,approach,cast,feedback,catchFish,freeze(v){paused=v;},isMoving:()=>moving,zone(z){zone=z;water.material.uniforms.coral.value=Math.min(1,z);},reset(){select(selected);},getInfo:()=>renderer.info};
+ return {select,approach,cancelApproach(){target={x:body.x,z:body.z};body.speed=0;setMoving(false);arrivalResolvers.splice(0).forEach(resolve=>resolve());},cast,feedback,catchFish,freeze(v){paused=v;},isMoving:()=>moving,zone(z){zone=z;water.material.uniforms.coral.value=Math.min(1,z);},reset(){select(selected);},getInfo:()=>renderer.info};
 }
