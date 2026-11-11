@@ -36,7 +36,8 @@ test('manual fight can be won by reacting to fish surges and tension',async({pag
  await expect(button).toHaveAttribute('data-phase','hook',{timeout:10000});await expect(button).toBeFocused();await page.keyboard.press('Space');await expect(button).toHaveAttribute('data-phase','reel');
  let held=false;const deadline=Date.now()+35000;
  while(Date.now()<deadline&&await button.count()){
-  const status=await button.evaluate(b=>({phase:b.dataset.phase,behavior:b.dataset.behavior,tension:Number(b.dataset.tension)}));
+  const status=await page.evaluate(()=>{const b=document.querySelector('#manual-button');return b?{phase:b.dataset.phase,behavior:b.dataset.behavior,tension:Number(b.dataset.tension)}:null;});
+  if(!status)break;
   if(status.phase!=='reel')break;
   let next=held;if(status.behavior==='surge'||status.tension>72)next=false;else if(status.tension<40||status.behavior==='recovery')next=true;
   if(next!==held){if(next)await page.keyboard.down('Space');else await page.keyboard.up('Space');held=next;}
@@ -56,4 +57,20 @@ test('missed hook explains failure and refreshing a new fight clears only that s
 test('post-tutorial objective leads to island expansion and previews actual unlock',async({page})=>{
  await page.setViewportSize({width:390,height:844});await page.goto('/');await expect(page.locator('#cast')).toBeVisible();await page.request.post('/api/guide/skip',{data:{requestId:crypto.randomUUID()}});await page.reload();
  await expect(page.locator('#mobile-mission')).toContainText('扩张至 1 块');await page.locator('[data-act="guide"]').click();await expect(page.locator('.guide-detail')).toContainText('解锁钓具工坊');await page.locator('[data-act="guide-go"]').click();await expect(page.locator('#stage')).toHaveAttribute('data-view','map');await page.locator('.hex-expand').first().click();await expect(page.locator('.expansion-preview')).toContainText('钓具工坊自动建成');await page.locator('[data-act="expand-confirm"]').click();await expect(page.locator('.island-building[data-index="2"]')).toContainText('Lv.1');await expect(page.locator('#mobile-mission')).toContainText('扩张至 5 块');
+});
+
+test('NPC stealth lesson persists unbanked loot and settles both wallets once',async({page})=>{
+ test.setTimeout(90000);const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.setViewportSize({width:390,height:844});await page.goto('/');await page.locator('.nav-item[data-tab="map"]').click();await page.locator('[data-act="raid-lesson"]').click();await expect(page.locator('#raid-world canvas')).toBeVisible({timeout:15000});await page.locator('[data-act="infiltrate"]').click();await page.locator('[data-act="steal"]').first().click();await expect(page.locator('.raid-carry strong')).toHaveText('45 金币');await page.locator('.close-button').click();await page.reload();await page.locator('#event-resume').click();await expect(page.locator('.raid-carry strong')).toHaveText('45 金币');await page.locator('[data-act="bank-raid"]').click();await expect(page.locator('.raid-result strong')).toHaveText('+45 金币');const data=await(await page.request.get('/api/bootstrap')).json();expect(data.state.rivalVault).toBe(1755);expect(data.state.event).toBeNull();expect(data.state.raidLesson).toBe(true);expect(errors).toEqual([]);
+});
+test('daily orders track catches and claim once through UI, preserving fish pets',async({page})=>{
+ test.setTimeout(90000);await page.setViewportSize({width:360,height:640});await page.goto('/');await expect(page.locator('#cast')).toBeVisible();let s;
+ const act=async(type,p={})=>{const r=await page.request.post('/api/'+type,{data:{...p,requestId:crypto.randomUUID()}});expect(r.ok()).toBe(true);const j=await r.json();s=j.state;return j;};
+ for(let n=0;n<35;n++){
+  await act('fishing',{spot:0,bet:1});
+  if(s.event?.type==='attack')await act('event/attack',{id:s.event.id,target:0});
+  if(s.event?.type==='raid'){const id=s.event.id;await act('event/infiltrate',{id});await act('event/bank',{id});}
+  if(s.event?.type==='treasure'){const id=s.event.id;for(let cell=0;cell<3;cell++)await act('event/dig',{id,cell});}
+  if(s.orders.counts.catch>=8)break;
+ }
+ expect(s.orders.counts.catch).toBe(8);await page.reload();await page.locator('#orders-entry').click();await expect(page.locator('.order-list')).toBeVisible();await page.locator('[data-act="order-claim"][data-id="catch"]').click();await expect(page.locator('[data-id="catch"]')).toHaveText('已领取');await expect(page.locator('[data-id="catch"]')).toBeDisabled();const latest=await(await page.request.get('/api/bootstrap')).json();expect(latest.state.orders.claimed).toContain('catch');expect(Object.keys(latest.state.pets).length).toBeGreaterThan(0);expect((await page.request.post('/api/orders/claim',{data:{id:'catch',requestId:crypto.randomUUID()}})).status()).toBe(400);
 });

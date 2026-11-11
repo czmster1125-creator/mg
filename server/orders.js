@@ -1,0 +1,2 @@
+import {ORDER_DEFS} from '../shared/orders.js';
+export function orderAction(s,type,p){if(type!=='orders/claim')return null;const def=ORDER_DEFS.find(x=>x.id===p.id);if(!def||s.orders.counts[def.id]<def.target||s.orders.claimed.includes(def.id))throw Error('订单未完成或已领取');s.orders.claimed.push(def.id);for(const [key,n]of Object.entries(def.reward))s[key]+=n;return {message:def.name+'奖励已到账',reward:def.reward};}
