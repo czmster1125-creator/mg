@@ -1,0 +1,32 @@
+import {chromium,expect} from '@playwright/test';
+import {spawn} from 'node:child_process';
+import {mkdtempSync,mkdirSync,rmSync,renameSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import path from 'node:path';
+import {DatabaseSync} from 'node:sqlite';
+import {randomUUID} from 'node:crypto';
+import {initialState,settle,action} from '../server/engine.js';
+import {config as C} from '../server/config.js';
+import {frontier} from '../shared/hex.js';
+const folder=mkdtempSync(path.join(tmpdir(),'tidebloom-v12-')),origin='http://127.0.0.1:5175',out='docs/screenshots/equipment-v12',videoOut='docs/videos/v12';
+mkdirSync(out,{recursive:true});mkdirSync(videoOut,{recursive:true});
+const db=new DatabaseSync(path.join(folder,'tidebloom.sqlite'));db.exec('CREATE TABLE players(id TEXT PRIMARY KEY,state TEXT)');
+const put=s=>{const id=randomUUID();db.prepare('INSERT INTO players VALUES(?,?)').run(id,JSON.stringify(s));return id;};
+const full=initialState();settle(full);full.coin=10000;full.supplies=120;full.xp=420;full.guide=8;full.gear=[4,3,5];for(let i=0;i<5;i++)action(full,'expand',{region:0,tile:frontier(full,0)[0].id});full.xp=420;
+for(const f of C.fish.slice(0,5)){full.book[f.id]={count:3,best:f.max};full.pets[f.id]={level:4};}full.equipped=['clown','blue'];const fullId=put(full);
+const old=initialState();delete old.gearVersion;old.gear=[2,3,4];old.guide=8;const oldId=put(old);
+const raid=initialState();settle(raid);raid.guide=8;const raidId=put(raid);
+const attack=initialState();settle(attack);attack.guide=3;const attackId=put(attack);db.close();
+const server=spawn(process.execPath,['server/index.js'],{env:{...process.env,PORT:'5175',DATA_DIR:folder,NODE_ENV:'production'},stdio:'ignore'});let browser;const errors=[],checks=[];
+try{
+ await expect.poll(async()=>{try{return(await fetch(origin+'/api/health')).ok;}catch{return false;}},{timeout:15000}).toBe(true);
+ browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader']});
+ const open=async(id,width=390,height=844,record=false)=>{const c=await browser.newContext({viewport:{width,height},isMobile:true,hasTouch:true,serviceWorkers:'block',...(record?{recordVideo:{dir:videoOut,size:{width,height}}}:{})});await c.addCookies([{name:'tidebloom',value:id,url:origin,httpOnly:true,sameSite:'Strict'}]);const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(origin);await expect(p.locator('#cast')).toBeVisible();return {p,c};};
+ const shot=async(p,n)=>{await p.screenshot({path:out+'/'+n+'.png',animations:'disabled'});};
+ const post=async(p,t,data={})=>{const r=await p.request.post(origin+'/api/'+t,{data:{...data,requestId:randomUUID()}});expect(r.ok()).toBe(true);return r.json();};
+ const h=await open(fullId);await h.p.locator('.scene-tools [data-act="gear"]').click();await shot(h.p,'lucky-rod');for(const [i,n]of [[1,'harvest-hook'],[2,'exploration-compass']]){await h.p.locator(`[data-act="gear-focus"][data-index="${i}"]`).click();await shot(h.p,n);}await h.p.locator('.close-button').click();await h.p.locator('[data-act="captain"]').click();await expect(h.p.locator('.captain-profile')).toContainText('海湾船长');await shot(h.p,'captain-path');await h.p.locator('[data-act="captain-claim"]').click();await expect(h.p.locator('[data-act="captain-claim"]')).toBeDisabled();checks.push('three equipment paths and actual probability preview, captain claim once');await h.c.close();
+ const legacy=await open(oldId,360,640);await legacy.p.locator('.scene-tools [data-act="gear"]').click();await expect(legacy.p.locator('.equipment-hero')).toContainText('Lv.3');const oldState=(await(await legacy.p.request.get(origin+'/api/bootstrap')).json()).state;expect(oldState.gear).toEqual([3,4,0]);expect(oldState.gearMigration.coin).toBe(1040);await shot(legacy.p,'old-equipment-small');checks.push('legacy level and investment migration');await legacy.c.close();
+ const r=await open(raidId,390,844,true),entry=await post(r.p,'raid/start');await r.p.route('**/api/fishing',route=>route.fulfill({json:entry}),{times:1});await r.p.locator('#cast').click();await expect(r.p.locator('#raid-world canvas')).toBeVisible({timeout:25000});await shot(r.p,'raid-entry');await r.p.locator('[data-act="infiltrate"]').click();await expect(r.p.locator('.raid-carry strong')).toHaveText('0 金币');await shot(r.p,'raid-guard');const steal=r.p.waitForResponse(q=>q.url().endsWith('/api/event/steal'));await r.p.locator('[data-act="steal"]').first().click();await steal;await r.p.waitForTimeout(1150);await shot(r.p,'raid-carrying');await expect(r.p.locator('.raid-carry strong')).toHaveText('45 金币');await r.p.locator('[data-act="bank-raid"]').click();await expect(r.p.locator('.raid-result strong')).toHaveText('+45 金币');await shot(r.p,'raid-return');checks.push('reported first-raid payload, named NPC, landing, patrol, carrying, withdrawal');const raidVideo=await r.p.video().path();await r.c.close();renameSync(raidVideo,videoOut+'/raid-interaction.webm');
+ const a=await open(attackId,360,640,true);await a.p.locator('#cast').click();await expect(a.p.locator('#attack-world canvas')).toBeVisible({timeout:25000});await shot(a.p,'attack-targets-small');const impact=a.p.waitForResponse(q=>q.url().endsWith('/api/event/attack'));await a.p.locator('[data-act="attack"]').first().click();await impact;await a.p.waitForTimeout(950);await shot(a.p,'attack-shield');await expect(a.p.locator('#impact-world canvas')).toBeVisible();await shot(a.p,'attack-result');checks.push('interactive small-screen NPC target, coconut launch and shield hit');const attackVideo=await a.p.video().path();await a.c.close();renameSync(attackVideo,videoOut+'/attack-interaction.webm');
+ console.log(JSON.stringify({screenshots:12,videos:2,errors,checks,fixture:'isolated high-level equipment, legacy gear, and real NPC events; first raid response forwarded from a persisted raid/start transaction'}));if(errors.length)process.exitCode=1;
+}finally{await browser?.close();server.kill();rmSync(folder,{recursive:true,force:true});}

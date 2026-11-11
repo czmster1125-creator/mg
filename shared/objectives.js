@@ -1,3 +1,4 @@
+import {captainReward} from './captain.js';
 import {weeklyReady} from './weekly.js';
 import {COLLECTION_KEYS,regionOpen,zoneOpen,landCount} from './content.js';
 import {chapterReady,CHAPTERS,journeyValues} from './journey.js';
@@ -18,6 +19,7 @@ export function nextObjective(s,c) {
   if(weeklyReady(s))return {title:'领取每周航海委托奖励',detail:'周委托已达成，领取资源与远航徽章。',action:'weekly'};
   const reward=COLLECTION_KEYS.find(k=>!s.collectionClaims.includes(k)&&collectionReady(s,c.fish,k));
   if(reward!==undefined)return {title:'领取鱼缸收藏奖励',detail:'已达成的收藏奖励可领取金币和鱼宠粮。',action:'book'};
+  if(captainReward(s).count)return {title:'领取船长升级补给',detail:'捕鱼、发现新鱼、扩建和海上冒险都能获得经验。领取升级补给继续出海。',action:'captain'};
   const damaged=s.damage.findIndex((v,i)=>v&&i>0);
   if(damaged>=0)return {title:'修复'+c.base[damaged].name,detail:`产出已减半。花费 ${repairCost(s,damaged,bonuses(s,c.fish))} 金币即可恢复，等级和土地不变。`,action:'building',index:damaged};
   if(Object.keys(s.pets).length&&!s.equipped.length)return {title:'带一只鱼宠出发',detail:'选择一只鱼宠随行，让它的金币、攻击或寻宝能力生效。',action:'book'};

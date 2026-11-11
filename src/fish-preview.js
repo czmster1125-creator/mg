@@ -1,6 +1,7 @@
 import * as T from 'three';
 /** A lightweight collectible turntable. Its renderer is explicitly disposed on close. */
 export function createFishPreview(host,fish){
+ if(!host||!fish)return ()=>{};
  const scene=new T.Scene(),camera=new T.PerspectiveCamera(34,1,.1,30);camera.position.set(.1,.4,6.5);camera.lookAt(0,0,0);
  const renderer=new T.WebGLRenderer({alpha:true,antialias:true,powerPreference:'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setClearColor(0x000000,0);renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.3;host.append(renderer.domElement);renderer.domElement.setAttribute('aria-label',`${fish.name}的旋转 3D 模型`);
  scene.add(new T.HemisphereLight(0xffffff,0x5f899b,3));const key=new T.DirectionalLight(0xffe9bf,4);key.position.set(-3,4,5);scene.add(key);const rim=new T.DirectionalLight(0xb4efff,2);rim.position.set(3,2,-4);scene.add(rim);

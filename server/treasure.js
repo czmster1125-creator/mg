@@ -1,13 +1,12 @@
 import {randomUUID} from 'node:crypto';
-import {SHELL_FORMAT,SHELL_SYMBOLS,shellCounts} from '../shared/treasure.js';
+import {SHELL_FORMAT,SHELL_SYMBOLS,shellCounts,treasurePrizes} from '../shared/treasure.js';
 import {bonuses,points} from '../shared/adventure.js';
 
 export function startShellTreasure(s,bet,rng,fish){
  const b=bonuses(s,fish),advanced=points(s)>=15;
  const board=SHELL_SYMBOLS.flatMap(v=>Array(3).fill(v.id));
  for(let i=board.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[board[i],board[j]]=[board[j],board[i]];}
- const coin=n=>Math.floor(n*bet*(1+b.explore));
- const prizes={coins:{coin:coin(advanced?90:60)},crate:{coin:coin(advanced?125:95),supplies:2*bet},pearl:{coin:coin(advanced?170:140),food:Math.floor(3*bet*(1+b.treasureFood))}};
+ const prizes=treasurePrizes(s,bet,fish);
  s.event={id:randomUUID(),type:'treasure',format:SHELL_FORMAT,bet,advanced,board,prizes,picks:[],hint:b.hint||b.explore>0?board.indexOf('pearl'):null};
  return {type:'treasure',event:true};
 }
