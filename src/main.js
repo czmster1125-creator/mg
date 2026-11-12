@@ -1,3 +1,4 @@
+import {bindHoldAction} from './hold-action.js';
 import {equipmentView} from './equipment-ui.js';
 import {captainView} from './captain-ui.js';
 import {captainTitle,captainLevel} from '../shared/captain.js';
@@ -28,6 +29,7 @@ import './progression.css';
 import './online.css';
 import './content.css';
 import './focus.css';
+import './fishing-button.css';
 import {BASE_STAGES} from './town-models.js';
 const icons={Fish,Waves,Sun,Volume2,VolumeX,Settings2,Shield,Coins,Shell,Plus,ChevronRight,ArrowUpRight,Map,House,Anchor,BookOpen,Package,Flag,Compass,Lock,LockOpen,X,Check,Sparkles,Trophy,Hammer,Store,Landmark,PawPrint,Gem,FishingRod,RotateCcw,Wind,CircleHelp,ArrowLeft,Zap,Gift,LoaderCircle};
 const $=s=>document.querySelector(s),icon=(n,c='')=>`<i data-lucide="${n}" class="${c}"></i>`;
@@ -35,6 +37,7 @@ const drawIcons=()=>createIcons({icons,attrs:{'stroke-width':1.8}});
 let socialInfo={},state,C,world,spot=0,bet=1,busy=false,tab='fish',modal=null,region=0,sound=localStorage.getItem('tidebloom-sound')!=='off',manual=null,lastFocus=null,audio;
 let gearFocus=0,gearPreviewSpot=0;
 let travelCancelled=false,pendingPage=null,autoFishing=false,autoTimer=null,castPhase='idle',rareChallenge=localStorage.getItem('tidebloom-rare-challenge')!=='off';
+let disposeCastPress=()=>{};
 let disposeFishPreview=()=>{},disposeAquarium=()=>{},stateEpoch=0;
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 const fmt=n=>Math.floor(n).toLocaleString('en-US');
@@ -45,16 +48,16 @@ function toast(msg){const t=$('#toast');if(!t)return;t.textContent=msg;t.classLi
 async function request(type,p={}){stateEpoch++;const requestId=crypto.randomUUID();const body=JSON.stringify({...p,requestId});if(!navigator.onLine)throw Error('网络已断开，连接后再试');for(let attempt=0;attempt<2;attempt++){try{const r=await fetch('/api/'+type,{signal:AbortSignal.timeout(12000),method:'POST',headers:{'Content-Type':'application/json'},body});const j=await r.json();if(!r.ok){const e=new Error(j.error);e.known=true;throw e;}return j;}catch(e){if(e.known||attempt)throw e;await wait(600);}}}
 async function transact(type,p={},after){if(busy)return;busy=true;setBusy();const sourceModal=modal,scene=disposeFishPreview,visual=['event/attack','event/infiltrate','event/steal','event/bank'].includes(type);try{const j=await request(type,p);state=j.state;if(j.social)socialInfo=j.social;if(visual)await scene.play?.(type,{...j.result,target:p.target,route:p.route});const abandoned=visual&&modal!==sourceModal;world.update(state,region);render();if(j.result.guide)toast('引导完成：'+j.result.guide+'，奖励已到账');else if(j.result.mission)toast(`委托「${j.result.mission}」完成，奖励已到账`);else if(j.result.xpGain)toast('船长经验 +'+j.result.xpGain);if(after&&!abandoned)await after(j.result);chirp('win');}catch(e){toast(e.message||'连接中断，请稍后重试');}finally{busy=false;setBusy();}}
 
-function setBusy(){document.querySelectorAll('[data-mutation]').forEach(b=>b.disabled=busy||b.dataset.unavailable==='true');const cast=$('#cast');if(cast)cast.disabled=busy||!!manual;}
-function initUI(){ $('#app').innerHTML=`
+function setBusy(){document.querySelectorAll('[data-mutation]').forEach(b=>b.disabled=busy||b.dataset.unavailable==='true');const cast=$('#cast');if(cast){cast.disabled=!!manual||(busy&&!autoFishing);cast.setAttribute('aria-busy',String(busy));}}
+function initUI(){disposeCastPress();$('#app').innerHTML=`
  <header class="app-header"><a class="brand" href="#" aria-label="潮汐小岛首页"><span class="brand-symbol">${icon('waves')}</span><span>TIDEBLOOM<small>潮汐小岛</small></span></a><div class="header-tools"><button id="orders-entry" class="orders-entry" data-act="orders" aria-label="每日订单"></button><button class="icon-button" data-act="more" aria-label="更多玩法与设置">${icon('settings-2')}</button></div></header>
  <main class="layout"><aside class="sidebar" id="sidebar" hidden></aside><section class="play-area"><div class="stage" id="stage"><div id="world"></div>
- <div class="scene-top"><div class="captain-card"><button class="captain-avatar" data-act="social" aria-label="账号与好友">${icon('anchor')}</button><button class="captain-progress" data-act="captain" aria-label="船长成长与经验"><strong><span id="captain-title">见习船长</span> <b id="player-level">Lv. 1</b></strong><div class="player-xp"><span id="player-xp"></span></div><small id="captain-xp">0/100 经验</small></button></div><div class="resources"><button class="resource" data-act="wallet" title="鱼获自动结算金币"><span class="coin-token">${icon('coins')}</span><span id="coin">350</span></button><button class="resource" data-act="base" title="基地自然恢复鱼饵"><span class="bait-token">${icon('shell')}</span><span><b id="bait">40</b><small>/50</small></span></button></div></div>
+ <div class="scene-top"><div class="captain-card"><button class="captain-avatar" data-act="social" aria-label="账号与好友">${icon('anchor')}</button><button class="captain-progress" data-act="captain" aria-label="船长成长与经验"><strong><span id="captain-title">见习船长</span> <b id="player-level">Lv. 1</b></strong><div class="player-xp"><span id="player-xp"></span></div><small id="captain-xp">0/100 经验</small></button></div><div class="resources"><button class="resource" data-act="wallet" title="鱼获自动结算金币"><span class="coin-token">${icon('coins')}</span><span id="coin">350</span></button></div></div>
  <div class="mobile-mission" id="mobile-mission"></div>
  <button class="location" data-act="zones"><span class="location-icon">${icon('compass')}</span><span><small id="zone-en">SERENITY BAY</small><strong id="zone-name">宁静海湾</strong></span>${icon('chevron-right')}</button>
  <div class="scene-tools"><button class="tool-button" data-act="gear">${icon('fishing-rod')}<span>装备</span></button></div>
  <section id="aquarium-page" hidden></section><button id="event-resume" class="event-resume" data-act="event" hidden></button><div id="bite-callout" class="bite-callout" aria-live="polite" hidden></div><div class="sea-note"><span class="live-dot"></span><span id="sea-note">浅滩鱼群 · 轻松捕获</span></div>
- <div class="cast-controls spin-console" id="cast-controls"><div class="spin-caption"><strong id="cast-status">海风正好，出海吧</strong><span id="cast-hint">点击鱼群即开钓 · SPIN 自动找好钓点</span></div><div class="cast-row"><button class="bet-button" data-act="bet" aria-label="切换钓鱼倍率"><span>倍率</span><strong id="bet">×1</strong><small>每次鱼饵</small></button><button class="cast-button spin-button" id="cast" data-act="cast" aria-label="SPIN 自动找点钓鱼"><span class="spin-arrows">${icon('rotate-ccw')}</span><strong>SPIN</strong><small id="cast-cost">1 鱼饵 / 次</small></button><button class="auto-button" data-act="auto-fish" aria-pressed="false"><span>${icon('rotate-ccw')}</span><strong>AUTO</strong><small>连续钓鱼</small></button></div></div>
+ <div class="cast-controls spin-console fishing-console" id="cast-controls"><div class="cast-row"><button class="bet-button" data-act="bet" aria-label="切换钓鱼倍率"><span>倍率</span><strong id="bet">×1</strong><small>每竿消耗</small></button><div class="fishing-action"><div class="fishing-stock" id="fishing-stock" title="自然恢复上限 50 次，奖励次数可以超出上限" aria-live="polite">${icon('shell')}<span>剩余</span><b id="bait">40</b><span>次</span></div><button class="cast-button spin-button fishing-button" id="cast" data-act="cast" aria-label="钓鱼，长按开启自动钓鱼" aria-describedby="fishing-stock cast-hint" aria-pressed="false"><svg class="hold-ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="fishing-glyph">${icon('fishing-rod')}</span><strong id="cast-mode">钓鱼</strong><small id="cast-cost">每竿消耗 1 次</small></button></div></div><div class="spin-caption"><strong id="cast-status">轻触钓鱼 · 长按自动</strong><span id="cast-hint">点击鱼群也可直接开钓</span></div></div>
  <div class="town-heading" id="town-heading" hidden></div><div class="map-banner" id="map-banner" hidden></div><div class="base-banner" id="base-banner" hidden></div><div class="canvas-fallback" hidden id="canvas-fallback">3D 画面暂时不可用。请开启浏览器硬件加速。</div></div>
  <nav class="bottom-nav" aria-label="游戏导航">${[['map','map','海岛'],['fish','fishing-rod','钓鱼'],['book','fish','鱼缸']].map(([id,i,n])=>`<button data-act="nav" data-tab="${id}" class="nav-item ${id==='fish'?'active':''}">${icon(i)}<span>${n}</span></button>`).join('')}</nav></section></main>
  <div class="modal-backdrop" id="modal-root" hidden></div><div class="toast" id="toast" role="status" aria-live="polite"></div>`;
@@ -62,10 +65,10 @@ function initUI(){ $('#app').innerHTML=`
   $('#cast-hint').textContent=moving?'驶向目标 · 可随时重新选择':'点击鱼群即开钓 · 拖动水面驾船';
   $('#stage').classList.toggle('boat-moving',moving);
  },i=>openModal('base-building',i),()=>{if(!busy)transact('base/collect',{},()=>{world.collect();toast('基地收益已收入背包');});});world.update(state);world.zone(state.zone);}catch(e){console.error(e);$('#canvas-fallback').hidden=false;world={select(){},cast(){},view(){},zone(){},update(){},reset(){},approach:()=>Promise.resolve(),feedback(){},catchFish(){}};}
- document.addEventListener('visibilitychange',()=>{if(document.hidden){stopAuto();if(castPhase==='sailing'){travelCancelled=true;world.cancelApproach?.();}world.freeze?.(true);}else world.freeze?.(!!modal&&!['manual','build','base-building'].includes(modal.type));});window.addEventListener('pagehide',()=>stopAuto());document.addEventListener('submit',handleSubmit);document.addEventListener('click',handleClick);document.addEventListener('keydown',handleKey);$('#modal-root').addEventListener('click',e=>{if(e.target===$('#modal-root')&&modal?.type!=='manual')closeModal();});render();setInterval(()=>{const epoch=stateEpoch;if(!busy&&!manual&&!modal&&!document.hidden)fetch('/api/bootstrap').then(r=>r.json()).then(j=>{if(!busy&&!manual&&!modal&&epoch===stateEpoch){state=j.state;if(j.social)socialInfo=j.social;world.update(state,region);render();}}).catch(()=>{});},30000);
+ disposeCastPress=bindHoldAction($('#cast'),{onTap:tapFishing,onHold:toggleAutoFishing});document.addEventListener('visibilitychange',()=>{if(document.hidden){stopAuto();if(castPhase==='sailing'){travelCancelled=true;world.cancelApproach?.();}world.freeze?.(true);}else world.freeze?.(!!modal&&!['manual','build','base-building'].includes(modal.type));});window.addEventListener('pagehide',()=>stopAuto());document.addEventListener('submit',handleSubmit);document.addEventListener('click',handleClick);document.addEventListener('keydown',handleKey);$('#modal-root').addEventListener('click',e=>{if(e.target===$('#modal-root')&&modal?.type!=='manual')closeModal();});render();setInterval(()=>{const epoch=stateEpoch;if(!busy&&!manual&&!modal&&!document.hidden)fetch('/api/bootstrap').then(r=>r.json()).then(j=>{if(!busy&&!manual&&!modal&&epoch===stateEpoch){state=j.state;if(j.social)socialInfo=j.social;world.update(state,region);render();}}).catch(()=>{});},30000);
 }
 function render(){
- $('#player-level').textContent='Lv. '+captainLevel(state);$('#captain-title').textContent=captainTitle(state).name;$('#captain-xp').textContent=(state.xp%100)+'/100 经验';$('#player-xp').style.width=(state.xp%100)+'%';$('#coin').textContent=fmt(state.coin);$('#bait').textContent=state.bait;$('#bet').textContent='×'+bet;if($('#cast-cost'))$('#cast-cost').textContent=`${bet} 鱼饵 / 次`;$('#zone-en').textContent=C.zones[state.zone].en;$('#zone-name').textContent=C.zones[state.zone].name;
+ $('#player-level').textContent='Lv. '+captainLevel(state);$('#captain-title').textContent=captainTitle(state).name;$('#captain-xp').textContent=(state.xp%100)+'/100 经验';$('#player-xp').style.width=(state.xp%100)+'%';$('#coin').textContent=fmt(state.coin);$('#bait').textContent=state.bait;$('#bet').textContent='×'+bet;if($('#cast-cost'))$('#cast-cost').textContent=`每竿消耗 ${bet} 次`;$('#zone-en').textContent=C.zones[state.zone].en;$('#zone-name').textContent=C.zones[state.zone].name;
  const m=C.missions[state.mission], progress=m?Math.min(100,state.missionProgress/m.target*100):100;
  const missionCard=`<div class="quest-top"><span class="eyebrow">${icon('flag')} 海岛委托 ${String(state.mission+1).padStart(2,'0')}</span><span class="quest-reward">${icon('gift')} ${m?.coin?m.coin+' 金币':m?.bait?m.bait+' 鱼饵':m?.supplies?'2 海岛物资':'已完成'}</span></div><h3>${m?.name||'自在的岛屿生活'}</h3><div class="quest-progress"><span>${m?.desc||'探索海域，收集全部鱼种'}</span><b>${m?state.missionProgress+'/'+m.target:'✓'}</b></div><div class="progress-track"><span style="width:${progress}%"></span></div>`;
  $('#mobile-mission').innerHTML=`<span class="mission-symbol">${icon('flag')}</span><div class="mission-copy"><strong>${m?.desc||'享受你的海岛时光'}</strong><div class="progress-track"><span style="width:${progress}%"></span></div></div><b>${m?state.missionProgress+'/'+m.target:'✓'}</b><span class="mission-gift">${icon('gift')}</span>`;
@@ -80,7 +83,15 @@ function renderTown(){
  $('#base-banner').innerHTML=`<div class="base-banner-title"><span><small>YOUR ISLAND, ALWAYS GROWING</small><strong>小岛正在营业</strong></span><b>${state.base.reduce((a,b)=>a+b,0)} <small>/ ${C.base.length*5}</small></b></div><div class="base-resources">${C.base.slice(1).map((b,j)=>`<span>${icon(b.icon)}<b>${Math.floor(state.pending[j+1])}</b><small>${b.unit}</small></span>`).join('')}</div><button class="primary full" data-act="collect" data-mutation data-unavailable="${!ready}" ${ready?'':'disabled'}>${icon('gift')} ${ready?'领取全部收益':'收益积累中'}<small>最多累积 12 小时</small></button>`;
 }
 function stopAuto(message){autoFishing=false;clearTimeout(autoTimer);autoTimer=null;updateAuto();if(message)toast(message);}
-function updateAuto(){const b=$('[data-act="auto-fish"]');if(b){b.classList.toggle('active',autoFishing);b.setAttribute('aria-pressed',String(autoFishing));b.innerHTML=`<span>${icon(autoFishing?'x':'rotate-ccw')}</span><strong>${autoFishing?'STOP':'AUTO'}</strong><small>${autoFishing?'停止连续':'连续钓鱼'}</small>`;drawIcons();}}
+function updateAuto(){const button=$('#cast');if(!button)return;button.classList.toggle('is-auto',autoFishing);button.setAttribute('aria-pressed',String(autoFishing));button.setAttribute('aria-label',autoFishing?'自动钓鱼中，轻触停止':'钓鱼，长按开启自动钓鱼');$('#cast-mode').textContent=autoFishing?'自动中':'钓鱼';setBusy();}
+function stopFishing(){if(castPhase==='sailing'){travelCancelled=true;world.cancelApproach?.();}stopAuto('已停止自动钓鱼');spinCaption('已停止自动钓鱼','轻触钓一次 · 长按再次开启自动');}
+function tapFishing(){if(autoFishing){stopFishing();return;}chirp();cast(true);}
+function toggleAutoFishing(){
+ if(autoFishing){stopFishing();return;}if(busy||manual||modal||document.hidden)return;
+ if(state.event){openModal('event');return;}if(!navigator.onLine){toast('请连接网络后再出海');return;}if(state.bait<bet){openModal('supply');return;}
+ autoFishing=true;updateAuto();chirp();navigator.vibrate?.(25);cast(true);
+}
+
 function selectSpot(i){if(manual||modal||tab!=='fish')return;if(busy&&castPhase!=='sailing')return;stopAuto();spot=i;world.select(i);$('#sea-note').textContent=['浅滩鱼群 · 轻松捕获','珊瑚秘境 · 稀有鱼相对权重提升','大鱼出没 · 更容易捕获大体型鱼'][i];chirp();if(!busy)cast(false);}
 
 function navigate(target){stopAuto();if(manual)return;if(busy){if(castPhase==='sailing'){travelCancelled=true;pendingPage=target;world.cancelApproach?.();}return;}if(target==='base')target='map';if(target==='book'){closeModal();tab='book';world.view('book');render();return;}if(['fish','map','base'].includes(target)){closeModal();tab=target;world.view(target);world.update(state,region);render();}else openModal(target);}
@@ -105,7 +116,7 @@ function renderModal(){if(!modal)return;disposeFishPreview();disposeFishPreview=
  }else if(type==='manual-result'){const failure=FAILURE_REASONS[data.reason]||FAILURE_REASONS.timeout;html=modalShell(failure.title,'下一竿，再试一次',`<div class="manual-failure">${icon('fishing-rod')}<h3>${failure.tip}</h3><p>获得 ${data.compensation} 金币补偿 · 本次消耗 1 鱼饵</p></div>`,`<button class="primary full" data-act="manual">再次挑战 · 1 鱼饵</button><button class="text-button full" data-act="close">返回海面</button>`);
  }else if(['pet','event','event-result','guide','reports','orders','social','journey','world','weekly'].includes(type)){html=adventureModal(type,data);
  }else if(type==='help'){
- html=modalShell('欢迎来到潮汐小岛','A SMALL GUIDE TO A BIG ADVENTURE',`<div class="help-grid">${[['fishing-rod','01 · 抛竿钓鱼','SPIN 自动找点；点击鱼群直接开钓。×1 / ×2 / ×5 消耗对应鱼饵，每竿抽取一次鱼获或海上事件；倍率不提高稀有概率，护盾始终只加一层。'],['coins','02 · 鱼获结算','捕获后直接获得金币，首次发现的鱼永久入住鱼缸，随行后提供加成，鱼宠粮用于升级。'],['house','03 · 建造梦想','点击海岛边缘的加号扩张土地，每 5 块获得奖励，完成 25 块开放下一座岛；航线共有六座主题岛。'],['sun','04 · 海岛在成长','基地持续生产，最多存储 12 小时。潮汐小屋自然恢复鱼饵；升级装备挑战大鱼。']].map(([i,t,d])=>`<article>${icon(i)}<div><h3>${t}</h3><p>${d}</p></div></article>`).join('')}</div><p class="fineprint">点击 / 拖动水面驾船 · 点击鱼群即开钓 · 空格抛竿 · Esc 关闭面板<br>本 Demo 使用当前服务器数据库存档，清除浏览器 Cookie 会建立新角色。手动挑战是原型校验，支持账号恢复和输入回放校验；目标平台为手机浏览器，尚未适配微信小游戏。</p>`,`<button class="primary full" data-act="close">海风正好，出发吧 ${icon('arrow-up-right')}</button>`);
+ html=modalShell('欢迎来到潮汐小岛','A SMALL GUIDE TO A BIG ADVENTURE',`<div class="help-grid">${[['fishing-rod','01 · 抛竿钓鱼','轻触钓鱼自动找点；点击鱼群直接开钓。×1 / ×2 / ×5 消耗对应鱼饵，每竿抽取一次鱼获或海上事件；倍率不提高稀有概率，护盾始终只加一层。'],['coins','02 · 鱼获结算','捕获后直接获得金币，首次发现的鱼永久入住鱼缸，随行后提供加成，鱼宠粮用于升级。'],['house','03 · 建造梦想','点击海岛边缘的加号扩张土地，每 5 块获得奖励，完成 25 块开放下一座岛；航线共有六座主题岛。'],['sun','04 · 海岛在成长','基地持续生产，最多存储 12 小时。潮汐小屋自然恢复鱼饵；升级装备挑战大鱼。']].map(([i,t,d])=>`<article>${icon(i)}<div><h3>${t}</h3><p>${d}</p></div></article>`).join('')}</div><p class="fineprint">点击 / 拖动水面驾船 · 点击鱼群即开钓 · 空格抛竿 · Esc 关闭面板<br>本 Demo 使用当前服务器数据库存档，清除浏览器 Cookie 会建立新角色。手动挑战是原型校验，支持账号恢复和输入回放校验；目标平台为手机浏览器，尚未适配微信小游戏。</p>`,`<button class="primary full" data-act="close">海风正好，出发吧 ${icon('arrow-up-right')}</button>`);
  }
  const root=$('#modal-root');root.innerHTML=html;const encounter=(type==='event'&&['attack','raid'].includes(state.event?.type))||(type==='event-result'&&['attack','raid'].includes(data?.type));root.classList.toggle('encounter-mode',encounter);drawIcons();setBusy();
  const mount=(selector,kind,options)=>{const host=root.querySelector(selector);if(!host)return;try{disposeFishPreview=createAdventureScene(host,kind,options);}catch(e){console.warn('Encounter scene unavailable',e);host.innerHTML='<p class="scene-fallback">3D 画面暂不可用，仍可使用下方按钮完成事件。奖励与进度会正常保存。</p>';}};
@@ -128,7 +139,7 @@ async function cast(chooseBest=true){
  if(busy||manual)return;if(state.event){stopAuto();openModal('event');return;}
  if(state.bait<bet){stopAuto();openModal('supply');return;}
  if(chooseBest){spot=rareChallenge?1:2;world.select(spot);}
- travelCancelled=false;busy=true;castPhase='sailing';setBusy();let animation;
+ travelCancelled=false;const continuousCast=autoFishing;busy=true;castPhase='sailing';setBusy();let animation;
  $('#cast').classList.add('fishing');spinCaption('正在寻找好钓点…','到达鱼群旁即自动抛竿');
  try{
   await world.approach();if(travelCancelled)return;if(document.hidden){stopAuto();return;}
@@ -138,10 +149,10 @@ async function cast(chooseBest=true){
   if(j.result.type==='rare'){stopAuto();world.cast(false);render();openModal('manual');return;}
   if(!j.result.fish){stopAuto();world.cast(false);world.update(state,region);render();openModal(state.event?'event':'event-result',j.result);return;}
   world.catchFish(C.fish.find(f=>f.id===j.result.fish[0].species));spinCaption('上鱼啦！',autoFishing?'正在收好鱼获，准备下一次出海':'金币已到账，伙伴入住鱼缸');chirp('win');await wait(650);world.cast(false);render();
-  if(autoFishing){toast(`${j.result.fish.length} 尾鱼获 · +${j.result.fish.reduce((n,f)=>n+f.price,0)} 金币`);}else openModal('reward',j.result);
+  if(autoFishing||continuousCast){toast(`${j.result.fish.length} 尾鱼获 · +${j.result.fish.reduce((n,f)=>n+f.price,0)} 金币`);}else openModal('reward',j.result);
   if(j.result.guide)toast('引导完成：'+j.result.guide+'，奖励已到账');
  }catch(e){stopAuto();toast(e.message||'连接中断，正在确认结果');world.cast(false);}finally{
-  cancelAnimationFrame(animation);castPhase='idle';busy=false;$('#cast').classList.remove('fishing');spinCaption(autoFishing?'连续出海中':'海风正好，出海吧',autoFishing?'遇到事件或好鱼挑战时自动暂停':'点击鱼群即开钓 · SPIN 自动找好钓点');setBusy();
+  cancelAnimationFrame(animation);castPhase='idle';busy=false;$('#cast').classList.remove('fishing');spinCaption(autoFishing?'自动钓鱼中 · 轻触停止':'轻触钓鱼 · 长按自动',autoFishing?'遇到事件或好鱼挑战时自动暂停':'点击鱼群也可直接开钓');setBusy();
   if(pendingPage){const next=pendingPage;pendingPage=null;navigate(next);}
   if(autoFishing&&!modal&&!state.manual&&!state.event&&tab==='fish'&&!document.hidden)autoTimer=setTimeout(()=>cast(true),950);else if(autoFishing)stopAuto();
  }
@@ -149,8 +160,7 @@ async function cast(chooseBest=true){
 
 async function handleClick(e){const b=e.target.closest('[data-act]');if(!b||b.disabled)return;const act=b.dataset.act,i=Number(b.dataset.index);if(act!=='manual'&&act!=='close')chirp();switch(act){
  case 'nav':navigate(b.dataset.tab);break;
- case 'cast':cast(true);break;
- case 'auto-fish':if(autoFishing){stopAuto('已停止连续钓鱼');}else if(!manual){autoFishing=true;updateAuto();if(!busy)cast(true);}break;
+ case 'cast':tapFishing();break;
  case 'challenge-toggle':rareChallenge=!rareChallenge;localStorage.setItem('tidebloom-rare-challenge',rareChallenge?'on':'off');renderModal();break;
  case 'manual-auto':await autoLand();break;
  case 'bet':if(!busy&&!manual){bet=[1,2,5][([1,2,5].indexOf(bet)+1)%3];render();}break;
@@ -216,7 +226,7 @@ async function handleClick(e){const b=e.target.closest('[data-act]');if(!b||b.di
  case 'expand-confirm':transact('expand',{region,tile:b.dataset.tile},r=>{closeModal();toast(r.milestones.length?'扩张里程碑完成，奖励已到账':'新土地已解锁！');});break;
  case 'manual':if(!busy){if(state.event){openModal('event');}else if(state.bait<1)toast('鱼饵不足');else {await closeModal();busy=true;setBusy();await world.approach();busy=false;setBusy();openModal('manual');}}break;
  }}
-function handleKey(e){if(e.code==='Escape'&&modal){closeModal();return;}if(e.code==='Tab'&&modal){const all=[...$('#modal-root').querySelectorAll('button:not(:disabled),[tabindex="0"]')];if(!all.length)return;if(e.shiftKey&&document.activeElement===all[0]){e.preventDefault();all.at(-1).focus();}else if(!e.shiftKey&&document.activeElement===all.at(-1)){e.preventDefault();all[0].focus();}}if(e.code==='Space'&&tab==='fish'&&!modal&&!e.repeat&&e.target===document.body){e.preventDefault();cast();}}
+function handleKey(e){if(e.code==='Escape'&&!modal&&autoFishing){e.preventDefault();stopFishing();return;}if(e.code==='Escape'&&modal){closeModal();return;}if(e.code==='Tab'&&modal){const all=[...$('#modal-root').querySelectorAll('button:not(:disabled),[tabindex="0"]')];if(!all.length)return;if(e.shiftKey&&document.activeElement===all[0]){e.preventDefault();all.at(-1).focus();}else if(!e.shiftKey&&document.activeElement===all.at(-1)){e.preventDefault();all[0].focus();}}if(e.code==='Space'&&tab==='fish'&&!modal&&!e.repeat&&e.target===document.body){e.preventDefault();tapFishing();}}
 function setupManual(){
  const button=$('#manual-button');
  const encountered=state.manual?.source==='encounter';
