@@ -10,6 +10,10 @@ export function initRivals(s){
  const active=s.rivals[s.rivalId];if(active){active.vault=s.rivalVault;active.defense=s.opponent;}
  if(s.event&&['raid','attack'].includes(s.event.type)&&!s.event.live&&!s.event.rival){s.event.rival=RIVALS.find(r=>r.id===s.rivalId)||RIVALS[0];s.event.targetName=s.event.rival.name;}
 }
-export function refillRivals(s){for(const r of Object.values(s.rivals))r.vault=Math.min(1800,r.vault+10);s.rivalVault=s.rivals[s.rivalId].vault;}
-export function chooseRival(s){const tracked=s.rivalTrail?.follow&&s.rivalTrail.step===1?s.rivalTrail.rival:null;const rival=RIVALS.find(r=>r.id===tracked?.id)||RIVALS[s.rivalCursor%RIVALS.length],data=s.rivals[rival.id];s.rivalId=rival.id;s.rivalVault=data.vault;s.opponent=data.defense;return {rival,targetName:rival.name};}
+export const rivalScale=s=>1+Math.min(5,Math.max(0,...s.unlocked))*.5;
+export function syncRivalProgress(s){const scale=rivalScale(s);for(const r of Object.values(s.rivals)){const previous=r.scale||1;if(scale>previous){r.vault=Math.floor(r.vault*scale/previous);r.scale=scale;}}s.rivalVault=s.rivals[s.rivalId].vault;}
+export function refillRivals(s){syncRivalProgress(s);for(const r of Object.values(s.rivals))r.vault=Math.min(1800*(r.scale||1),r.vault+10*(r.scale||1));s.rivalVault=s.rivals[s.rivalId].vault;}
+export function chooseRival(s){syncRivalProgress(s);const tracked=s.rivalTrail?.follow&&s.rivalTrail.step===1?s.rivalTrail.rival:null;const rival=RIVALS.find(r=>r.id===tracked?.id)||RIVALS[s.rivalCursor%RIVALS.length],data=s.rivals[rival.id];s.rivalId=rival.id;s.rivalVault=data.vault;s.opponent=data.defense;return {rival,targetName:rival.name};}
 export function finishRival(s,e){if(e.live)return;const data=s.rivals[e.rival?.id||s.rivalId];if(data){data.vault=s.rivalVault;data.defense=s.opponent;}s.rivalCursor++;}
+
+export const npcAttackPayout=(event,base,bonus=0)=>Math.floor((base+bonus)*event.bet*(event.rewardScale||1));

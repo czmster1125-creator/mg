@@ -1,8 +1,9 @@
+import {researchCatch} from '../shared/research.js';
 import {VOYAGE_STEPS,voyageTheme,SHORE_STYLES,featureStatus,ensureOuting,newOuting,outingProgress,finishOuting} from '../shared/expedition.js';
 const keys=['coin','bait','supplies','food'];
-export const loopSnapshot=s=>({resources:Object.fromEntries(keys.map(k=>[k,s[k]])),event:s.event?structuredClone(s.event):null,points:s.voyage.points});
+export const loopSnapshot=s=>({resources:Object.fromEntries(keys.map(k=>[k,s[k]])),event:s.event?structuredClone(s.event):null,points:s.voyage.points,manual:s.manual?{source:s.manual.source,id:s.manual.id}:null});
 export function recordFish(s,result,f){
- const prior=s.book[f.id];result.record=!!prior&&result.weight>prior.best;result.bondGain=prior&&(prior.count%5===0)&&(s.petBond[f.id]||0)<999?1:0;
+ researchCatch(s,result,f);const prior=s.book[f.id];result.record=!!prior&&result.weight>prior.best;result.bondGain=prior&&(prior.count%5===0)&&(s.petBond[f.id]||0)<999?1:0;
  if(result.bondGain)s.petBond[f.id]=Math.min(999,(s.petBond[f.id]||0)+1);
  if(f.rarity>=2)s.voyage.points++;
  if(result.featureVoyage)s.voyage.points+=2;
@@ -26,6 +27,7 @@ export function recordLoop(s,type,p,result,before,now){
   for(const k of keys){const delta=s[k]-before.resources[k];if(delta>=0)o.earned[k]+=delta;else o.spentResources[k]-=delta;}
   const progress=outingProgress(o);if(progress.count>=progress.target&&!s.event&&!s.manual&&finishOuting(s,now,true))result.outingCompleted=true;
  }
+ const stats=s.playStats;if(['fishing','manual/start'].includes(type)){stats.casts++;stats.spent+=type==='fishing'?p.bet:1;}if(done)stats.events++;if(result.type==='rare')stats.rareOffered++;if(type==='manual/finish'){if(p.success)stats.manualWon++;else stats.manualFailed++;}if(before.manual?.source==='encounter'&&result.guaranteed)stats.guaranteed++;
  result.voyagePoints=s.voyage.points-before.points;
 }
 export function expeditionAction(s,type,p,now){

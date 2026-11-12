@@ -34,6 +34,6 @@ export function initExpedition(s,now){
 export function newOuting(s,now){const unavailable=s.outingPlan.goal==='order'&&s.orders.claimed.length===3||s.outingPlan.goal==='expand'&&s.nodes.every(row=>row.reduce((a,b)=>a+b,0)>=25);s.outing={...s.outingPlan,...(unavailable?{goal:'casts'}:{}),id:String(now)+'-'+(s.outingSerial=(s.outingSerial||0)+1),started:now,active:true,completed:false,spent:0,fish:0,newFish:0,events:0,builds:0,bond:0,earned:{coin:0,supplies:0,food:0,bait:0},spentResources:{coin:0,supplies:0,food:0,bait:0}};return s.outing;}
 export function ensureOuting(s,now){if(!s.outing?.active)newOuting(s,now);return s.outing;}
 export function outingProgress(o){if(!o)return {count:0,target:10,label:'出海 10 次'};return o.goal==='casts'?{count:Math.min(o.spent,o.target),target:o.target,label:'消耗 '+o.target+' 次钓鱼'}:o.goal==='order'?{count:o.orders||0,target:1,label:'完成并领取一份每日订单'}:{count:o.builds,target:1,label:'扩张一块土地'};}
-export function finishOuting(s,now,completed=false){const o=s.outing;if(!o?.active)return false;o.active=false;o.completed=completed;o.ended=now;s.outingHistory.unshift(structuredClone(o));s.outingHistory=s.outingHistory.slice(0,3);return true;}
+export function finishOuting(s,now,completed=false){const o=s.outing;if(!o?.active)return false;o.active=false;o.completed=completed;if(completed&&s.playStats)s.playStats.goals++;o.ended=now;s.outingHistory.unshift(structuredClone(o));s.outingHistory=s.outingHistory.slice(0,3);return true;}
 
 export const festivalOn=(s,r)=>s.festivals?.[r]?.week===s.voyage.week;

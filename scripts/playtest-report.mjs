@@ -1,0 +1,2 @@
+import {DatabaseSync} from 'node:sqlite';import path from 'node:path';import {summarizePlaytest} from '../shared/playtest.js';
+const i=process.argv.indexOf('--db'),file=i>=0?process.argv[i+1]:path.join(process.env.DATA_DIR||'.data','tidebloom.sqlite');if(!file)throw Error('Use --db followed by the SQLite save path');const db=new DatabaseSync(file,{readOnly:true});try{const states=db.prepare('SELECT state FROM players').all().map(row=>JSON.parse(row.state));console.log(JSON.stringify(summarizePlaytest(states),null,2));}finally{db.close();}

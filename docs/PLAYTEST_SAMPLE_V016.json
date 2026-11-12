@@ -1,0 +1,131 @@
+{
+  "anonymousAggregate": true,
+  "players": 4,
+  "playersWithActions": 2,
+  "scope": "Counters begin with version 0.16; saves may include automated test accounts. No account names, player identifiers or credentials are exported.",
+  "groups": {
+    "newcomer": {
+      "players": 1,
+      "emptyBait": 0,
+      "actions": {
+        "casts": 1,
+        "spent": 1,
+        "events": 0,
+        "rareOffered": 0,
+        "manualWon": 0,
+        "manualFailed": 0,
+        "guaranteed": 0,
+        "goals": 0,
+        "care": 0
+      },
+      "resources": {
+        "coin": {
+          "min": 445,
+          "median": 445,
+          "p90": 445,
+          "max": 445
+        },
+        "bait": {
+          "min": 43,
+          "median": 43,
+          "p90": 43,
+          "max": 43
+        },
+        "supplies": {
+          "min": 8,
+          "median": 8,
+          "p90": 8,
+          "max": 8
+        },
+        "food": {
+          "min": 4,
+          "median": 4,
+          "p90": 4,
+          "max": 4
+        }
+      }
+    },
+    "growing": {
+      "players": 0,
+      "emptyBait": 0,
+      "actions": {
+        "casts": 0,
+        "spent": 0,
+        "events": 0,
+        "rareOffered": 0,
+        "manualWon": 0,
+        "manualFailed": 0,
+        "guaranteed": 0,
+        "goals": 0,
+        "care": 0
+      },
+      "resources": {
+        "coin": {
+          "min": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "bait": {
+          "min": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "supplies": {
+          "min": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        },
+        "food": {
+          "min": 0,
+          "median": 0,
+          "p90": 0,
+          "max": 0
+        }
+      }
+    },
+    "complete": {
+      "players": 3,
+      "emptyBait": 0,
+      "actions": {
+        "casts": 0,
+        "spent": 0,
+        "events": 1,
+        "rareOffered": 0,
+        "manualWon": 0,
+        "manualFailed": 0,
+        "guaranteed": 0,
+        "goals": 0,
+        "care": 3
+      },
+      "resources": {
+        "coin": {
+          "min": 150000,
+          "median": 150000,
+          "p90": 150000,
+          "max": 151050
+        },
+        "bait": {
+          "min": 55,
+          "median": 55,
+          "p90": 55,
+          "max": 55
+        },
+        "supplies": {
+          "min": 2305,
+          "median": 3000,
+          "p90": 3000,
+          "max": 3000
+        },
+        "food": {
+          "min": 1130,
+          "median": 1500,
+          "p90": 1500,
+          "max": 1500
+        }
+      }
+    }
+  }
+}

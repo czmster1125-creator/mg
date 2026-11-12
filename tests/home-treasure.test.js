@@ -57,7 +57,7 @@ test('shell invalid and duplicate picks cannot progress or pay; all three prize 
 });
 test('all random layouts guarantee a prize in at most seven flips; advanced rewards and pet hint snapshot agree',()=>{
  for(let seed=1;seed<=100;seed++){
-  let v=seed;const rng=()=>((v=(v*1664525+1013904223)>>>0)/2**32),s=fresh();s.guide=4;act(s,'fishing',{spot:0,bet:1},rng);let n=0;while(s.event){act(s,'event/dig',{id:s.event.id,cell:n++});assert.ok(n<=7);}
+  let v=seed;const rng=()=>((v=(v*1664525+1013904223)>>>0)/2**32),s=fresh();s.guide=3;act(s,'fishing',{spot:0,bet:1},rng);let n=0;while(s.event){act(s,'event/dig',{id:s.event.id,cell:n++});assert.ok(n<=7);}
  }
- const s=fresh();s.guide=4;s.nodes[0]=[5,5,5,0,0];s.pets.angel={level:10};s.equipped=['angel'];act(s,'fishing',{spot:0,bet:2});assert.equal(s.event.board[s.event.hint],'pearl');assert.equal(s.event.prizes.pearl.food,12);const e=structuredClone(s.event);s.equipped=[];act(s,'event/dig',{id:e.id,cell:0});assert.deepEqual(s.event.prizes,e.prizes);
+ const s=fresh();s.guide=3;s.nodes[0]=[5,5,5,0,0];s.pets.angel={level:10};s.equipped=['angel'];act(s,'fishing',{spot:0,bet:2});assert.equal(s.event.board[s.event.hint],'pearl');assert.equal(s.event.prizes.pearl.food,12);const e=structuredClone(s.event);s.equipped=[];act(s,'event/dig',{id:e.id,cell:0});assert.deepEqual(s.event.prizes,e.prizes);
 });

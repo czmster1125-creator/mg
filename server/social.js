@@ -1,6 +1,6 @@
 import {randomUUID} from 'node:crypto';
 import {settle} from './engine.js';
-import {bonuses,points} from '../shared/adventure.js';
+import {bonuses,points,GUIDES} from '../shared/adventure.js';
 import {config as C} from './config.js';
 import {gameDay} from '../shared/orders.js';
 export function createSocial(db,accounts){
@@ -39,6 +39,6 @@ export function createSocial(db,accounts){
  }
  function finishRaid(context,result,s){if(!context||s.event)return;if(result.type!=='raid')return;const {visit,target}=context;const stolen=Math.min(visit.amount,result.coin);target.coin+=visit.amount-stolen;target.reports.unshift({text:`${profile(visit.actor).name} 偷袭带走 ${stolen} 金币，余款已退回`,actorName:profile(visit.actor).name,revenge:visit.id});target.reports=target.reports.slice(0,20);save(visit.target,target);db.prepare('UPDATE visits SET closed=1 WHERE id=?').run(visit.id);}
  function expire(now=Date.now()){const rows=db.prepare('SELECT * FROM visits WHERE closed=0 AND created<?').all(now-24*3600000);for(const v of rows){const actor=read(v.actor),target=read(v.target);if(target&&v.kind==='raid'){target.coin+=v.amount;save(v.target,target);}if(actor?.event?.id===v.id){actor.event=null;actor.reports.unshift({text:'互访超过 24 小时，未结算金币已退还目标'});save(v.actor,actor);}db.prepare('UPDATE visits SET closed=1,retaliation=1 WHERE id=?').run(v.id);}}
- function convert(id,s,bet){if(!s.pvp||s.guide<8||bet!==1||!['attack','raid'].includes(s.event?.type))return;const old=s.event;s.event=null;try{start(id,s,{kind:old.type},Date.now(),0);}catch(e){s.event=old;}}
+ function convert(id,s,bet){if(!s.pvp||s.guide<GUIDES.length||bet!==1||!['attack','raid'].includes(s.event?.type))return;const old=s.event;s.event=null;try{start(id,s,{kind:old.type},Date.now(),0);}catch(e){s.event=old;}}
  return {panel,action,complete,finishRaid,expire,convert};
 }

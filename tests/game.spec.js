@@ -6,7 +6,7 @@ test('portrait framing stays narrow on desktop and fits small phones',async({pag
 });
 test('dragging is free and rapid fish-group retargeting makes one automatic cast',async({page})=>{
  await page.setViewportSize({width:390,height:844});await page.goto('/');await page.waitForSelector('.shoal-hit');await page.locator('canvas').first().click({position:{x:190,y:450}});await expect(page.locator('#stage')).toHaveClass(/boat-moving/);await expect(page.locator('#bait')).toHaveText('40');
- await page.locator('.shoal-hit').nth(2).click({force:true});await page.locator('.shoal-hit').nth(1).click({force:true});await expect(page.locator('.shoal-hit').nth(1)).toHaveAttribute('aria-pressed','true');await expect(page.locator('#stage')).not.toHaveClass(/boat-moving/,{timeout:12000});await expect(page.locator('.catch-details')).toBeVisible({timeout:15000});await expect(page.locator('#bait')).toHaveText('42');
+ await page.locator('.shoal-hit').nth(2).click({force:true});await page.locator('.shoal-hit').nth(1).click({force:true});await expect(page.locator('.shoal-hit').nth(1)).toHaveAttribute('aria-pressed','true');await expect(page.locator('#stage')).not.toHaveClass(/boat-moving/,{timeout:12000});await expect(page.locator('.catch-details')).toBeVisible({timeout:15000});await expect(page.locator('#bait')).toHaveText('43');
 });
 test('manual fishing leaves water visible and cancelling preserves single bait deduction',async({page})=>{
  await page.setViewportSize({width:390,height:844});await page.goto('/');await page.locator('[data-act="gear"]').click();await page.locator('[data-act="fishing-options"]').click();await page.locator('[data-act="manual"]').click();await expect(page.locator('#modal-root')).toHaveAttribute('data-mode','manual');const box=await page.locator('.modal').boundingBox();expect(box.y).toBeGreaterThan(844*.5);expect(await page.locator('#modal-root').evaluate(e=>getComputedStyle(e).opacity)).toBe('1');
@@ -46,7 +46,7 @@ test('manual fight can be won by reacting to fish surges and tension',async({pag
   if(next!==held){if(next)await page.keyboard.down('Space');else await page.keyboard.up('Space');held=next;}
   await page.waitForTimeout(100);
  }
- await page.keyboard.up('Space');await expect(page.locator('.catch-details')).toContainText('皇家神仙鱼',{timeout:15000});await expect(page.locator('#bait')).toHaveText('42');expect(errors).toEqual([]);
+ await page.keyboard.up('Space');await expect(page.locator('.catch-details')).toContainText('皇家神仙鱼',{timeout:15000});await expect(page.locator('#bait')).toHaveText('43');expect(errors).toEqual([]);
 });
 
 test('missed hook explains failure and refreshing a new fight clears only that session',async({page})=>{
