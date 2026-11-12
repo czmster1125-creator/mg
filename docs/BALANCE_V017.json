@@ -1,0 +1,9134 @@
+{
+  "assumptions": [
+    "8 deterministic seeds per strategy and progress stage; 14 days, two logins 12 hours apart, up to 40 casts each",
+    "all strategies use 0.17 fishing probabilities, story spacing, same region abilities, voyage claims and optional habitat/appearance/festival policy",
+    "first-island stages build the first island only; late stages begin with all six islands, max gear/buildings/pets; no equipped companions",
+    "leave declines stories; repair/explore prepare with coins when at least 200; rescue prepares with food when at least 10; otherwise safely leave",
+    "story rewards never scale by cast bet; no repeat-memory rewards; failures use the displayed fallback",
+    "no chapter/collection/captain/coop claims, paid currency or ads; fixed policies are not real player preference or retention evidence"
+  ],
+  "summary": [
+    {
+      "scenario": "first-island",
+      "strategy": "leave",
+      "storyVisits": [
+        0,
+        0
+      ],
+      "storyPaidCoin": [
+        0,
+        0
+      ],
+      "storyPaidFood": [
+        0,
+        0
+      ],
+      "storyBait": [
+        0,
+        0
+      ],
+      "storyFailures": [
+        0,
+        0
+      ],
+      "memories": [
+        0,
+        0
+      ],
+      "casts": [
+        1120,
+        1120
+      ],
+      "themeBait": [
+        72,
+        72
+      ],
+      "featureUses": [
+        122,
+        123
+      ],
+      "appearanceSpend": [
+        0,
+        0
+      ],
+      "festivalSpend": [
+        0,
+        0
+      ],
+      "habitatSupplies": [
+        0,
+        0
+      ],
+      "habitatFood": [
+        0,
+        0
+      ],
+      "day14Coins": [
+        71889,
+        78002
+      ],
+      "day14Supplies": [
+        536,
+        849
+      ],
+      "day14Food": [
+        442,
+        552
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "repair",
+      "storyVisits": [
+        59,
+        67
+      ],
+      "storyPaidCoin": [
+        2360,
+        2680
+      ],
+      "storyPaidFood": [
+        0,
+        0
+      ],
+      "storyBait": [
+        0,
+        0
+      ],
+      "storyFailures": [
+        0,
+        0
+      ],
+      "memories": [
+        2,
+        2
+      ],
+      "casts": [
+        1120,
+        1120
+      ],
+      "themeBait": [
+        72,
+        72
+      ],
+      "featureUses": [
+        122,
+        123
+      ],
+      "appearanceSpend": [
+        0,
+        0
+      ],
+      "festivalSpend": [
+        0,
+        0
+      ],
+      "habitatSupplies": [
+        0,
+        0
+      ],
+      "habitatFood": [
+        0,
+        0
+      ],
+      "day14Coins": [
+        69379,
+        75642
+      ],
+      "day14Supplies": [
+        1024,
+        1355
+      ],
+      "day14Food": [
+        442,
+        552
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "explore",
+      "storyVisits": [
+        59,
+        67
+      ],
+      "storyPaidCoin": [
+        2360,
+        2680
+      ],
+      "storyPaidFood": [
+        0,
+        0
+      ],
+      "storyBait": [
+        0,
+        0
+      ],
+      "storyFailures": [
+        15,
+        28
+      ],
+      "memories": [
+        2,
+        2
+      ],
+      "casts": [
+        1120,
+        1120
+      ],
+      "themeBait": [
+        72,
+        72
+      ],
+      "featureUses": [
+        122,
+        123
+      ],
+      "appearanceSpend": [
+        0,
+        0
+      ],
+      "festivalSpend": [
+        0,
+        0
+      ],
+      "habitatSupplies": [
+        0,
+        0
+      ],
+      "habitatFood": [
+        0,
+        0
+      ],
+      "day14Coins": [
+        69379,
+        75642
+      ],
+      "day14Supplies": [
+        1163,
+        1506
+      ],
+      "day14Food": [
+        442,
+        552
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "rescue",
+      "storyVisits": [
+        61,
+        67
+      ],
+      "storyPaidCoin": [
+        0,
+        0
+      ],
+      "storyPaidFood": [
+        122,
+        134
+      ],
+      "storyBait": [
+        244,
+        268
+      ],
+      "storyFailures": [
+        0,
+        0
+      ],
+      "memories": [
+        2,
+        2
+      ],
+      "casts": [
+        1120,
+        1120
+      ],
+      "themeBait": [
+        72,
+        72
+      ],
+      "featureUses": [
+        122,
+        123
+      ],
+      "appearanceSpend": [
+        0,
+        0
+      ],
+      "festivalSpend": [
+        0,
+        0
+      ],
+      "habitatSupplies": [
+        0,
+        0
+      ],
+      "habitatFood": [
+        0,
+        0
+      ],
+      "day14Coins": [
+        71889,
+        78002
+      ],
+      "day14Supplies": [
+        536,
+        849
+      ],
+      "day14Food": [
+        318,
+        424
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "leave",
+      "storyVisits": [
+        0,
+        0
+      ],
+      "storyPaidCoin": [
+        0,
+        0
+      ],
+      "storyPaidFood": [
+        0,
+        0
+      ],
+      "storyBait": [
+        0,
+        0
+      ],
+      "storyFailures": [
+        0,
+        0
+      ],
+      "memories": [
+        0,
+        0
+      ],
+      "casts": [
+        1120,
+        1120
+      ],
+      "themeBait": [
+        72,
+        72
+      ],
+      "featureUses": [
+        65,
+        65
+      ],
+      "appearanceSpend": [
+        100000,
+        100000
+      ],
+      "festivalSpend": [
+        260000,
+        285000
+      ],
+      "habitatSupplies": [
+        845,
+        935
+      ],
+      "habitatFood": [
+        470,
+        530
+      ],
+      "day14Coins": [
+        19257,
+        69070
+      ],
+      "day14Supplies": [
+        647,
+        2171
+      ],
+      "day14Food": [
+        443,
+        790
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "repair",
+      "storyVisits": [
+        64,
+        69
+      ],
+      "storyPaidCoin": [
+        10240,
+        11040
+      ],
+      "storyPaidFood": [
+        0,
+        0
+      ],
+      "storyBait": [
+        0,
+        0
+      ],
+      "storyFailures": [
+        0,
+        0
+      ],
+      "memories": [
+        2,
+        2
+      ],
+      "casts": [
+        1120,
+        1120
+      ],
+      "themeBait": [
+        72,
+        72
+      ],
+      "featureUses": [
+        65,
+        65
+      ],
+      "appearanceSpend": [
+        100000,
+        100000
+      ],
+      "festivalSpend": [
+        260000,
+        285000
+      ],
+      "habitatSupplies": [
+        905,
+        950
+      ],
+      "habitatFood": [
+        510,
+        540
+      ],
+      "day14Coins": [
+        8607,
+        71465
+      ],
+      "day14Supplies": [
+        1614,
+        3247
+      ],
+      "day14Food": [
+        445,
+        751
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "explore",
+      "storyVisits": [
+        64,
+        69
+      ],
+      "storyPaidCoin": [
+        10240,
+        11040
+      ],
+      "storyPaidFood": [
+        0,
+        0
+      ],
+      "storyBait": [
+        0,
+        0
+      ],
+      "storyFailures": [
+        17,
+        31
+      ],
+      "memories": [
+        2,
+        2
+      ],
+      "casts": [
+        1120,
+        1120
+      ],
+      "themeBait": [
+        72,
+        72
+      ],
+      "featureUses": [
+        65,
+        65
+      ],
+      "appearanceSpend": [
+        100000,
+        100000
+      ],
+      "festivalSpend": [
+        260000,
+        285000
+      ],
+      "habitatSupplies": [
+        875,
+        935
+      ],
+      "habitatFood": [
+        490,
+        530
+      ],
+      "day14Coins": [
+        8697,
+        71465
+      ],
+      "day14Supplies": [
+        1784,
+        3542
+      ],
+      "day14Food": [
+        453,
+        767
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "rescue",
+      "storyVisits": [
+        64,
+        69
+      ],
+      "storyPaidCoin": [
+        0,
+        0
+      ],
+      "storyPaidFood": [
+        320,
+        345
+      ],
+      "storyBait": [
+        384,
+        414
+      ],
+      "storyFailures": [
+        0,
+        0
+      ],
+      "memories": [
+        2,
+        2
+      ],
+      "casts": [
+        1120,
+        1120
+      ],
+      "themeBait": [
+        72,
+        72
+      ],
+      "featureUses": [
+        65,
+        65
+      ],
+      "appearanceSpend": [
+        100000,
+        100000
+      ],
+      "festivalSpend": [
+        260000,
+        285000
+      ],
+      "habitatSupplies": [
+        845,
+        905
+      ],
+      "habitatFood": [
+        470,
+        510
+      ],
+      "day14Coins": [
+        19167,
+        69070
+      ],
+      "day14Supplies": [
+        647,
+        2199
+      ],
+      "day14Food": [
+        133,
+        451
+      ]
+    }
+  ],
+  "results": [
+    {
+      "scenario": "first-island",
+      "strategy": "leave",
+      "seed": 1,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 122,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 945,
+          "bait": 116,
+          "supplies": 62,
+          "food": 48,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6384,
+          "bait": 80,
+          "supplies": 103,
+          "food": 80,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11731,
+          "bait": 27,
+          "supplies": 135,
+          "food": 107,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17202,
+          "bait": 14,
+          "supplies": 168,
+          "food": 129,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23303,
+          "bait": 40,
+          "supplies": 217,
+          "food": 185,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28162,
+          "bait": 15,
+          "supplies": 245,
+          "food": 211,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33831,
+          "bait": 14,
+          "supplies": 284,
+          "food": 239,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39841,
+          "bait": 16,
+          "supplies": 322,
+          "food": 266,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 44989,
+          "bait": 20,
+          "supplies": 358,
+          "food": 287,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 51173,
+          "bait": 15,
+          "supplies": 388,
+          "food": 313,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 56822,
+          "bait": 17,
+          "supplies": 418,
+          "food": 340,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 63315,
+          "bait": 37,
+          "supplies": 470,
+          "food": 397,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 68394,
+          "bait": 15,
+          "supplies": 509,
+          "food": 420,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 74352,
+          "bait": 20,
+          "supplies": 546,
+          "food": 442,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "leave",
+      "seed": 2,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1193,
+          "bait": 126,
+          "supplies": 68,
+          "food": 55,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 7338,
+          "bait": 73,
+          "supplies": 125,
+          "food": 80,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 13744,
+          "bait": 15,
+          "supplies": 174,
+          "food": 108,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 19042,
+          "bait": 18,
+          "supplies": 231,
+          "food": 134,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24923,
+          "bait": 22,
+          "supplies": 299,
+          "food": 178,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 31298,
+          "bait": 16,
+          "supplies": 362,
+          "food": 224,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 37137,
+          "bait": 18,
+          "supplies": 418,
+          "food": 254,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 42911,
+          "bait": 15,
+          "supplies": 471,
+          "food": 279,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 48341,
+          "bait": 19,
+          "supplies": 526,
+          "food": 312,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 54110,
+          "bait": 17,
+          "supplies": 586,
+          "food": 345,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 59228,
+          "bait": 22,
+          "supplies": 640,
+          "food": 373,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 65510,
+          "bait": 28,
+          "supplies": 706,
+          "food": 414,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 72164,
+          "bait": 11,
+          "supplies": 766,
+          "food": 456,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 78002,
+          "bait": 14,
+          "supplies": 823,
+          "food": 481,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "leave",
+      "seed": 3,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 650,
+          "bait": 122,
+          "supplies": 75,
+          "food": 41,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6181,
+          "bait": 81,
+          "supplies": 130,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11427,
+          "bait": 30,
+          "supplies": 185,
+          "food": 114,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17334,
+          "bait": 19,
+          "supplies": 248,
+          "food": 143,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24473,
+          "bait": 18,
+          "supplies": 321,
+          "food": 189,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29867,
+          "bait": 18,
+          "supplies": 363,
+          "food": 230,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 35760,
+          "bait": 14,
+          "supplies": 401,
+          "food": 260,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41159,
+          "bait": 17,
+          "supplies": 442,
+          "food": 283,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45807,
+          "bait": 21,
+          "supplies": 474,
+          "food": 307,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 51896,
+          "bait": 21,
+          "supplies": 515,
+          "food": 345,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 57360,
+          "bait": 17,
+          "supplies": 545,
+          "food": 390,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 63609,
+          "bait": 28,
+          "supplies": 599,
+          "food": 434,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 67913,
+          "bait": 21,
+          "supplies": 635,
+          "food": 469,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 73295,
+          "bait": 20,
+          "supplies": 670,
+          "food": 503,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "leave",
+      "seed": 4,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 998,
+          "bait": 129,
+          "supplies": 72,
+          "food": 51,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6257,
+          "bait": 85,
+          "supplies": 100,
+          "food": 88,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11356,
+          "bait": 36,
+          "supplies": 132,
+          "food": 121,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17188,
+          "bait": 17,
+          "supplies": 169,
+          "food": 147,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22977,
+          "bait": 23,
+          "supplies": 218,
+          "food": 193,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28491,
+          "bait": 19,
+          "supplies": 251,
+          "food": 234,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33991,
+          "bait": 23,
+          "supplies": 285,
+          "food": 265,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39322,
+          "bait": 12,
+          "supplies": 319,
+          "food": 292,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 44391,
+          "bait": 24,
+          "supplies": 356,
+          "food": 315,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 49523,
+          "bait": 16,
+          "supplies": 391,
+          "food": 346,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 55335,
+          "bait": 14,
+          "supplies": 420,
+          "food": 380,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 62015,
+          "bait": 34,
+          "supplies": 477,
+          "food": 435,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 68538,
+          "bait": 14,
+          "supplies": 509,
+          "food": 468,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 74720,
+          "bait": 14,
+          "supplies": 536,
+          "food": 511,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "leave",
+      "seed": 5,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 941,
+          "bait": 122,
+          "supplies": 73,
+          "food": 55,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5774,
+          "bait": 79,
+          "supplies": 133,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11344,
+          "bait": 27,
+          "supplies": 193,
+          "food": 127,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17107,
+          "bait": 15,
+          "supplies": 246,
+          "food": 155,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23014,
+          "bait": 24,
+          "supplies": 322,
+          "food": 200,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28259,
+          "bait": 19,
+          "supplies": 378,
+          "food": 239,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 34868,
+          "bait": 19,
+          "supplies": 437,
+          "food": 279,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 40691,
+          "bait": 15,
+          "supplies": 494,
+          "food": 307,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 46641,
+          "bait": 12,
+          "supplies": 554,
+          "food": 340,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 51648,
+          "bait": 19,
+          "supplies": 606,
+          "food": 374,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 57166,
+          "bait": 19,
+          "supplies": 663,
+          "food": 406,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 63357,
+          "bait": 40,
+          "supplies": 731,
+          "food": 479,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 68779,
+          "bait": 17,
+          "supplies": 787,
+          "food": 522,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 74166,
+          "bait": 12,
+          "supplies": 849,
+          "food": 549,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "leave",
+      "seed": 6,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1000,
+          "bait": 126,
+          "supplies": 70,
+          "food": 43,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5931,
+          "bait": 94,
+          "supplies": 121,
+          "food": 84,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11230,
+          "bait": 50,
+          "supplies": 175,
+          "food": 111,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16966,
+          "bait": 14,
+          "supplies": 233,
+          "food": 135,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22774,
+          "bait": 23,
+          "supplies": 304,
+          "food": 185,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28313,
+          "bait": 23,
+          "supplies": 364,
+          "food": 226,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33765,
+          "bait": 12,
+          "supplies": 413,
+          "food": 263,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39180,
+          "bait": 12,
+          "supplies": 468,
+          "food": 288,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 44536,
+          "bait": 20,
+          "supplies": 533,
+          "food": 318,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 49880,
+          "bait": 14,
+          "supplies": 596,
+          "food": 352,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 54901,
+          "bait": 16,
+          "supplies": 656,
+          "food": 380,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 61421,
+          "bait": 22,
+          "supplies": 735,
+          "food": 424,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 66581,
+          "bait": 16,
+          "supplies": 785,
+          "food": 472,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 71914,
+          "bait": 20,
+          "supplies": 836,
+          "food": 506,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "leave",
+      "seed": 7,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 937,
+          "bait": 120,
+          "supplies": 76,
+          "food": 52,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6143,
+          "bait": 85,
+          "supplies": 131,
+          "food": 96,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11261,
+          "bait": 33,
+          "supplies": 185,
+          "food": 132,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16957,
+          "bait": 18,
+          "supplies": 243,
+          "food": 174,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22652,
+          "bait": 45,
+          "supplies": 310,
+          "food": 229,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28310,
+          "bait": 12,
+          "supplies": 365,
+          "food": 251,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 34081,
+          "bait": 13,
+          "supplies": 424,
+          "food": 270,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 38758,
+          "bait": 20,
+          "supplies": 478,
+          "food": 315,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 43910,
+          "bait": 16,
+          "supplies": 536,
+          "food": 345,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 48854,
+          "bait": 18,
+          "supplies": 593,
+          "food": 374,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 54448,
+          "bait": 16,
+          "supplies": 649,
+          "food": 419,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 61118,
+          "bait": 36,
+          "supplies": 729,
+          "food": 479,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 66615,
+          "bait": 19,
+          "supplies": 785,
+          "food": 519,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 71889,
+          "bait": 19,
+          "supplies": 844,
+          "food": 552,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "leave",
+      "seed": 8,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1406,
+          "bait": 135,
+          "supplies": 76,
+          "food": 60,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6498,
+          "bait": 87,
+          "supplies": 131,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 12260,
+          "bait": 33,
+          "supplies": 186,
+          "food": 101,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16954,
+          "bait": 21,
+          "supplies": 238,
+          "food": 131,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23870,
+          "bait": 23,
+          "supplies": 313,
+          "food": 186,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29953,
+          "bait": 12,
+          "supplies": 363,
+          "food": 230,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 35732,
+          "bait": 19,
+          "supplies": 421,
+          "food": 267,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41624,
+          "bait": 13,
+          "supplies": 474,
+          "food": 313,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 47004,
+          "bait": 15,
+          "supplies": 525,
+          "food": 347,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 53829,
+          "bait": 12,
+          "supplies": 576,
+          "food": 369,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 59294,
+          "bait": 12,
+          "supplies": 633,
+          "food": 400,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 66061,
+          "bait": 24,
+          "supplies": 707,
+          "food": 447,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 71370,
+          "bait": 16,
+          "supplies": 761,
+          "food": 471,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 77347,
+          "bait": 21,
+          "supplies": 819,
+          "food": 495,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "repair",
+      "seed": 1,
+      "storyVisits": 62,
+      "storyPaidCoin": 2480,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 122,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 755,
+          "bait": 112,
+          "supplies": 94,
+          "food": 48,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6034,
+          "bait": 72,
+          "supplies": 167,
+          "food": 80,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11181,
+          "bait": 18,
+          "supplies": 239,
+          "food": 107,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16492,
+          "bait": 12,
+          "supplies": 304,
+          "food": 129,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22433,
+          "bait": 36,
+          "supplies": 385,
+          "food": 185,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27092,
+          "bait": 12,
+          "supplies": 453,
+          "food": 211,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 32601,
+          "bait": 12,
+          "supplies": 524,
+          "food": 239,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 38451,
+          "bait": 14,
+          "supplies": 594,
+          "food": 266,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 43399,
+          "bait": 18,
+          "supplies": 670,
+          "food": 287,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 49383,
+          "bait": 12,
+          "supplies": 740,
+          "food": 313,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 54872,
+          "bait": 14,
+          "supplies": 802,
+          "food": 340,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 61165,
+          "bait": 34,
+          "supplies": 894,
+          "food": 397,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 66084,
+          "bait": 14,
+          "supplies": 965,
+          "food": 420,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 71842,
+          "bait": 18,
+          "supplies": 1042,
+          "food": 442,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "repair",
+      "seed": 2,
+      "storyVisits": 59,
+      "storyPaidCoin": 2360,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1193,
+          "bait": 126,
+          "supplies": 68,
+          "food": 55,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 7138,
+          "bait": 68,
+          "supplies": 165,
+          "food": 80,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 13344,
+          "bait": 12,
+          "supplies": 254,
+          "food": 108,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 18442,
+          "bait": 16,
+          "supplies": 351,
+          "food": 134,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24163,
+          "bait": 18,
+          "supplies": 451,
+          "food": 178,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 30378,
+          "bait": 14,
+          "supplies": 546,
+          "food": 224,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 36057,
+          "bait": 16,
+          "supplies": 634,
+          "food": 254,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41631,
+          "bait": 12,
+          "supplies": 727,
+          "food": 279,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 46861,
+          "bait": 16,
+          "supplies": 822,
+          "food": 312,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 52470,
+          "bait": 14,
+          "supplies": 914,
+          "food": 345,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 57468,
+          "bait": 20,
+          "supplies": 992,
+          "food": 373,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 63510,
+          "bait": 22,
+          "supplies": 1106,
+          "food": 414,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 69964,
+          "bait": 10,
+          "supplies": 1206,
+          "food": 456,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 75642,
+          "bait": 12,
+          "supplies": 1295,
+          "food": 481,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "repair",
+      "seed": 3,
+      "storyVisits": 65,
+      "storyPaidCoin": 2600,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 530,
+          "bait": 119,
+          "supplies": 99,
+          "food": 41,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5861,
+          "bait": 73,
+          "supplies": 194,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10907,
+          "bait": 17,
+          "supplies": 289,
+          "food": 114,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16574,
+          "bait": 16,
+          "supplies": 400,
+          "food": 143,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23553,
+          "bait": 14,
+          "supplies": 505,
+          "food": 189,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28787,
+          "bait": 16,
+          "supplies": 579,
+          "food": 230,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 34480,
+          "bait": 12,
+          "supplies": 657,
+          "food": 260,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39679,
+          "bait": 14,
+          "supplies": 738,
+          "food": 283,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 44207,
+          "bait": 20,
+          "supplies": 794,
+          "food": 307,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 50056,
+          "bait": 18,
+          "supplies": 883,
+          "food": 345,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 55320,
+          "bait": 14,
+          "supplies": 953,
+          "food": 390,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 61409,
+          "bait": 26,
+          "supplies": 1039,
+          "food": 434,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 65473,
+          "bait": 18,
+          "supplies": 1123,
+          "food": 469,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 70695,
+          "bait": 18,
+          "supplies": 1190,
+          "food": 503,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "repair",
+      "seed": 4,
+      "storyVisits": 61,
+      "storyPaidCoin": 2440,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 878,
+          "bait": 126,
+          "supplies": 96,
+          "food": 51,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5977,
+          "bait": 78,
+          "supplies": 156,
+          "food": 88,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10876,
+          "bait": 24,
+          "supplies": 228,
+          "food": 121,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16508,
+          "bait": 14,
+          "supplies": 305,
+          "food": 147,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22097,
+          "bait": 20,
+          "supplies": 394,
+          "food": 193,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27451,
+          "bait": 18,
+          "supplies": 459,
+          "food": 234,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 32711,
+          "bait": 20,
+          "supplies": 541,
+          "food": 265,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 37882,
+          "bait": 10,
+          "supplies": 607,
+          "food": 292,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 42791,
+          "bait": 22,
+          "supplies": 676,
+          "food": 315,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 47763,
+          "bait": 14,
+          "supplies": 743,
+          "food": 346,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 53415,
+          "bait": 12,
+          "supplies": 804,
+          "food": 380,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 59935,
+          "bait": 32,
+          "supplies": 893,
+          "food": 435,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 66258,
+          "bait": 12,
+          "supplies": 965,
+          "food": 468,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 72280,
+          "bait": 12,
+          "supplies": 1024,
+          "food": 511,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "repair",
+      "seed": 5,
+      "storyVisits": 63,
+      "storyPaidCoin": 2520,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 821,
+          "bait": 119,
+          "supplies": 97,
+          "food": 55,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5454,
+          "bait": 71,
+          "supplies": 197,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10864,
+          "bait": 16,
+          "supplies": 289,
+          "food": 127,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16387,
+          "bait": 12,
+          "supplies": 390,
+          "food": 155,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22134,
+          "bait": 20,
+          "supplies": 498,
+          "food": 200,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27219,
+          "bait": 16,
+          "supplies": 586,
+          "food": 239,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33628,
+          "bait": 16,
+          "supplies": 685,
+          "food": 279,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39251,
+          "bait": 12,
+          "supplies": 782,
+          "food": 307,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45041,
+          "bait": 10,
+          "supplies": 874,
+          "food": 340,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 49848,
+          "bait": 16,
+          "supplies": 966,
+          "food": 374,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 55206,
+          "bait": 16,
+          "supplies": 1055,
+          "food": 406,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 61237,
+          "bait": 36,
+          "supplies": 1155,
+          "food": 479,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 66419,
+          "bait": 14,
+          "supplies": 1259,
+          "food": 522,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 71646,
+          "bait": 10,
+          "supplies": 1353,
+          "food": 549,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "repair",
+      "seed": 6,
+      "storyVisits": 63,
+      "storyPaidCoin": 2520,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 840,
+          "bait": 122,
+          "supplies": 102,
+          "food": 43,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5611,
+          "bait": 86,
+          "supplies": 185,
+          "food": 84,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10750,
+          "bait": 38,
+          "supplies": 271,
+          "food": 111,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16326,
+          "bait": 12,
+          "supplies": 361,
+          "food": 135,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 21934,
+          "bait": 18,
+          "supplies": 472,
+          "food": 185,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27273,
+          "bait": 20,
+          "supplies": 572,
+          "food": 226,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 32565,
+          "bait": 10,
+          "supplies": 653,
+          "food": 263,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 37780,
+          "bait": 10,
+          "supplies": 748,
+          "food": 288,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 42936,
+          "bait": 18,
+          "supplies": 853,
+          "food": 318,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 48120,
+          "bait": 12,
+          "supplies": 948,
+          "food": 352,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 52941,
+          "bait": 14,
+          "supplies": 1048,
+          "food": 380,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 59301,
+          "bait": 18,
+          "supplies": 1159,
+          "food": 424,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 64261,
+          "bait": 14,
+          "supplies": 1249,
+          "food": 472,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 69394,
+          "bait": 18,
+          "supplies": 1340,
+          "food": 506,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "repair",
+      "seed": 7,
+      "storyVisits": 62,
+      "storyPaidCoin": 2480,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 827,
+          "bait": 118,
+          "supplies": 92,
+          "food": 52,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5833,
+          "bait": 78,
+          "supplies": 187,
+          "food": 96,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10791,
+          "bait": 22,
+          "supplies": 273,
+          "food": 132,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16327,
+          "bait": 16,
+          "supplies": 363,
+          "food": 174,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 21822,
+          "bait": 40,
+          "supplies": 470,
+          "food": 229,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27320,
+          "bait": 10,
+          "supplies": 557,
+          "food": 251,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 32891,
+          "bait": 10,
+          "supplies": 656,
+          "food": 270,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 37408,
+          "bait": 18,
+          "supplies": 742,
+          "food": 315,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 42400,
+          "bait": 14,
+          "supplies": 832,
+          "food": 345,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 47144,
+          "bait": 16,
+          "supplies": 929,
+          "food": 374,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 52578,
+          "bait": 14,
+          "supplies": 1017,
+          "food": 419,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 59088,
+          "bait": 34,
+          "supplies": 1129,
+          "food": 479,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 64345,
+          "bait": 16,
+          "supplies": 1233,
+          "food": 519,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 69379,
+          "bait": 16,
+          "supplies": 1340,
+          "food": 552,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "repair",
+      "seed": 8,
+      "storyVisits": 67,
+      "storyPaidCoin": 2680,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1246,
+          "bait": 131,
+          "supplies": 108,
+          "food": 60,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6178,
+          "bait": 79,
+          "supplies": 195,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11700,
+          "bait": 19,
+          "supplies": 298,
+          "food": 101,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16194,
+          "bait": 18,
+          "supplies": 390,
+          "food": 131,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22910,
+          "bait": 18,
+          "supplies": 505,
+          "food": 186,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28793,
+          "bait": 10,
+          "supplies": 595,
+          "food": 230,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 34332,
+          "bait": 16,
+          "supplies": 701,
+          "food": 267,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 40024,
+          "bait": 10,
+          "supplies": 794,
+          "food": 313,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45204,
+          "bait": 12,
+          "supplies": 885,
+          "food": 347,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 51869,
+          "bait": 10,
+          "supplies": 968,
+          "food": 369,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 57134,
+          "bait": 10,
+          "supplies": 1065,
+          "food": 400,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 63741,
+          "bait": 22,
+          "supplies": 1171,
+          "food": 447,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 68890,
+          "bait": 14,
+          "supplies": 1257,
+          "food": 471,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 74667,
+          "bait": 18,
+          "supplies": 1355,
+          "food": 495,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "explore",
+      "seed": 1,
+      "storyVisits": 62,
+      "storyPaidCoin": 2480,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 21,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 122,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 755,
+          "bait": 112,
+          "supplies": 105,
+          "food": 48,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6034,
+          "bait": 72,
+          "supplies": 198,
+          "food": 80,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11181,
+          "bait": 18,
+          "supplies": 268,
+          "food": 107,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16492,
+          "bait": 12,
+          "supplies": 344,
+          "food": 129,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22433,
+          "bait": 36,
+          "supplies": 445,
+          "food": 185,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27092,
+          "bait": 12,
+          "supplies": 529,
+          "food": 211,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 32601,
+          "bait": 12,
+          "supplies": 611,
+          "food": 239,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 38451,
+          "bait": 14,
+          "supplies": 683,
+          "food": 266,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 43399,
+          "bait": 18,
+          "supplies": 748,
+          "food": 287,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 49383,
+          "bait": 12,
+          "supplies": 843,
+          "food": 313,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 54872,
+          "bait": 14,
+          "supplies": 889,
+          "food": 340,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 61165,
+          "bait": 34,
+          "supplies": 997,
+          "food": 397,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 66084,
+          "bait": 14,
+          "supplies": 1079,
+          "food": 420,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 71842,
+          "bait": 18,
+          "supplies": 1163,
+          "food": 442,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "explore",
+      "seed": 2,
+      "storyVisits": 59,
+      "storyPaidCoin": 2360,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 28,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1193,
+          "bait": 126,
+          "supplies": 68,
+          "food": 55,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 7138,
+          "bait": 68,
+          "supplies": 172,
+          "food": 80,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 13344,
+          "bait": 12,
+          "supplies": 277,
+          "food": 108,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 18442,
+          "bait": 16,
+          "supplies": 363,
+          "food": 134,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24163,
+          "bait": 18,
+          "supplies": 474,
+          "food": 178,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 30378,
+          "bait": 14,
+          "supplies": 571,
+          "food": 224,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 36057,
+          "bait": 16,
+          "supplies": 670,
+          "food": 254,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41631,
+          "bait": 12,
+          "supplies": 770,
+          "food": 279,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 46861,
+          "bait": 16,
+          "supplies": 854,
+          "food": 312,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 52470,
+          "bait": 14,
+          "supplies": 957,
+          "food": 345,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 57468,
+          "bait": 20,
+          "supplies": 1041,
+          "food": 373,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 63510,
+          "bait": 22,
+          "supplies": 1158,
+          "food": 414,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 69964,
+          "bait": 10,
+          "supplies": 1265,
+          "food": 456,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 75642,
+          "bait": 12,
+          "supplies": 1338,
+          "food": 481,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "explore",
+      "seed": 3,
+      "storyVisits": 65,
+      "storyPaidCoin": 2600,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 21,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 530,
+          "bait": 119,
+          "supplies": 105,
+          "food": 41,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5861,
+          "bait": 73,
+          "supplies": 216,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10907,
+          "bait": 17,
+          "supplies": 318,
+          "food": 114,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16574,
+          "bait": 16,
+          "supplies": 441,
+          "food": 143,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23553,
+          "bait": 14,
+          "supplies": 557,
+          "food": 189,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28787,
+          "bait": 16,
+          "supplies": 642,
+          "food": 230,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 34480,
+          "bait": 12,
+          "supplies": 727,
+          "food": 260,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39679,
+          "bait": 14,
+          "supplies": 824,
+          "food": 283,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 44207,
+          "bait": 20,
+          "supplies": 895,
+          "food": 307,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 50056,
+          "bait": 18,
+          "supplies": 987,
+          "food": 345,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 55320,
+          "bait": 14,
+          "supplies": 1055,
+          "food": 390,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 61409,
+          "bait": 26,
+          "supplies": 1143,
+          "food": 434,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 65473,
+          "bait": 18,
+          "supplies": 1248,
+          "food": 469,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 70695,
+          "bait": 18,
+          "supplies": 1326,
+          "food": 503,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "explore",
+      "seed": 4,
+      "storyVisits": 61,
+      "storyPaidCoin": 2440,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 15,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 878,
+          "bait": 126,
+          "supplies": 102,
+          "food": 51,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5977,
+          "bait": 78,
+          "supplies": 173,
+          "food": 88,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10876,
+          "bait": 24,
+          "supplies": 270,
+          "food": 121,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16508,
+          "bait": 14,
+          "supplies": 363,
+          "food": 147,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22097,
+          "bait": 20,
+          "supplies": 450,
+          "food": 193,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27451,
+          "bait": 18,
+          "supplies": 526,
+          "food": 234,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 32711,
+          "bait": 20,
+          "supplies": 620,
+          "food": 265,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 37882,
+          "bait": 10,
+          "supplies": 697,
+          "food": 292,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 42791,
+          "bait": 22,
+          "supplies": 777,
+          "food": 315,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 47763,
+          "bait": 14,
+          "supplies": 846,
+          "food": 346,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 53415,
+          "bait": 12,
+          "supplies": 927,
+          "food": 380,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 59935,
+          "bait": 32,
+          "supplies": 1027,
+          "food": 435,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 66258,
+          "bait": 12,
+          "supplies": 1124,
+          "food": 468,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 72280,
+          "bait": 12,
+          "supplies": 1194,
+          "food": 511,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "explore",
+      "seed": 5,
+      "storyVisits": 63,
+      "storyPaidCoin": 2520,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 18,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 821,
+          "bait": 119,
+          "supplies": 94,
+          "food": 55,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5454,
+          "bait": 71,
+          "supplies": 210,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10864,
+          "bait": 16,
+          "supplies": 313,
+          "food": 127,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16387,
+          "bait": 12,
+          "supplies": 444,
+          "food": 155,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22134,
+          "bait": 20,
+          "supplies": 563,
+          "food": 200,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27219,
+          "bait": 16,
+          "supplies": 653,
+          "food": 239,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33628,
+          "bait": 16,
+          "supplies": 768,
+          "food": 279,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39251,
+          "bait": 12,
+          "supplies": 881,
+          "food": 307,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45041,
+          "bait": 10,
+          "supplies": 975,
+          "food": 340,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 49848,
+          "bait": 16,
+          "supplies": 1074,
+          "food": 374,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 55206,
+          "bait": 16,
+          "supplies": 1183,
+          "food": 406,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 61237,
+          "bait": 36,
+          "supplies": 1285,
+          "food": 479,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 66419,
+          "bait": 14,
+          "supplies": 1401,
+          "food": 522,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 71646,
+          "bait": 10,
+          "supplies": 1506,
+          "food": 549,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "explore",
+      "seed": 6,
+      "storyVisits": 63,
+      "storyPaidCoin": 2520,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 23,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 840,
+          "bait": 122,
+          "supplies": 104,
+          "food": 43,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5611,
+          "bait": 86,
+          "supplies": 189,
+          "food": 84,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10750,
+          "bait": 38,
+          "supplies": 286,
+          "food": 111,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16326,
+          "bait": 12,
+          "supplies": 387,
+          "food": 135,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 21934,
+          "bait": 18,
+          "supplies": 514,
+          "food": 185,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27273,
+          "bait": 20,
+          "supplies": 612,
+          "food": 226,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 32565,
+          "bait": 10,
+          "supplies": 713,
+          "food": 263,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 37780,
+          "bait": 10,
+          "supplies": 815,
+          "food": 288,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 42936,
+          "bait": 18,
+          "supplies": 936,
+          "food": 318,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 48120,
+          "bait": 12,
+          "supplies": 1033,
+          "food": 352,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 52941,
+          "bait": 14,
+          "supplies": 1149,
+          "food": 380,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 59301,
+          "bait": 18,
+          "supplies": 1271,
+          "food": 424,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 64261,
+          "bait": 14,
+          "supplies": 1368,
+          "food": 472,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 69394,
+          "bait": 18,
+          "supplies": 1448,
+          "food": 506,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "explore",
+      "seed": 7,
+      "storyVisits": 62,
+      "storyPaidCoin": 2480,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 16,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 827,
+          "bait": 118,
+          "supplies": 93,
+          "food": 52,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5833,
+          "bait": 78,
+          "supplies": 204,
+          "food": 96,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10791,
+          "bait": 22,
+          "supplies": 310,
+          "food": 132,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16327,
+          "bait": 16,
+          "supplies": 411,
+          "food": 174,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 21822,
+          "bait": 40,
+          "supplies": 516,
+          "food": 229,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27320,
+          "bait": 10,
+          "supplies": 623,
+          "food": 251,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 32891,
+          "bait": 10,
+          "supplies": 747,
+          "food": 270,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 37408,
+          "bait": 18,
+          "supplies": 844,
+          "food": 315,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 42400,
+          "bait": 14,
+          "supplies": 945,
+          "food": 345,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 47144,
+          "bait": 16,
+          "supplies": 1058,
+          "food": 374,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 52578,
+          "bait": 14,
+          "supplies": 1139,
+          "food": 419,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 59088,
+          "bait": 34,
+          "supplies": 1262,
+          "food": 479,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 64345,
+          "bait": 16,
+          "supplies": 1387,
+          "food": 519,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 69379,
+          "bait": 16,
+          "supplies": 1506,
+          "food": 552,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "explore",
+      "seed": 8,
+      "storyVisits": 67,
+      "storyPaidCoin": 2680,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 24,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1246,
+          "bait": 131,
+          "supplies": 119,
+          "food": 60,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6178,
+          "bait": 79,
+          "supplies": 208,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11700,
+          "bait": 19,
+          "supplies": 323,
+          "food": 101,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16194,
+          "bait": 18,
+          "supplies": 431,
+          "food": 131,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22910,
+          "bait": 18,
+          "supplies": 562,
+          "food": 186,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28793,
+          "bait": 10,
+          "supplies": 668,
+          "food": 230,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 34332,
+          "bait": 16,
+          "supplies": 786,
+          "food": 267,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 40024,
+          "bait": 10,
+          "supplies": 895,
+          "food": 313,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45204,
+          "bait": 12,
+          "supplies": 966,
+          "food": 347,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 51869,
+          "bait": 10,
+          "supplies": 1051,
+          "food": 369,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 57134,
+          "bait": 10,
+          "supplies": 1164,
+          "food": 400,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 63741,
+          "bait": 22,
+          "supplies": 1272,
+          "food": 447,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 68890,
+          "bait": 14,
+          "supplies": 1369,
+          "food": 471,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 74667,
+          "bait": 18,
+          "supplies": 1474,
+          "food": 495,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "rescue",
+      "seed": 1,
+      "storyVisits": 62,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 124,
+      "storyBait": 248,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 122,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 945,
+          "bait": 128,
+          "supplies": 62,
+          "food": 40,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6384,
+          "bait": 104,
+          "supplies": 103,
+          "food": 64,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11731,
+          "bait": 66,
+          "supplies": 135,
+          "food": 81,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17202,
+          "bait": 20,
+          "supplies": 168,
+          "food": 95,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23303,
+          "bait": 52,
+          "supplies": 217,
+          "food": 143,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28162,
+          "bait": 24,
+          "supplies": 245,
+          "food": 159,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33831,
+          "bait": 20,
+          "supplies": 284,
+          "food": 179,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39841,
+          "bait": 22,
+          "supplies": 322,
+          "food": 198,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 44989,
+          "bait": 26,
+          "supplies": 358,
+          "food": 209,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 51173,
+          "bait": 24,
+          "supplies": 388,
+          "food": 225,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 56822,
+          "bait": 26,
+          "supplies": 418,
+          "food": 244,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 63315,
+          "bait": 48,
+          "supplies": 470,
+          "food": 291,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 68394,
+          "bait": 18,
+          "supplies": 509,
+          "food": 306,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 74352,
+          "bait": 26,
+          "supplies": 546,
+          "food": 318,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "rescue",
+      "seed": 2,
+      "storyVisits": 63,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 126,
+      "storyBait": 252,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1193,
+          "bait": 138,
+          "supplies": 68,
+          "food": 47,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 7338,
+          "bait": 100,
+          "supplies": 125,
+          "food": 62,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 13744,
+          "bait": 56,
+          "supplies": 174,
+          "food": 80,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 19042,
+          "bait": 24,
+          "supplies": 231,
+          "food": 96,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24923,
+          "bait": 34,
+          "supplies": 299,
+          "food": 132,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 31298,
+          "bait": 22,
+          "supplies": 362,
+          "food": 170,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 37137,
+          "bait": 24,
+          "supplies": 418,
+          "food": 192,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 42911,
+          "bait": 24,
+          "supplies": 471,
+          "food": 207,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 48341,
+          "bait": 28,
+          "supplies": 526,
+          "food": 230,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 54110,
+          "bait": 26,
+          "supplies": 586,
+          "food": 255,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 59228,
+          "bait": 28,
+          "supplies": 640,
+          "food": 277,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 65510,
+          "bait": 46,
+          "supplies": 706,
+          "food": 306,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 72164,
+          "bait": 22,
+          "supplies": 766,
+          "food": 338,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 78002,
+          "bait": 20,
+          "supplies": 823,
+          "food": 355,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "rescue",
+      "seed": 3,
+      "storyVisits": 65,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 130,
+      "storyBait": 260,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 650,
+          "bait": 131,
+          "supplies": 75,
+          "food": 35,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6181,
+          "bait": 105,
+          "supplies": 130,
+          "food": 66,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11427,
+          "bait": 69,
+          "supplies": 185,
+          "food": 88,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17334,
+          "bait": 33,
+          "supplies": 248,
+          "food": 105,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24473,
+          "bait": 30,
+          "supplies": 321,
+          "food": 143,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29867,
+          "bait": 24,
+          "supplies": 363,
+          "food": 176,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 35760,
+          "bait": 20,
+          "supplies": 401,
+          "food": 196,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41159,
+          "bait": 26,
+          "supplies": 442,
+          "food": 209,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45807,
+          "bait": 24,
+          "supplies": 474,
+          "food": 227,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 51896,
+          "bait": 30,
+          "supplies": 515,
+          "food": 253,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 57360,
+          "bait": 26,
+          "supplies": 545,
+          "food": 288,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 63609,
+          "bait": 34,
+          "supplies": 599,
+          "food": 324,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 67913,
+          "bait": 38,
+          "supplies": 635,
+          "food": 347,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 73295,
+          "bait": 26,
+          "supplies": 670,
+          "food": 373,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "rescue",
+      "seed": 4,
+      "storyVisits": 61,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 122,
+      "storyBait": 244,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 998,
+          "bait": 138,
+          "supplies": 72,
+          "food": 45,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6257,
+          "bait": 106,
+          "supplies": 100,
+          "food": 74,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11356,
+          "bait": 72,
+          "supplies": 132,
+          "food": 97,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17188,
+          "bait": 32,
+          "supplies": 169,
+          "food": 113,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22977,
+          "bait": 36,
+          "supplies": 218,
+          "food": 149,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28491,
+          "bait": 22,
+          "supplies": 251,
+          "food": 182,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33991,
+          "bait": 32,
+          "supplies": 285,
+          "food": 201,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39322,
+          "bait": 18,
+          "supplies": 319,
+          "food": 220,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 44391,
+          "bait": 30,
+          "supplies": 356,
+          "food": 235,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 49523,
+          "bait": 22,
+          "supplies": 391,
+          "food": 258,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 55335,
+          "bait": 20,
+          "supplies": 420,
+          "food": 284,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 62015,
+          "bait": 46,
+          "supplies": 477,
+          "food": 331,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 68538,
+          "bait": 20,
+          "supplies": 509,
+          "food": 354,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 74720,
+          "bait": 20,
+          "supplies": 536,
+          "food": 389,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "rescue",
+      "seed": 5,
+      "storyVisits": 64,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 128,
+      "storyBait": 256,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 941,
+          "bait": 134,
+          "supplies": 73,
+          "food": 47,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5774,
+          "bait": 106,
+          "supplies": 133,
+          "food": 64,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11344,
+          "bait": 66,
+          "supplies": 193,
+          "food": 101,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17107,
+          "bait": 30,
+          "supplies": 246,
+          "food": 117,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23014,
+          "bait": 36,
+          "supplies": 322,
+          "food": 154,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28259,
+          "bait": 28,
+          "supplies": 378,
+          "food": 185,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 34868,
+          "bait": 28,
+          "supplies": 437,
+          "food": 215,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 40691,
+          "bait": 24,
+          "supplies": 494,
+          "food": 233,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 46641,
+          "bait": 18,
+          "supplies": 554,
+          "food": 258,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 51648,
+          "bait": 28,
+          "supplies": 606,
+          "food": 282,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 57166,
+          "bait": 28,
+          "supplies": 663,
+          "food": 306,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 63357,
+          "bait": 52,
+          "supplies": 731,
+          "food": 371,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 68779,
+          "bait": 26,
+          "supplies": 787,
+          "food": 402,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 74166,
+          "bait": 18,
+          "supplies": 849,
+          "food": 421,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "rescue",
+      "seed": 6,
+      "storyVisits": 63,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 126,
+      "storyBait": 252,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1000,
+          "bait": 138,
+          "supplies": 70,
+          "food": 35,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5931,
+          "bait": 118,
+          "supplies": 121,
+          "food": 68,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11230,
+          "bait": 86,
+          "supplies": 175,
+          "food": 87,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16966,
+          "bait": 40,
+          "supplies": 233,
+          "food": 103,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22774,
+          "bait": 38,
+          "supplies": 304,
+          "food": 143,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28313,
+          "bait": 32,
+          "supplies": 364,
+          "food": 174,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33765,
+          "bait": 18,
+          "supplies": 413,
+          "food": 203,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39180,
+          "bait": 18,
+          "supplies": 468,
+          "food": 218,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 44536,
+          "bait": 26,
+          "supplies": 533,
+          "food": 238,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 49880,
+          "bait": 20,
+          "supplies": 596,
+          "food": 264,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 54901,
+          "bait": 22,
+          "supplies": 656,
+          "food": 282,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 61421,
+          "bait": 34,
+          "supplies": 735,
+          "food": 318,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 66581,
+          "bait": 22,
+          "supplies": 785,
+          "food": 356,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 71914,
+          "bait": 26,
+          "supplies": 836,
+          "food": 380,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "rescue",
+      "seed": 7,
+      "storyVisits": 64,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 128,
+      "storyBait": 256,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 937,
+          "bait": 132,
+          "supplies": 76,
+          "food": 44,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6143,
+          "bait": 112,
+          "supplies": 131,
+          "food": 78,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11261,
+          "bait": 72,
+          "supplies": 185,
+          "food": 106,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16957,
+          "bait": 32,
+          "supplies": 243,
+          "food": 140,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22652,
+          "bait": 60,
+          "supplies": 310,
+          "food": 185,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28310,
+          "bait": 18,
+          "supplies": 365,
+          "food": 199,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 34081,
+          "bait": 22,
+          "supplies": 424,
+          "food": 208,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 38758,
+          "bait": 26,
+          "supplies": 478,
+          "food": 245,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 43910,
+          "bait": 22,
+          "supplies": 536,
+          "food": 267,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 48854,
+          "bait": 24,
+          "supplies": 593,
+          "food": 286,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 54448,
+          "bait": 22,
+          "supplies": 649,
+          "food": 323,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 61118,
+          "bait": 48,
+          "supplies": 729,
+          "food": 375,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 66615,
+          "bait": 28,
+          "supplies": 785,
+          "food": 403,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 71889,
+          "bait": 28,
+          "supplies": 844,
+          "food": 424,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "strategy": "rescue",
+      "seed": 8,
+      "storyVisits": 67,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 134,
+      "storyBait": 268,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "habitatSupplies": 0,
+      "habitatFood": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1406,
+          "bait": 147,
+          "supplies": 76,
+          "food": 52,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6498,
+          "bait": 111,
+          "supplies": 131,
+          "food": 66,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 12260,
+          "bait": 75,
+          "supplies": 186,
+          "food": 73,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16954,
+          "bait": 41,
+          "supplies": 238,
+          "food": 93,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23870,
+          "bait": 38,
+          "supplies": 313,
+          "food": 138,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29953,
+          "bait": 18,
+          "supplies": 363,
+          "food": 172,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 35732,
+          "bait": 28,
+          "supplies": 421,
+          "food": 197,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41624,
+          "bait": 22,
+          "supplies": 474,
+          "food": 233,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 47004,
+          "bait": 24,
+          "supplies": 525,
+          "food": 257,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 53829,
+          "bait": 18,
+          "supplies": 576,
+          "food": 271,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 59294,
+          "bait": 18,
+          "supplies": 633,
+          "food": 292,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 66061,
+          "bait": 32,
+          "supplies": 707,
+          "food": 331,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 71370,
+          "bait": 24,
+          "supplies": 761,
+          "food": 347,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 77347,
+          "bait": 30,
+          "supplies": 819,
+          "food": 361,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "leave",
+      "seed": 1,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 845,
+      "habitatFood": 470,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 15026,
+          "bait": 18,
+          "supplies": 60,
+          "food": 92,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 7411,
+          "bait": 26,
+          "supplies": 47,
+          "food": 125,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 12751,
+          "bait": 16,
+          "supplies": 89,
+          "food": 165,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 18246,
+          "bait": 12,
+          "supplies": 107,
+          "food": 205,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 21792,
+          "bait": 33,
+          "supplies": 111,
+          "food": 238,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 8119,
+          "bait": 20,
+          "supplies": 96,
+          "food": 280,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 8593,
+          "bait": 12,
+          "supplies": 174,
+          "food": 354,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41651,
+          "bait": 15,
+          "supplies": 166,
+          "food": 352,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 9266,
+          "bait": 30,
+          "supplies": 224,
+          "food": 427,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 41761,
+          "bait": 16,
+          "supplies": 376,
+          "food": 522,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 72679,
+          "bait": 18,
+          "supplies": 525,
+          "food": 599,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 29137,
+          "bait": 51,
+          "supplies": 431,
+          "food": 602,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 27705,
+          "bait": 15,
+          "supplies": 520,
+          "food": 645,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 56814,
+          "bait": 18,
+          "supplies": 672,
+          "food": 697,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "leave",
+      "seed": 2,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 875,
+      "habitatFood": 490,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 7542,
+          "bait": 38,
+          "supplies": 61,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 24593,
+          "bait": 22,
+          "supplies": 108,
+          "food": 63,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 6372,
+          "bait": 23,
+          "supplies": 214,
+          "food": 108,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 7917,
+          "bait": 21,
+          "supplies": 265,
+          "food": 107,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 11902,
+          "bait": 37,
+          "supplies": 345,
+          "food": 126,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 24911,
+          "bait": 14,
+          "supplies": 568,
+          "food": 205,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 30484,
+          "bait": 16,
+          "supplies": 787,
+          "food": 278,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 31473,
+          "bait": 26,
+          "supplies": 987,
+          "food": 361,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 63237,
+          "bait": 17,
+          "supplies": 1231,
+          "food": 430,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 35594,
+          "bait": 12,
+          "supplies": 1421,
+          "food": 507,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 66564,
+          "bait": 23,
+          "supplies": 1678,
+          "food": 584,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 27038,
+          "bait": 40,
+          "supplies": 1687,
+          "food": 603,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 29511,
+          "bait": 18,
+          "supplies": 1895,
+          "food": 690,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 56935,
+          "bait": 22,
+          "supplies": 2169,
+          "food": 771,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "leave",
+      "seed": 3,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 875,
+      "habitatFood": 490,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 8846,
+          "bait": 35,
+          "supplies": 63,
+          "food": 72,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6769,
+          "bait": 22,
+          "supplies": 49,
+          "food": 51,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10523,
+          "bait": 20,
+          "supplies": 198,
+          "food": 97,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16535,
+          "bait": 19,
+          "supplies": 267,
+          "food": 97,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 5457,
+          "bait": 34,
+          "supplies": 319,
+          "food": 108,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 13804,
+          "bait": 13,
+          "supplies": 474,
+          "food": 161,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 15165,
+          "bait": 23,
+          "supplies": 573,
+          "food": 220,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 46949,
+          "bait": 18,
+          "supplies": 727,
+          "food": 262,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 18566,
+          "bait": 18,
+          "supplies": 792,
+          "food": 300,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 50875,
+          "bait": 12,
+          "supplies": 944,
+          "food": 354,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 78443,
+          "bait": 23,
+          "supplies": 1098,
+          "food": 415,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 8971,
+          "bait": 31,
+          "supplies": 916,
+          "food": 407,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 36800,
+          "bait": 16,
+          "supplies": 1074,
+          "food": 465,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 66711,
+          "bait": 22,
+          "supplies": 1220,
+          "food": 522,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "leave",
+      "seed": 4,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 260000,
+      "habitatSupplies": 860,
+      "habitatFood": 480,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 8327,
+          "bait": 39,
+          "supplies": 66,
+          "food": 111,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 19526,
+          "bait": 26,
+          "supplies": 89,
+          "food": 153,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 26316,
+          "bait": 24,
+          "supplies": 129,
+          "food": 199,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 26244,
+          "bait": 20,
+          "supplies": 159,
+          "food": 235,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24623,
+          "bait": 27,
+          "supplies": 92,
+          "food": 233,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 7460,
+          "bait": 19,
+          "supplies": 116,
+          "food": 285,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 32709,
+          "bait": 19,
+          "supplies": 121,
+          "food": 297,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 28267,
+          "bait": 16,
+          "supplies": 202,
+          "food": 374,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 52805,
+          "bait": 27,
+          "supplies": 354,
+          "food": 453,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 20259,
+          "bait": 21,
+          "supplies": 420,
+          "food": 532,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 47547,
+          "bait": 15,
+          "supplies": 562,
+          "food": 606,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 27509,
+          "bait": 45,
+          "supplies": 489,
+          "food": 623,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 5400,
+          "bait": 14,
+          "supplies": 532,
+          "food": 705,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 31595,
+          "bait": 16,
+          "supplies": 671,
+          "food": 790,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "leave",
+      "seed": 5,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 920,
+      "habitatFood": 520,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 12035,
+          "bait": 26,
+          "supplies": 69,
+          "food": 72,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6553,
+          "bait": 20,
+          "supplies": 71,
+          "food": 68,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 7992,
+          "bait": 29,
+          "supplies": 136,
+          "food": 37,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 32830,
+          "bait": 20,
+          "supplies": 405,
+          "food": 93,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 19252,
+          "bait": 30,
+          "supplies": 499,
+          "food": 71,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 11062,
+          "bait": 21,
+          "supplies": 543,
+          "food": 62,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 14873,
+          "bait": 17,
+          "supplies": 766,
+          "food": 111,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 9595,
+          "bait": 28,
+          "supplies": 973,
+          "food": 169,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 40354,
+          "bait": 14,
+          "supplies": 1244,
+          "food": 234,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 10323,
+          "bait": 16,
+          "supplies": 1426,
+          "food": 281,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 36347,
+          "bait": 16,
+          "supplies": 1697,
+          "food": 358,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 18517,
+          "bait": 48,
+          "supplies": 1756,
+          "food": 352,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 22619,
+          "bait": 19,
+          "supplies": 1981,
+          "food": 408,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 19257,
+          "bait": 20,
+          "supplies": 2171,
+          "food": 443,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "leave",
+      "seed": 6,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 935,
+      "habitatFood": 530,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 15281,
+          "bait": 26,
+          "supplies": 68,
+          "food": 78,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 8981,
+          "bait": 30,
+          "supplies": 71,
+          "food": 62,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11890,
+          "bait": 26,
+          "supplies": 107,
+          "food": 40,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16636,
+          "bait": 15,
+          "supplies": 177,
+          "food": 44,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 19757,
+          "bait": 30,
+          "supplies": 250,
+          "food": 39,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 9061,
+          "bait": 16,
+          "supplies": 438,
+          "food": 131,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 9342,
+          "bait": 19,
+          "supplies": 639,
+          "food": 217,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39961,
+          "bait": 15,
+          "supplies": 919,
+          "food": 297,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 8187,
+          "bait": 24,
+          "supplies": 1116,
+          "food": 381,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 38264,
+          "bait": 21,
+          "supplies": 1391,
+          "food": 461,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 70215,
+          "bait": 18,
+          "supplies": 1644,
+          "food": 541,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 29779,
+          "bait": 37,
+          "supplies": 1642,
+          "food": 550,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 32662,
+          "bait": 16,
+          "supplies": 1834,
+          "food": 636,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 65201,
+          "bait": 16,
+          "supplies": 2108,
+          "food": 727,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "leave",
+      "seed": 7,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 875,
+      "habitatFood": 490,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 10938,
+          "bait": 36,
+          "supplies": 60,
+          "food": 107,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 24546,
+          "bait": 26,
+          "supplies": 106,
+          "food": 155,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 6461,
+          "bait": 22,
+          "supplies": 56,
+          "food": 172,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 13514,
+          "bait": 12,
+          "supplies": 64,
+          "food": 205,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 14907,
+          "bait": 39,
+          "supplies": 58,
+          "food": 195,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28672,
+          "bait": 14,
+          "supplies": 107,
+          "food": 218,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33903,
+          "bait": 23,
+          "supplies": 196,
+          "food": 264,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 36562,
+          "bait": 22,
+          "supplies": 125,
+          "food": 231,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 9766,
+          "bait": 16,
+          "supplies": 197,
+          "food": 292,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 40697,
+          "bait": 15,
+          "supplies": 352,
+          "food": 345,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 68762,
+          "bait": 14,
+          "supplies": 514,
+          "food": 402,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 24527,
+          "bait": 38,
+          "supplies": 425,
+          "food": 403,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 24970,
+          "bait": 18,
+          "supplies": 509,
+          "food": 454,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 55905,
+          "bait": 18,
+          "supplies": 647,
+          "food": 495,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "leave",
+      "seed": 8,
+      "storyVisits": 0,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 0,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 845,
+      "habitatFood": 470,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 13265,
+          "bait": 28,
+          "supplies": 82,
+          "food": 103,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 10599,
+          "bait": 24,
+          "supplies": 66,
+          "food": 141,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 14380,
+          "bait": 14,
+          "supplies": 87,
+          "food": 173,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 20926,
+          "bait": 31,
+          "supplies": 103,
+          "food": 221,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23458,
+          "bait": 48,
+          "supplies": 133,
+          "food": 255,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 9246,
+          "bait": 23,
+          "supplies": 89,
+          "food": 285,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 10545,
+          "bait": 18,
+          "supplies": 41,
+          "food": 303,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41256,
+          "bait": 13,
+          "supplies": 181,
+          "food": 378,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 10426,
+          "bait": 14,
+          "supplies": 230,
+          "food": 451,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 43403,
+          "bait": 13,
+          "supplies": 374,
+          "food": 517,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 74533,
+          "bait": 14,
+          "supplies": 523,
+          "food": 572,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 34801,
+          "bait": 38,
+          "supplies": 419,
+          "food": 566,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 35896,
+          "bait": 23,
+          "supplies": 522,
+          "food": 617,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 69070,
+          "bait": 16,
+          "supplies": 669,
+          "food": 666,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "repair",
+      "seed": 1,
+      "storyVisits": 68,
+      "storyPaidCoin": 10880,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 920,
+      "habitatFood": 520,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 14386,
+          "bait": 16,
+          "supplies": 74,
+          "food": 62,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5971,
+          "bait": 24,
+          "supplies": 46,
+          "food": 47,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10761,
+          "bait": 20,
+          "supplies": 154,
+          "food": 87,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 15456,
+          "bait": 10,
+          "supplies": 112,
+          "food": 55,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 17452,
+          "bait": 30,
+          "supplies": 158,
+          "food": 60,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28799,
+          "bait": 12,
+          "supplies": 343,
+          "food": 150,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33633,
+          "bait": 10,
+          "supplies": 495,
+          "food": 224,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 35891,
+          "bait": 12,
+          "supplies": 667,
+          "food": 302,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 62546,
+          "bait": 26,
+          "supplies": 901,
+          "food": 377,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 34241,
+          "bait": 14,
+          "supplies": 1053,
+          "food": 472,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 64199,
+          "bait": 14,
+          "supplies": 1298,
+          "food": 549,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 19857,
+          "bait": 48,
+          "supplies": 1284,
+          "food": 552,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 17625,
+          "bait": 12,
+          "supplies": 1453,
+          "food": 595,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 45934,
+          "bait": 16,
+          "supplies": 1685,
+          "food": 647,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "repair",
+      "seed": 2,
+      "storyVisits": 66,
+      "storyPaidCoin": 10560,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 260000,
+      "habitatSupplies": 905,
+      "habitatFood": 510,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 6742,
+          "bait": 36,
+          "supplies": 61,
+          "food": 38,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 22993,
+          "bait": 20,
+          "supplies": 238,
+          "food": 43,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 23972,
+          "bait": 20,
+          "supplies": 464,
+          "food": 88,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 29807,
+          "bait": 24,
+          "supplies": 607,
+          "food": 87,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 13152,
+          "bait": 34,
+          "supplies": 711,
+          "food": 106,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 20521,
+          "bait": 12,
+          "supplies": 988,
+          "food": 185,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 20454,
+          "bait": 14,
+          "supplies": 1261,
+          "food": 258,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 50483,
+          "bait": 22,
+          "supplies": 1617,
+          "food": 341,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 21447,
+          "bait": 14,
+          "supplies": 1861,
+          "food": 410,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 53164,
+          "bait": 10,
+          "supplies": 2195,
+          "food": 487,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 83174,
+          "bait": 20,
+          "supplies": 2548,
+          "food": 564,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 13008,
+          "bait": 36,
+          "supplies": 2561,
+          "food": 583,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 44681,
+          "bait": 16,
+          "supplies": 2909,
+          "food": 670,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 71465,
+          "bait": 20,
+          "supplies": 3247,
+          "food": 751,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "repair",
+      "seed": 3,
+      "storyVisits": 64,
+      "storyPaidCoin": 10240,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 935,
+      "habitatFood": 530,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 8046,
+          "bait": 30,
+          "supplies": 78,
+          "food": 38,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5169,
+          "bait": 20,
+          "supplies": 204,
+          "food": 41,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 8373,
+          "bait": 24,
+          "supplies": 364,
+          "food": 57,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 13585,
+          "bait": 16,
+          "supplies": 513,
+          "food": 57,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 21117,
+          "bait": 32,
+          "supplies": 661,
+          "food": 60,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 9414,
+          "bait": 10,
+          "supplies": 864,
+          "food": 121,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 9975,
+          "bait": 20,
+          "supplies": 1043,
+          "food": 180,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41119,
+          "bait": 16,
+          "supplies": 1261,
+          "food": 222,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 12096,
+          "bait": 16,
+          "supplies": 1390,
+          "food": 260,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 43605,
+          "bait": 10,
+          "supplies": 1622,
+          "food": 314,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 70373,
+          "bait": 20,
+          "supplies": 1856,
+          "food": 375,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 30101,
+          "bait": 26,
+          "supplies": 1814,
+          "food": 367,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 27290,
+          "bait": 14,
+          "supplies": 1976,
+          "food": 425,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 56561,
+          "bait": 20,
+          "supplies": 2186,
+          "food": 482,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "repair",
+      "seed": 4,
+      "storyVisits": 69,
+      "storyPaidCoin": 11040,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 260000,
+      "habitatSupplies": 920,
+      "habitatFood": 520,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 7687,
+          "bait": 36,
+          "supplies": 55,
+          "food": 69,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 18246,
+          "bait": 24,
+          "supplies": 107,
+          "food": 89,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 24236,
+          "bait": 22,
+          "supplies": 112,
+          "food": 81,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 23204,
+          "bait": 16,
+          "supplies": 158,
+          "food": 77,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 20783,
+          "bait": 24,
+          "supplies": 211,
+          "food": 83,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27730,
+          "bait": 10,
+          "supplies": 408,
+          "food": 165,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 27019,
+          "bait": 16,
+          "supplies": 619,
+          "food": 257,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 21937,
+          "bait": 14,
+          "supplies": 764,
+          "food": 334,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45675,
+          "bait": 24,
+          "supplies": 996,
+          "food": 413,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 12169,
+          "bait": 18,
+          "supplies": 1158,
+          "food": 492,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 38657,
+          "bait": 12,
+          "supplies": 1380,
+          "food": 566,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 17819,
+          "bait": 40,
+          "supplies": 1387,
+          "food": 583,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 25070,
+          "bait": 12,
+          "supplies": 1554,
+          "food": 665,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 20465,
+          "bait": 14,
+          "supplies": 1713,
+          "food": 750,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "repair",
+      "seed": 5,
+      "storyVisits": 66,
+      "storyPaidCoin": 10560,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 905,
+      "habitatFood": 510,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 11395,
+          "bait": 24,
+          "supplies": 93,
+          "food": 50,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5273,
+          "bait": 18,
+          "supplies": 159,
+          "food": 48,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 5662,
+          "bait": 20,
+          "supplies": 388,
+          "food": 57,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 29700,
+          "bait": 18,
+          "supplies": 577,
+          "food": 33,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 15482,
+          "bait": 28,
+          "supplies": 765,
+          "food": 31,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 6492,
+          "bait": 16,
+          "supplies": 1004,
+          "food": 72,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 9503,
+          "bait": 14,
+          "supplies": 1307,
+          "food": 121,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 33425,
+          "bait": 26,
+          "supplies": 1654,
+          "food": 179,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 33384,
+          "bait": 12,
+          "supplies": 1945,
+          "food": 244,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 62713,
+          "bait": 14,
+          "supplies": 2271,
+          "food": 291,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 28097,
+          "bait": 14,
+          "supplies": 2526,
+          "food": 368,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 9627,
+          "bait": 44,
+          "supplies": 2649,
+          "food": 362,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 12769,
+          "bait": 16,
+          "supplies": 2970,
+          "food": 418,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 8607,
+          "bait": 18,
+          "supplies": 3240,
+          "food": 453,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "repair",
+      "seed": 6,
+      "storyVisits": 67,
+      "storyPaidCoin": 10720,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 905,
+      "habitatFood": 510,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 14641,
+          "bait": 24,
+          "supplies": 72,
+          "food": 38,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 7541,
+          "bait": 28,
+          "supplies": 165,
+          "food": 30,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 9560,
+          "bait": 18,
+          "supplies": 359,
+          "food": 60,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 13506,
+          "bait": 12,
+          "supplies": 509,
+          "food": 64,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 15987,
+          "bait": 28,
+          "supplies": 646,
+          "food": 59,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29491,
+          "bait": 14,
+          "supplies": 964,
+          "food": 151,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33812,
+          "bait": 16,
+          "supplies": 1271,
+          "food": 237,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 33631,
+          "bait": 12,
+          "supplies": 1571,
+          "food": 317,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 61217,
+          "bait": 22,
+          "supplies": 1912,
+          "food": 401,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 30494,
+          "bait": 18,
+          "supplies": 2187,
+          "food": 481,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 61805,
+          "bait": 16,
+          "supplies": 2504,
+          "food": 561,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 20569,
+          "bait": 32,
+          "supplies": 2582,
+          "food": 570,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 22652,
+          "bait": 14,
+          "supplies": 2854,
+          "food": 656,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 54391,
+          "bait": 14,
+          "supplies": 3208,
+          "food": 747,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "repair",
+      "seed": 7,
+      "storyVisits": 67,
+      "storyPaidCoin": 10720,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 950,
+      "habitatFood": 540,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 10298,
+          "bait": 34,
+          "supplies": 74,
+          "food": 77,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 23266,
+          "bait": 24,
+          "supplies": 89,
+          "food": 85,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 24381,
+          "bait": 20,
+          "supplies": 109,
+          "food": 74,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 10724,
+          "bait": 16,
+          "supplies": 69,
+          "food": 55,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 11317,
+          "bait": 34,
+          "supplies": 158,
+          "food": 55,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 24532,
+          "bait": 18,
+          "supplies": 308,
+          "food": 88,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 28803,
+          "bait": 20,
+          "supplies": 493,
+          "food": 134,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 30732,
+          "bait": 14,
+          "supplies": 644,
+          "food": 181,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 63136,
+          "bait": 14,
+          "supplies": 876,
+          "food": 242,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 33267,
+          "bait": 12,
+          "supplies": 1031,
+          "food": 295,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 60532,
+          "bait": 12,
+          "supplies": 1273,
+          "food": 352,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 15497,
+          "bait": 36,
+          "supplies": 1264,
+          "food": 353,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 15140,
+          "bait": 16,
+          "supplies": 1428,
+          "food": 404,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 45275,
+          "bait": 16,
+          "supplies": 1646,
+          "food": 445,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "repair",
+      "seed": 8,
+      "storyVisits": 64,
+      "storyPaidCoin": 10240,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 920,
+      "habitatFood": 520,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 12625,
+          "bait": 26,
+          "supplies": 71,
+          "food": 61,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 9319,
+          "bait": 22,
+          "supplies": 59,
+          "food": 67,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 12460,
+          "bait": 12,
+          "supplies": 154,
+          "food": 103,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17956,
+          "bait": 22,
+          "supplies": 84,
+          "food": 63,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 19098,
+          "bait": 46,
+          "supplies": 140,
+          "food": 69,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29586,
+          "bait": 14,
+          "supplies": 348,
+          "food": 155,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 5085,
+          "bait": 16,
+          "supplies": 490,
+          "food": 253,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 34996,
+          "bait": 10,
+          "supplies": 710,
+          "food": 328,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 63526,
+          "bait": 12,
+          "supplies": 903,
+          "food": 401,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 35703,
+          "bait": 10,
+          "supplies": 1047,
+          "food": 467,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 66193,
+          "bait": 12,
+          "supplies": 1260,
+          "food": 522,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 25821,
+          "bait": 36,
+          "supplies": 1220,
+          "food": 516,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 26116,
+          "bait": 20,
+          "supplies": 1403,
+          "food": 567,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 58650,
+          "bait": 14,
+          "supplies": 1614,
+          "food": 616,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "explore",
+      "seed": 1,
+      "storyVisits": 68,
+      "storyPaidCoin": 10880,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 26,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 890,
+      "habitatFood": 500,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 14386,
+          "bait": 16,
+          "supplies": 71,
+          "food": 50,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5971,
+          "bait": 24,
+          "supplies": 57,
+          "food": 37,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10671,
+          "bait": 14,
+          "supplies": 124,
+          "food": 67,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 15366,
+          "bait": 10,
+          "supplies": 194,
+          "food": 75,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 18112,
+          "bait": 30,
+          "supplies": 280,
+          "food": 88,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28709,
+          "bait": 12,
+          "supplies": 479,
+          "food": 170,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33543,
+          "bait": 10,
+          "supplies": 635,
+          "food": 244,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 35801,
+          "bait": 12,
+          "supplies": 803,
+          "food": 322,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 62456,
+          "bait": 26,
+          "supplies": 1061,
+          "food": 397,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 34151,
+          "bait": 14,
+          "supplies": 1227,
+          "food": 492,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 64109,
+          "bait": 14,
+          "supplies": 1478,
+          "food": 569,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 19767,
+          "bait": 48,
+          "supplies": 1460,
+          "food": 572,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 17535,
+          "bait": 12,
+          "supplies": 1661,
+          "food": 615,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 45844,
+          "bait": 16,
+          "supplies": 1925,
+          "food": 667,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "explore",
+      "seed": 2,
+      "storyVisits": 66,
+      "storyPaidCoin": 10560,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 24,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 260000,
+      "habitatSupplies": 905,
+      "habitatFood": 510,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 6742,
+          "bait": 36,
+          "supplies": 75,
+          "food": 38,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 22993,
+          "bait": 20,
+          "supplies": 284,
+          "food": 43,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 23972,
+          "bait": 20,
+          "supplies": 524,
+          "food": 88,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 29807,
+          "bait": 24,
+          "supplies": 699,
+          "food": 87,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 13152,
+          "bait": 34,
+          "supplies": 807,
+          "food": 106,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 20521,
+          "bait": 12,
+          "supplies": 1124,
+          "food": 185,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 20454,
+          "bait": 14,
+          "supplies": 1437,
+          "food": 258,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 50483,
+          "bait": 22,
+          "supplies": 1817,
+          "food": 341,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 21447,
+          "bait": 14,
+          "supplies": 2039,
+          "food": 410,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 53164,
+          "bait": 10,
+          "supplies": 2377,
+          "food": 487,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 83174,
+          "bait": 20,
+          "supplies": 2754,
+          "food": 564,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 13008,
+          "bait": 36,
+          "supplies": 2771,
+          "food": 583,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 44681,
+          "bait": 16,
+          "supplies": 3115,
+          "food": 670,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 71465,
+          "bait": 20,
+          "supplies": 3475,
+          "food": 751,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "explore",
+      "seed": 3,
+      "storyVisits": 64,
+      "storyPaidCoin": 10240,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 23,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 935,
+      "habitatFood": 530,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 8046,
+          "bait": 30,
+          "supplies": 110,
+          "food": 38,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5169,
+          "bait": 20,
+          "supplies": 232,
+          "food": 41,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 8373,
+          "bait": 24,
+          "supplies": 414,
+          "food": 57,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 13585,
+          "bait": 16,
+          "supplies": 595,
+          "food": 57,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 21117,
+          "bait": 32,
+          "supplies": 765,
+          "food": 60,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 9414,
+          "bait": 10,
+          "supplies": 982,
+          "food": 121,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 9975,
+          "bait": 20,
+          "supplies": 1157,
+          "food": 180,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41119,
+          "bait": 16,
+          "supplies": 1379,
+          "food": 222,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 12096,
+          "bait": 16,
+          "supplies": 1548,
+          "food": 260,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 43605,
+          "bait": 10,
+          "supplies": 1776,
+          "food": 314,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 70373,
+          "bait": 20,
+          "supplies": 2042,
+          "food": 375,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 30101,
+          "bait": 26,
+          "supplies": 1996,
+          "food": 367,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 27290,
+          "bait": 14,
+          "supplies": 2198,
+          "food": 425,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 56561,
+          "bait": 20,
+          "supplies": 2412,
+          "food": 482,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "explore",
+      "seed": 4,
+      "storyVisits": 69,
+      "storyPaidCoin": 11040,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 17,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 260000,
+      "habitatSupplies": 905,
+      "habitatFood": 510,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 7687,
+          "bait": 36,
+          "supplies": 80,
+          "food": 59,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 18246,
+          "bait": 24,
+          "supplies": 84,
+          "food": 51,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 24236,
+          "bait": 22,
+          "supplies": 167,
+          "food": 91,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 23204,
+          "bait": 16,
+          "supplies": 273,
+          "food": 87,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 20783,
+          "bait": 24,
+          "supplies": 322,
+          "food": 93,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27730,
+          "bait": 10,
+          "supplies": 569,
+          "food": 175,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 27019,
+          "bait": 16,
+          "supplies": 804,
+          "food": 267,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 21937,
+          "bait": 14,
+          "supplies": 953,
+          "food": 344,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45675,
+          "bait": 24,
+          "supplies": 1199,
+          "food": 423,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 12169,
+          "bait": 18,
+          "supplies": 1421,
+          "food": 502,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 38657,
+          "bait": 12,
+          "supplies": 1693,
+          "food": 576,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 17819,
+          "bait": 40,
+          "supplies": 1714,
+          "food": 593,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 25070,
+          "bait": 12,
+          "supplies": 1903,
+          "food": 675,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 20465,
+          "bait": 14,
+          "supplies": 2112,
+          "food": 760,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "explore",
+      "seed": 5,
+      "storyVisits": 66,
+      "storyPaidCoin": 10560,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 20,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 905,
+      "habitatFood": 510,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 11395,
+          "bait": 24,
+          "supplies": 95,
+          "food": 46,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5273,
+          "bait": 18,
+          "supplies": 206,
+          "food": 38,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 5662,
+          "bait": 20,
+          "supplies": 477,
+          "food": 47,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 29700,
+          "bait": 18,
+          "supplies": 858,
+          "food": 103,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 15482,
+          "bait": 28,
+          "supplies": 1020,
+          "food": 81,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 6582,
+          "bait": 22,
+          "supplies": 1178,
+          "food": 72,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 9593,
+          "bait": 14,
+          "supplies": 1513,
+          "food": 121,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 33515,
+          "bait": 26,
+          "supplies": 1892,
+          "food": 179,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 33474,
+          "bait": 12,
+          "supplies": 2179,
+          "food": 244,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 62803,
+          "bait": 14,
+          "supplies": 2509,
+          "food": 291,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 28187,
+          "bait": 14,
+          "supplies": 2768,
+          "food": 368,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 9717,
+          "bait": 44,
+          "supplies": 2895,
+          "food": 362,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 12859,
+          "bait": 16,
+          "supplies": 3240,
+          "food": 418,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 8697,
+          "bait": 18,
+          "supplies": 3542,
+          "food": 453,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "explore",
+      "seed": 6,
+      "storyVisits": 67,
+      "storyPaidCoin": 10720,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 26,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 875,
+      "habitatFood": 490,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 14641,
+          "bait": 24,
+          "supplies": 88,
+          "food": 58,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 7541,
+          "bait": 28,
+          "supplies": 175,
+          "food": 42,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 9560,
+          "bait": 18,
+          "supplies": 403,
+          "food": 80,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 13506,
+          "bait": 12,
+          "supplies": 567,
+          "food": 84,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 16737,
+          "bait": 28,
+          "supplies": 698,
+          "food": 87,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29491,
+          "bait": 14,
+          "supplies": 1040,
+          "food": 171,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33812,
+          "bait": 16,
+          "supplies": 1407,
+          "food": 257,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 33631,
+          "bait": 12,
+          "supplies": 1739,
+          "food": 337,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 61217,
+          "bait": 22,
+          "supplies": 2084,
+          "food": 421,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 30494,
+          "bait": 18,
+          "supplies": 2373,
+          "food": 501,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 61805,
+          "bait": 16,
+          "supplies": 2712,
+          "food": 581,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 20569,
+          "bait": 32,
+          "supplies": 2786,
+          "food": 590,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 22652,
+          "bait": 14,
+          "supplies": 3072,
+          "food": 676,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 54391,
+          "bait": 14,
+          "supplies": 3440,
+          "food": 767,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "explore",
+      "seed": 7,
+      "storyVisits": 67,
+      "storyPaidCoin": 10720,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 31,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 920,
+      "habitatFood": 520,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 10298,
+          "bait": 34,
+          "supplies": 60,
+          "food": 77,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 23266,
+          "bait": 24,
+          "supplies": 112,
+          "food": 83,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 24291,
+          "bait": 14,
+          "supplies": 111,
+          "food": 74,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 10634,
+          "bait": 16,
+          "supplies": 133,
+          "food": 75,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 11227,
+          "bait": 34,
+          "supplies": 173,
+          "food": 45,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 24352,
+          "bait": 12,
+          "supplies": 388,
+          "food": 108,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 28623,
+          "bait": 20,
+          "supplies": 579,
+          "food": 154,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 30552,
+          "bait": 14,
+          "supplies": 734,
+          "food": 201,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 62956,
+          "bait": 14,
+          "supplies": 998,
+          "food": 262,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 33087,
+          "bait": 12,
+          "supplies": 1149,
+          "food": 315,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 60352,
+          "bait": 12,
+          "supplies": 1387,
+          "food": 372,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 15317,
+          "bait": 36,
+          "supplies": 1392,
+          "food": 373,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 14960,
+          "bait": 16,
+          "supplies": 1570,
+          "food": 424,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 45095,
+          "bait": 16,
+          "supplies": 1784,
+          "food": 465,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "explore",
+      "seed": 8,
+      "storyVisits": 64,
+      "storyPaidCoin": 10240,
+      "storyPaidFood": 0,
+      "storyBait": 0,
+      "storyFailures": 22,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 920,
+      "habitatFood": 520,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 12625,
+          "bait": 26,
+          "supplies": 75,
+          "food": 61,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 9319,
+          "bait": 22,
+          "supplies": 40,
+          "food": 49,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 12550,
+          "bait": 18,
+          "supplies": 104,
+          "food": 55,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 18046,
+          "bait": 22,
+          "supplies": 158,
+          "food": 63,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 19188,
+          "bait": 46,
+          "supplies": 236,
+          "food": 69,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29676,
+          "bait": 14,
+          "supplies": 468,
+          "food": 155,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 5175,
+          "bait": 16,
+          "supplies": 606,
+          "food": 253,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 35086,
+          "bait": 10,
+          "supplies": 840,
+          "food": 328,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 63616,
+          "bait": 12,
+          "supplies": 1055,
+          "food": 401,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 35793,
+          "bait": 10,
+          "supplies": 1213,
+          "food": 467,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 66283,
+          "bait": 12,
+          "supplies": 1448,
+          "food": 522,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 25911,
+          "bait": 36,
+          "supplies": 1430,
+          "food": 516,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 26206,
+          "bait": 20,
+          "supplies": 1645,
+          "food": 567,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 58740,
+          "bait": 14,
+          "supplies": 1860,
+          "food": 616,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "rescue",
+      "seed": 1,
+      "storyVisits": 68,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 340,
+      "storyBait": 408,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 845,
+      "habitatFood": 470,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 15026,
+          "bait": 36,
+          "supplies": 60,
+          "food": 72,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 7411,
+          "bait": 48,
+          "supplies": 47,
+          "food": 80,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 12751,
+          "bait": 26,
+          "supplies": 89,
+          "food": 100,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 18246,
+          "bait": 24,
+          "supplies": 107,
+          "food": 115,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 21792,
+          "bait": 58,
+          "supplies": 111,
+          "food": 123,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 8119,
+          "bait": 30,
+          "supplies": 96,
+          "food": 145,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 8593,
+          "bait": 22,
+          "supplies": 174,
+          "food": 199,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41651,
+          "bait": 30,
+          "supplies": 166,
+          "food": 172,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 9266,
+          "bait": 50,
+          "supplies": 224,
+          "food": 217,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 41761,
+          "bait": 28,
+          "supplies": 376,
+          "food": 287,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 72679,
+          "bait": 38,
+          "supplies": 525,
+          "food": 334,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 29137,
+          "bait": 76,
+          "supplies": 431,
+          "food": 312,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 27705,
+          "bait": 50,
+          "supplies": 520,
+          "food": 330,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 56814,
+          "bait": 28,
+          "supplies": 672,
+          "food": 357,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "rescue",
+      "seed": 2,
+      "storyVisits": 66,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 330,
+      "storyBait": 396,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 860,
+      "habitatFood": 480,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 7542,
+          "bait": 62,
+          "supplies": 61,
+          "food": 57,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 24593,
+          "bait": 36,
+          "supplies": 208,
+          "food": 61,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 6372,
+          "bait": 38,
+          "supplies": 214,
+          "food": 33,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 7917,
+          "bait": 36,
+          "supplies": 425,
+          "food": 87,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 11902,
+          "bait": 56,
+          "supplies": 520,
+          "food": 96,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 25001,
+          "bait": 30,
+          "supplies": 585,
+          "food": 75,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 30574,
+          "bait": 26,
+          "supplies": 804,
+          "food": 128,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 31563,
+          "bait": 46,
+          "supplies": 1004,
+          "food": 181,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 63327,
+          "bait": 32,
+          "supplies": 1248,
+          "food": 225,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 35684,
+          "bait": 22,
+          "supplies": 1438,
+          "food": 282,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 66654,
+          "bait": 38,
+          "supplies": 1695,
+          "food": 329,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 27128,
+          "bait": 60,
+          "supplies": 1704,
+          "food": 328,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 29601,
+          "bait": 36,
+          "supplies": 1912,
+          "food": 390,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 57025,
+          "bait": 32,
+          "supplies": 2186,
+          "food": 451,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "rescue",
+      "seed": 3,
+      "storyVisits": 64,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 320,
+      "storyBait": 384,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 860,
+      "habitatFood": 480,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 8846,
+          "bait": 60,
+          "supplies": 63,
+          "food": 47,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6769,
+          "bait": 38,
+          "supplies": 149,
+          "food": 49,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10523,
+          "bait": 30,
+          "supplies": 278,
+          "food": 67,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16535,
+          "bait": 34,
+          "supplies": 427,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 5457,
+          "bait": 52,
+          "supplies": 494,
+          "food": 83,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 13804,
+          "bait": 28,
+          "supplies": 489,
+          "food": 31,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 15165,
+          "bait": 38,
+          "supplies": 588,
+          "food": 65,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 46949,
+          "bait": 28,
+          "supplies": 742,
+          "food": 87,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 18566,
+          "bait": 28,
+          "supplies": 807,
+          "food": 105,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 50875,
+          "bait": 22,
+          "supplies": 959,
+          "food": 134,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 78443,
+          "bait": 38,
+          "supplies": 1113,
+          "food": 170,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 8971,
+          "bait": 56,
+          "supplies": 931,
+          "food": 137,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 36800,
+          "bait": 34,
+          "supplies": 1089,
+          "food": 175,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 66711,
+          "bait": 32,
+          "supplies": 1235,
+          "food": 212,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "rescue",
+      "seed": 4,
+      "storyVisits": 69,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 345,
+      "storyBait": 414,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 260000,
+      "habitatSupplies": 860,
+      "habitatFood": 480,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 8327,
+          "bait": 56,
+          "supplies": 66,
+          "food": 91,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 19526,
+          "bait": 36,
+          "supplies": 89,
+          "food": 113,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 26316,
+          "bait": 38,
+          "supplies": 129,
+          "food": 134,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 26244,
+          "bait": 40,
+          "supplies": 159,
+          "food": 140,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24623,
+          "bait": 44,
+          "supplies": 92,
+          "food": 113,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 7460,
+          "bait": 42,
+          "supplies": 116,
+          "food": 140,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 32709,
+          "bait": 40,
+          "supplies": 121,
+          "food": 122,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 28267,
+          "bait": 28,
+          "supplies": 202,
+          "food": 179,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 52805,
+          "bait": 42,
+          "supplies": 354,
+          "food": 233,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 20259,
+          "bait": 36,
+          "supplies": 420,
+          "food": 282,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 47547,
+          "bait": 30,
+          "supplies": 562,
+          "food": 331,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 27509,
+          "bait": 70,
+          "supplies": 489,
+          "food": 323,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 5400,
+          "bait": 30,
+          "supplies": 532,
+          "food": 385,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 31595,
+          "bait": 26,
+          "supplies": 671,
+          "food": 445,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "rescue",
+      "seed": 5,
+      "storyVisits": 66,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 330,
+      "storyBait": 396,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 890,
+      "habitatFood": 500,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 12035,
+          "bait": 40,
+          "supplies": 69,
+          "food": 52,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6553,
+          "bait": 34,
+          "supplies": 116,
+          "food": 46,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 7902,
+          "bait": 38,
+          "supplies": 329,
+          "food": 65,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 32740,
+          "bait": 30,
+          "supplies": 498,
+          "food": 48,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 19162,
+          "bait": 44,
+          "supplies": 652,
+          "food": 46,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 10972,
+          "bait": 46,
+          "supplies": 811,
+          "food": 62,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 14783,
+          "bait": 32,
+          "supplies": 954,
+          "food": 46,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 9505,
+          "bait": 40,
+          "supplies": 1161,
+          "food": 79,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 40264,
+          "bait": 24,
+          "supplies": 1272,
+          "food": 39,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 10233,
+          "bait": 26,
+          "supplies": 1454,
+          "food": 66,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 36257,
+          "bait": 26,
+          "supplies": 1725,
+          "food": 123,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 18427,
+          "bait": 68,
+          "supplies": 1784,
+          "food": 97,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 22529,
+          "bait": 46,
+          "supplies": 2009,
+          "food": 123,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 19167,
+          "bait": 30,
+          "supplies": 2199,
+          "food": 133,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "rescue",
+      "seed": 6,
+      "storyVisits": 67,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 335,
+      "storyBait": 402,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 905,
+      "habitatFood": 510,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 15281,
+          "bait": 36,
+          "supplies": 68,
+          "food": 58,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 8981,
+          "bait": 52,
+          "supplies": 141,
+          "food": 45,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11890,
+          "bait": 38,
+          "supplies": 302,
+          "food": 68,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16636,
+          "bait": 30,
+          "supplies": 352,
+          "food": 39,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 19757,
+          "bait": 42,
+          "supplies": 470,
+          "food": 44,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 9151,
+          "bait": 46,
+          "supplies": 630,
+          "food": 91,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 9432,
+          "bait": 34,
+          "supplies": 671,
+          "food": 67,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 40051,
+          "bait": 30,
+          "supplies": 951,
+          "food": 122,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 8277,
+          "bait": 34,
+          "supplies": 1148,
+          "food": 186,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 38354,
+          "bait": 36,
+          "supplies": 1423,
+          "food": 241,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 70305,
+          "bait": 28,
+          "supplies": 1676,
+          "food": 301,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 29869,
+          "bait": 62,
+          "supplies": 1674,
+          "food": 285,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 32752,
+          "bait": 36,
+          "supplies": 1866,
+          "food": 346,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 65291,
+          "bait": 26,
+          "supplies": 2140,
+          "food": 412,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "rescue",
+      "seed": 7,
+      "storyVisits": 67,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 335,
+      "storyBait": 402,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 875,
+      "habitatFood": 490,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 10938,
+          "bait": 52,
+          "supplies": 60,
+          "food": 87,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 24546,
+          "bait": 36,
+          "supplies": 106,
+          "food": 115,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 6461,
+          "bait": 32,
+          "supplies": 56,
+          "food": 107,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 13514,
+          "bait": 22,
+          "supplies": 64,
+          "food": 115,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 14907,
+          "bait": 64,
+          "supplies": 58,
+          "food": 80,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28672,
+          "bait": 28,
+          "supplies": 107,
+          "food": 83,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33903,
+          "bait": 38,
+          "supplies": 196,
+          "food": 99,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 36562,
+          "bait": 32,
+          "supplies": 125,
+          "food": 46,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 9766,
+          "bait": 26,
+          "supplies": 197,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 40697,
+          "bait": 30,
+          "supplies": 352,
+          "food": 110,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 68762,
+          "bait": 26,
+          "supplies": 514,
+          "food": 142,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 24527,
+          "bait": 60,
+          "supplies": 425,
+          "food": 118,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 24970,
+          "bait": 30,
+          "supplies": 509,
+          "food": 144,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 55905,
+          "bait": 28,
+          "supplies": 647,
+          "food": 160,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "strategy": "rescue",
+      "seed": 8,
+      "storyVisits": 64,
+      "storyPaidCoin": 0,
+      "storyPaidFood": 320,
+      "storyBait": 384,
+      "storyFailures": 0,
+      "memories": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "habitatSupplies": 845,
+      "habitatFood": 470,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 13265,
+          "bait": 38,
+          "supplies": 82,
+          "food": 83,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 10599,
+          "bait": 36,
+          "supplies": 66,
+          "food": 101,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 14380,
+          "bait": 24,
+          "supplies": 87,
+          "food": 113,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 20926,
+          "bait": 46,
+          "supplies": 103,
+          "food": 131,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23458,
+          "bait": 62,
+          "supplies": 133,
+          "food": 145,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 9246,
+          "bait": 48,
+          "supplies": 89,
+          "food": 145,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 10545,
+          "bait": 28,
+          "supplies": 41,
+          "food": 138,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41256,
+          "bait": 28,
+          "supplies": 181,
+          "food": 188,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 10426,
+          "bait": 24,
+          "supplies": 230,
+          "food": 241,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 43403,
+          "bait": 28,
+          "supplies": 374,
+          "food": 282,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 74533,
+          "bait": 24,
+          "supplies": 523,
+          "food": 317,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 34801,
+          "bait": 58,
+          "supplies": 419,
+          "food": 291,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 35896,
+          "bait": 38,
+          "supplies": 522,
+          "food": 317,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 69070,
+          "bait": 26,
+          "supplies": 669,
+          "food": 346,
+          "land": 25
+        }
+      ]
+    }
+  ]
+}

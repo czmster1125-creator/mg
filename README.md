@@ -23,7 +23,9 @@ npm start
 
 服务器须保持运行，不能直接双击 `index.html`。当前云环境已经安装依赖并启动预览服务。运行环境快照不保留进程，新任务需要重新启动。
 
-## 玩法（0.16）
+## 玩法（0.17）
+
+钓鱼演出改为真实响应后咬钩、收线与实际鱼种跃起，鱼竿弯曲、镜头和声音随动作衔接；六海域增加水色及岸边主题，攻击／偷袭强化镜头和命中反馈。新增十二段两步海上故事，选择修复、冒险探寻或援助，含明确风险、保底、已付准备费和刷新续玩；三十六种经历在任务的航海手记中收藏。规则与数值见 [0.17 演出与海上故事](docs/PRESENTATION_STORIES_V017.md)。
 
 新手核心航程缩为六步，随行／喂养改为鱼缸内的可选配置，旧进度一次性迁移且总补给规模保留。新增每周海洋观察册、可解锁鱼缸主题、三种可建设养护的实际鱼缸栖地，以及经营／冒险随行预设。六岛设施改用六种不同模型，后期 NPC 收益按已开放海域成长；出海中点击任务或手帐会在本次结算后打开。规则与模拟边界见 [0.16 观察与养成](docs/RESEARCH_V016.md)。
 
@@ -80,7 +82,7 @@ npm start
 ## 验证
 
 ```bash
-npm test          # 140 项规则、模型、账号、航海、协作与观察养成测试
+npm test          # 152 项规则、模型、账号、航海、协作、观察养成与海上故事测试
 npm run test:e2e  # Chromium 端到端测试，需要本机 Chromium
 npm run build
 npm run test:pwa  # 生产包安装资源缓存、断网与联网恢复
@@ -95,6 +97,8 @@ npm run test:pwa  # 生产包安装资源缓存、断网与联网恢复
 - `src/town-models.js` / `src/town.css`：分阶段建筑模型与场景交互排版
 - `src/fish-preview.js`：3D 鱼获展示与资源释放
 - `src/main.js` / `src/style.css` / `src/portrait.css`：UI、交互与竖屏排版
+- `shared/sea-stories.js` / `server/sea-stories.js`：十二段海上故事、分支准备费、固定风险与收藏印记
+- `src/sea-story-scene.js` / `src/sea-story-ui.js`：海域故事场景和选择／归航界面
 - `shared/fishing.js` / `shared/objectives.js`：搏鱼时间步规则、成长目标选择
 - `server/config.js`：鱼池、价格、等级、委托和建造配置
 - `server/engine.js`：经济规则、服务端时间结算和状态变更

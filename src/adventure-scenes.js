@@ -1,9 +1,11 @@
+import {createSeaStoryScene} from './sea-story-scene.js';
 import {AQUARIUM_THEMES} from '../shared/research.js';
 import * as T from 'three';
 import {createFishModel} from './fish-preview.js';
 import {createEncounterScene} from './encounter-scene.js';
 export function createAdventureScene(host,type,fish=[],options={}){
  if(!host)return Object.assign(()=>{},{play:()=>Promise.resolve(),skip:()=>{}});
+ if(type==='story'||type==='story-result')return createSeaStoryScene(host,type,fish);
  if(type!=='aquarium')return createEncounterScene(host,type,fish);
  const aqua=options.aquarium||{},theme=AQUARIUM_THEMES.find(t=>t.id===aqua.theme)||AQUARIUM_THEMES[0],habitats=aqua.habitats||{},nurtured=Object.values(habitats).some(h=>h.week===options.week);host.dataset.theme=theme.id;host.dataset.habitats=Object.entries(habitats).map(([id,h])=>id+':'+h.level).join(',');host.dataset.cared=Object.entries(habitats).filter(([,h])=>h.week===options.week).map(([id])=>id).join(',');const scene=new T.Scene();scene.background=new T.Color(theme.water);const camera=new T.PerspectiveCamera(38,1,.1,80);camera.position.set(0,1,13);camera.lookAt(0,0,0);
  const renderer=new T.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.25));host.append(renderer.domElement);renderer.domElement.setAttribute('aria-label','游动的鱼宠水族箱');scene.add(new T.HemisphereLight(0xe5ffff,0x528d74,3));const sun=new T.DirectionalLight(0xffe6bc,3);sun.position.set(-5,10,5);scene.add(sun);

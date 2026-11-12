@@ -1,23 +1,24 @@
+import {initSeaStories} from '../shared/sea-stories.js';
+import {startSeaStory} from './sea-stories.js';
 import {gearEffects} from '../shared/equipment.js';
 import {initRivals,refillRivals,chooseRival,finishRival,rivalScale,npcAttackPayout} from '../shared/rivals.js';
 import {startShellTreasure,openShell} from './treasure.js';
 import {SHELL_FORMAT} from '../shared/treasure.js';
-import {ENCOUNTER_BY_ZONE} from '../shared/encounters.js';
 import {COLLECTION_KEYS} from '../shared/content.js';
 import {repairCost} from '../shared/pets.js';
 import {startRaid,raidAction} from './raid.js';
 import {randomUUID} from 'node:crypto';
 import {config as C} from './config.js';
 import {GUIDES,migrateGuide,slots,role,bonuses,points} from '../shared/adventure.js';
-export function normalize(s){s.rivalVault??=1800;s.raidCount??=0;s.raidLesson??=false;s.pets||={};for(const id of Object.keys(s.book))s.pets[id]||={level:1};s.equipped||=[];const seen=new Set();s.equipped=s.equipped.filter(id=>{const r=role(id,C.fish);if(!s.pets[id]||r<0||seen.has(r))return false;seen.add(r);return true;});s.shields??=0;s.damage||=[false,false,false,false];s.reports||=[];s.guide??=0;migrateGuide(s);s.collectionClaims||=[];s.dry??=0;s.event??=null;s.adventureCasts??=0;s.attackCount??=0;s.opponent||={shield:1,damage:[0,0,0]};initRivals(s);}
+export function normalize(s){s.rivalVault??=1800;s.raidCount??=0;s.raidLesson??=false;s.pets||={};for(const id of Object.keys(s.book))s.pets[id]||={level:1};s.equipped||=[];const seen=new Set();s.equipped=s.equipped.filter(id=>{const r=role(id,C.fish);if(!s.pets[id]||r<0||seen.has(r))return false;seen.add(r);return true;});s.shields??=0;s.damage||=[false,false,false,false];s.reports||=[];s.guide??=0;migrateGuide(s);s.collectionClaims||=[];s.dry??=0;s.event??=null;s.adventureCasts??=0;s.attackCount??=0;initSeaStories(s);s.opponent||={shield:1,damage:[0,0,0]};initRivals(s);}
 export function guide(s,event){const g=GUIDES[s.guide];if(g&&(g.event===event||g.event==='expand5'&&event==='expand'&&s.nodes[0].reduce((a,b)=>a+b,0)>=5)){s.guide++;s.coin+=40;s.food+=4;s.bait+=4;return g.name;}return null;}
-export function publicState(s){const p=structuredClone(s);if(p.event?.type==='treasure'){delete p.event.loot;delete p.event.board;}if(p.event?.type==='raid')delete p.event.rolls;return p;}
+export function publicState(s){const p=structuredClone(s);if(p.event?.type==='treasure'){delete p.event.loot;delete p.event.board;}if(p.event?.type==='raid')delete p.event.rolls;if(p.event?.type==='encounter')delete p.event.roll;return p;}
 export function roll(s,bet,rng){s.adventureCasts++;refillRivals(s);const g=GUIDES[s.guide];let type;if(g?.event==='catch')type='fish';else if(['attack','treasure','shield'].includes(g?.event))type=g.event;else if(s.dry>=9)type=['attack','raid','treasure'][Math.min(2,Math.floor(rng()*3))];else{const r=rng();type=r<.52?'fish':r<.64?'attack':r<.74?'raid':r<.86?'treasure':r<.94?'shield':'supply';}s.dry=['attack','raid','treasure'].includes(type)?0:s.dry+1;
+ const storyGap=s.adventureCasts-s.seaStories.lastCast;if(!g&&points(s)>=10&&((type==='supply'&&storyGap>=8)||(['fish','supply'].includes(type)&&storyGap>=18)))return startSeaStory(s,rng,C.fish);
  if(type==='raid')return startRaid(s,bet,rng);
  if(type==='attack'){const rival=chooseRival(s);s.event={...rival,id:randomUUID(),type,bet,shield:s.opponent.shield,damage:s.opponent.damage.slice(),rewardScale:rivalScale(s)};return {type,event:true};}
  if(type==='treasure')return startShellTreasure(s,bet,rng,C.fish);
  if(type==='shield'){const full=s.shields>=3;if(full)s.bait+=2;else s.shields++;return {type,full,guide:guide(s,'shield')};}
- if(type==='supply'&&points(s)>=10&&s.adventureCasts%7===0){s.event={id:randomUUID(),type:'encounter',kind:ENCOUNTER_BY_ZONE[s.zone]};return {type:'encounter',event:true};}
  if(type==='supply'){const food=Math.floor(2*bet*(1+bonuses(s,C.fish).food));s.food+=food;const supplies=bet*(1+gearEffects(s).crates);s.supplies+=supplies;s.bait+=2;return {type,food,supplies,bait:2};}return {type};
 }
 export function adventureAction(s,type,p,rng){const fail=m=>{throw new Error(m);};const b=bonuses(s,C.fish);const raid=raidAction(s,type,p,rng);if(raid)return raid;

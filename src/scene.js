@@ -1,3 +1,5 @@
+import {SEA_PALETTES} from './fishing-presentation.js';
+import {createFishModel} from './fish-preview.js';
 import {styleFor} from '../shared/expedition.js';
 import * as T from 'three';
 import {createHexWorld} from './hex-scene.js';
@@ -25,6 +27,7 @@ export function createWorld(container,onSpot,onBuilding,onMotion=()=>{},onBaseBu
  return api;
 }
 function createFishingWorld(container,onSpot,onMotion){
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  const scene=new T.Scene();scene.background=new T.Color('#43bfc2');
  const camera=new T.OrthographicCamera(-7,7,14,-14,.1,100);
  const renderer=new T.WebGLRenderer({antialias:true,powerPreference:'high-performance'});
@@ -37,9 +40,11 @@ function createFishingWorld(container,onSpot,onMotion){
  const box=(w,h,d,c,p,x=0,y=0,z=0)=>mesh(new T.BoxGeometry(w,h,d),c,p,x,y,z);
  const sphere=(r,c,p,x=0,y=0,z=0)=>mesh(new T.IcosahedronGeometry(r,2),c,p,x,y,z);
  const cylinder=(rt,rb,h,c,p,x=0,y=0,z=0,n=10)=>mesh(new T.CylinderGeometry(rt,rb,h,n),c,p,x,y,z);
- const water=new T.Mesh(new T.PlaneGeometry(200,200),new T.ShaderMaterial({uniforms:{time:{value:0},coral:{value:0}},vertexShader:`varying vec2 world;void main(){vec4 pos=modelMatrix*vec4(position,1.);world=pos.xz;gl_Position=projectionMatrix*viewMatrix*pos;}`,fragmentShader:`varying vec2 world;uniform float time;uniform float coral;
+ const water=new T.Mesh(new T.PlaneGeometry(200,200),new T.ShaderMaterial({uniforms:{time:{value:0},deep:{value:new T.Color(SEA_PALETTES[0].deep)},shallow:{value:new T.Color(SEA_PALETTES[0].shallow)}},vertexShader:`varying vec2 world;void main(){vec4 pos=modelMatrix*vec4(position,1.);world=pos.xz;gl_Position=projectionMatrix*viewMatrix*pos;}`,fragmentShader:`varying vec2 world;uniform float time;uniform vec3 deep;uniform vec3 shallow;
  float waves(vec2 p){return sin(p.x*1.5+sin(p.y*1.8-time*.3))*sin(p.y*1.2+time*.24);}
- void main(){vec2 p=world;float shore=smoothstep(3.4,7.5,abs(p.x));float w=waves(p);vec3 deep=mix(vec3(.055,.51,.64),vec3(.09,.44,.64),coral);vec3 c=mix(deep,vec3(.32,.78,.73),shore);c+=w*.017;float caustic=pow(max(0.,sin(p.x*3.+sin(p.y*2.+time*.2))*sin(p.y*3.-time*.3)),16.);c+=caustic*(.035+shore*.13);float sparkle=pow(max(0.,sin(p.x*3.7+sin(p.y*1.7))*sin(p.y*4.3+time*.4)),40.);c+=sparkle*.14;gl_FragColor=vec4(c,1.);}` }));water.rotation.x=-Math.PI/2;water.position.y=-.3;scene.add(water);
+ void main(){vec2 p=world;float shore=smoothstep(3.4,7.5,abs(p.x));float w=waves(p);vec3 c=mix(deep,shallow,shore);c+=w*.017;float caustic=pow(max(0.,sin(p.x*3.+sin(p.y*2.+time*.2))*sin(p.y*3.-time*.3)),16.);c+=caustic*(.035+shore*.13);float sparkle=pow(max(0.,sin(p.x*3.7+sin(p.y*1.7))*sin(p.y*4.3+time*.4)),40.);c+=sparkle*.14;gl_FragColor=vec4(c,1.);
+ #include <colorspace_fragment>
+ }` }));water.rotation.x=-Math.PI/2;water.position.y=-.3;scene.add(water);
  // Tall, uninterrupted water corridor, framed by detailed coastal edges.
  function island(x,z,rx,rz){const g=new T.Group();g.position.set(x,0,z);scene.add(g);
  for(const [scale,y,h,c] of [[1.13,-.18,.12,0x91ded0],[1,.02,.55,0xf6dda6],[.83,.56,.24,0x9ac875]]){const shape=new T.Shape();for(let i=0;i<=36;i++){const a=i/36*Math.PI*2,r=1+.08*Math.sin(a*5+x);const px=Math.cos(a)*rx*r*scale,pz=Math.sin(a)*rz*r*scale;i?shape.lineTo(px,pz):shape.moveTo(px,pz);}const geo=new T.ExtrudeGeometry(shape,{depth:h,bevelEnabled:true,bevelSegments:2,bevelSize:.16,bevelThickness:.12,steps:1});geo.rotateX(-Math.PI/2);mesh(geo,c,g,0,y,0);}return g;}
@@ -58,6 +63,19 @@ function createFishingWorld(container,onSpot,onMotion){
  for(const m of staticMeshes){m.removeFromParent();m.geometry.dispose();}
  for(const [material,geometries] of staticGroups){const merged=mergeGeometries(geometries);geometries.forEach(g=>g.dispose());const m=new T.Mesh(merged,material);m.castShadow=true;m.receiveShadow=true;scene.add(m);}
  renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;
+ const themeDecor=new T.Group();scene.add(themeDecor);
+ function dressSea(index){
+  for(const child of [...themeDecor.children]){child.traverse(o=>o.geometry?.dispose());themeDecor.remove(child);}
+  const theme=SEA_PALETTES[index]||SEA_PALETTES[0];scene.background.set(theme.sky);water.material.uniforms.deep.value.set(theme.deep);water.material.uniforms.shallow.value.set(theme.shallow);container.dataset.seaTheme=String(index);
+  for(let i=0;i<6;i++){const x=(i%2?1:-1)*5.5,z=-7+i*2.9;
+   if(index===1){box(.5,.35,.5,0xc79768,themeDecor,x,.55,z);const post=cylinder(.06,.06,1.5,0xb88a58,themeDecor,x,.7,z);sphere(.14,0xffdb8d,themeDecor,x,1.5,z);}
+   else if(index===2){for(let j=0;j<3;j++){const c=cylinder(.06,.11,.65+j*.18,j%2?0xe5b1b8:0xc49ecb,themeDecor,x+(j-1)*.22,.25,z);c.rotation.z=(j-1)*.6;}sphere(.16,0xf5d3b3,themeDecor,x,.7,z);}
+   else if(index===3){const rock=sphere(.65,0x665f68,themeDecor,x,.2,z);rock.scale.set(1,.65,1);const glow=box(.75,.04,.09,0xeaa16a,themeDecor,x,.59,z);glow.rotation.y=i;}
+   else if(index===4){const ice=mesh(new T.ConeGeometry(.6,1.1,5),0xc4e4e7,themeDecor,x,.3,z);ice.rotation.z=.2;box(.7,.1,.7,0xe9f0df,themeDecor,x,.04,z);}
+   else if(index===5){const stone=cylinder(.28,.35,1.3,0xaaa7ba,themeDecor,x,.4,z,6);sphere(.15,0xe0c7fc,themeDecor,x,1.15,z);const ring=mesh(new T.TorusGeometry(.4,.035,5,16),0xd8c7ea,themeDecor,x,.8,z);ring.rotation.x=Math.PI/2;}
+  }renderer.shadowMap.needsUpdate=true;
+ }
+
  // Open canoe: the captain, reel and rod stay readable at phone size.
  const boat=new T.Group();scene.add(boat);boat.scale.setScalar(1.13);
  const hull=mesh(new T.SphereGeometry(1,20,12),0xe4a25e,boat,0,.22,0);hull.scale.set(.63,.32,1.24);
@@ -72,7 +90,7 @@ function createFishingWorld(container,onSpot,onMotion){
  for(const x of [-.11,.11]){sphere(.035,0x3b4f4a,captain,x,.68,.24);sphere(.09,0xe7b685,captain,x*2.3,.38,.3);}
  const rod=new T.Group();rod.position.set(.18,.82,.25);boat.add(rod);
  function rodGeometry(bend=0){return new T.TubeGeometry(new T.CatmullRomCurve3([new T.Vector3(),new T.Vector3(.12,.8,.4),new T.Vector3(.2,1.25-bend,1.05)]),12,.023,5,false);}
- const rodMesh=mesh(rodGeometry(),0x68513b,rod);cylinder(.06,.06,.36,0xf4ce87,rod,0,.15,.06,8);const reel=mesh(new T.TorusGeometry(.09,.025,5,12),0xe8bd65,rod,0,.15,.16);reel.rotation.x=Math.PI/2;
+ const rodMesh=mesh(rodGeometry(),0x68513b,rod);const bentRod=rodGeometry(.65);rodMesh.geometry.morphAttributes.position=[bentRod.attributes.position.clone()];bentRod.dispose();rodMesh.updateMorphTargets();cylinder(.06,.06,.36,0xf4ce87,rod,0,.15,.06,8);const reel=mesh(new T.TorusGeometry(.09,.025,5,12),0xe8bd65,rod,0,.15,.16);reel.rotation.x=Math.PI/2;
  const float=new T.Group();scene.add(float);sphere(.115,0xf58863,float,0,.1,0);cylinder(.075,.075,.13,0xfff8de,float,0,.22,0);cylinder(.015,.015,.2,0xfce9ab,float,0,.37,0);float.visible=false;
  const linePositions=new Float32Array(25*3);const lineGeo=new T.BufferGeometry();lineGeo.setAttribute('position',new T.BufferAttribute(linePositions,3));
  const line=new T.Line(lineGeo,new T.LineBasicMaterial({color:0xfff7e1,transparent:true,opacity:.9}));line.frustumCulled=false;line.visible=false;scene.add(line);
@@ -92,11 +110,11 @@ function createFishingWorld(container,onSpot,onMotion){
  function ripple(x,z,scale=.3){const r=ripples.find(r=>r.life<=0);if(r){r.life=1;r.base=scale;r.mesh.visible=true;r.mesh.position.set(x,.015,z);}}
  function splash(pos,count=14){for(let i=0;i<count;i++){const p=pool.find(p=>p.life<=0);if(!p)break;p.life=.6+Math.random()*.3;p.mesh.visible=true;p.mesh.position.copy(pos);p.v.set((Math.random()-.5)*2,1+Math.random()*2,(Math.random()-.5)*2);}ripple(pos.x,pos.z,.4);}
  const targetMarker=new T.Mesh(new T.RingGeometry(.15,.21,24),new T.MeshBasicMaterial({color:0xffffdf,transparent:true,opacity:0}));targetMarker.rotation.x=-Math.PI/2;scene.add(targetMarker);
- const catchModel=fishModel(0xecb465);catchModel.visible=false;scene.add(catchModel);
+ let catchModel=new T.Group(),catchMaterials=[];catchModel.visible=false;scene.add(catchModel);
  let selected=0,paused=false,casting=false,castAt=0,castPhase='idle',progress=0,tension=0,charge=0,held=false,struggle=false,zone=0;
  let body={x:-1.1,z:3.1,heading:-2.55,speed:0,bank:0};let target={x:body.x,z:body.z};let moving=false,arrivalResolvers=[],pointer=null,dragging=false;
  let frameAverage=.016,quality=renderer.getPixelRatio(),qualityFrames=0;
- let last=performance.now()/1000,lastWake=0,lastSplash=0,markerLife=0,jumpAt=-10,catchColor=0xf4c064;
+ let last=performance.now()/1000,lastWake=0,lastSplash=0,markerLife=0,jumpAt=-10;
  const pointerPos=new T.Vector2(),ray=new T.Raycaster(),plane=new T.Plane(new T.Vector3(0,1,0),0),hit=new T.Vector3();
  function toWorld(e){const rect=renderer.domElement.getBoundingClientRect();pointerPos.set((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);ray.setFromCamera(pointerPos,camera);return ray.ray.intersectPlane(plane,hit)?hit:null;}
  function navigateTo(x,z){if(casting)return;target=waterBounds(x,z);markerLife=1;targetMarker.position.set(target.x,.03,target.z);targetMarker.material.opacity=.8;setMoving(true);}
@@ -109,7 +127,9 @@ function createFishingWorld(container,onSpot,onMotion){
  function approach(){const p=SPOTS[selected];const near=Math.hypot(body.x-p.x,body.z-p.z);if(near<3.8&&!moving)return Promise.resolve();select(selected);return new Promise(resolve=>arrivalResolvers.push(resolve));}
  function feedback(v){castPhase=v.phase??castPhase;progress=v.progress??progress;tension=v.tension??tension;charge=v.charge??charge;held=v.held??held;struggle=v.struggle??struggle;container.dataset.phase=castPhase;}
  function cast(v){casting=v;castAt=performance.now()/1000;float.visible=line.visible=v;progressRing.visible=v;progress=0;castPhase=v?'cast':'idle';if(!v){tension=0;charge=0;held=false;struggle=false;}container.dataset.phase=castPhase;}
- function catchFish(f){catchColor=new T.Color(f?.color||'#edb755');catchModel.traverse(o=>{if(o.isMesh&&o.material.color.getHex()!==0xfff9e7&&o.material.color.getHex()!==0x264e50){o.material=mat(catchColor.getHex());}});jumpAt=performance.now()/1000;catchModel.visible=true;splash(SPOTS[selected],25);}
+ function catchFish(f){
+  if(!f)return;catchModel.traverse(o=>o.geometry?.dispose());catchMaterials.forEach(m=>m.dispose());catchModel.removeFromParent();const built=createFishModel(f);catchModel=built.model;catchMaterials=built.materials;catchModel.visible=true;scene.add(catchModel);container.dataset.catchSpecies=f.id;castPhase='land';container.dataset.phase='land';float.visible=false;line.visible=false;progressRing.visible=false;jumpAt=performance.now()/1000;splash(SPOTS[selected],reduced?6:25);
+ }
  const birds=[];for(let i=0;i<3;i++){const b=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(-.25,0,0),new T.Vector3(0,-.06,0),new T.Vector3(.25,0,0)]),new T.LineBasicMaterial({color:0xfff7dd,transparent:true,opacity:.85}));scene.add(b);birds.push(b);}
  const look=new T.Vector3(0,0,2.2),lookTarget=new T.Vector3(),rodStart=new T.Vector3(),end=new T.Vector3();
  function resize(){const w=container.clientWidth,h=container.clientHeight;if(!w||!h)return;renderer.setSize(w,h);const vertical=26;camera.left=-vertical*w/h/2;camera.right=vertical*w/h/2;camera.top=vertical/2;camera.bottom=-vertical/2;camera.updateProjectionMatrix();}new ResizeObserver(resize).observe(container);resize();
@@ -120,13 +140,13 @@ function createFishingWorld(container,onSpot,onMotion){
   if(!moving){const p=SPOTS[selected],direction=Math.atan2(p.x-body.x,p.z-body.z);body.heading+=angleDelta(body.heading,direction)*(1-Math.exp(-4*dt));}
   boat.position.set(body.x,.08+Math.sin(now*2.6)*.025,body.z);boat.rotation.set(Math.sin(now*2)*.015,body.heading,body.bank+Math.sin(now*1.7)*.012);
   rod.rotation.x=castPhase==='charge'?-.6*charge/100:casting?-.18*Math.sin(Math.min(1,(now-castAt)/.5)*Math.PI)+(held?Math.sin(now*7)*.07:0):0;
-  const bend=casting&&castPhase==='reel'?.15+tension*.003:0;rod.scale.z=1+bend*.3;rod.rotation.z=held?-.08:0;
+  const bend=casting&&castPhase==='reel'?.15+tension*.003:0;rodMesh.morphTargetInfluences[0]=T.MathUtils.damp(rodMesh.morphTargetInfluences[0],Math.min(1,bend*2),10,dt);rod.rotation.z=held?-.08:0;captain.rotation.x=T.MathUtils.damp(captain.rotation.x,castPhase==='hook'?-.18:castPhase==='reel'&&held?-.08:0,9,dt);
   if(body.speed>.4&&now-lastWake>.11){lastWake=now;ripple(body.x-Math.sin(body.heading)*.9,body.z-Math.cos(body.heading)*.9,.15);}
-  lookTarget.set(body.x*.09,0,2.2+(casting?.35:0));look.lerp(lookTarget,1-Math.exp(-2*dt));camera.position.set(look.x,25,look.z+19);camera.lookAt(look);camera.zoom=T.MathUtils.damp(camera.zoom,casting?1.07:1,3,dt);camera.updateProjectionMatrix();
+  lookTarget.set(body.x*.09,0,2.2+(casting?.35:0));look.lerp(lookTarget,1-Math.exp(-2*dt));camera.position.set(look.x,25,look.z+19);camera.lookAt(look);camera.zoom=T.MathUtils.damp(camera.zoom,reduced?1:castPhase==='hook'?1.11:casting?1.06:1,3,dt);camera.updateProjectionMatrix();
   water.material.uniforms.time.value=now;palms.forEach((p,i)=>p.rotation.z=Math.sin(now*.75+i)*.018);
   shoals.forEach(f=>{const s=SPOTS[f.spot],a=now*.45+f.phase;f.model.position.set(s.x+Math.cos(a)*f.radius,-.1,s.z+Math.sin(a)*f.radius);f.model.rotation.y=-a-Math.PI/2;f.model.scale.y=.7+Math.sin(now*5+f.phase)*.1;});
   spotRings.forEach((r,i)=>{r.material.opacity=i===selected?.85:.28;r.material.color.set(i===selected?0xfff5cc:0xb4ecdf);r.scale.setScalar(1+Math.sin(now*2+i)*.018);});
-  if(casting){const elapsed=now-castAt;rodStart.copy(new T.Vector3(.2,1.25,1.05));rod.localToWorld(rodStart);end.copy(SPOTS[selected]);end.y=.08+Math.sin(now*7)*.035;const flight=clamp(elapsed/.52,0,1);float.position.lerpVectors(rodStart,end,flight);float.position.y+=Math.sin(flight*Math.PI)*2.2;
+  if(casting&&castPhase!=='land'){const elapsed=now-castAt;rodStart.copy(new T.Vector3(.2,1.25,1.05));rod.localToWorld(rodStart);end.copy(SPOTS[selected]);end.y=.08+Math.sin(now*7)*.035;if(castPhase==='reel'){end.x=T.MathUtils.lerp(end.x,body.x,progress/100*.65);end.z=T.MathUtils.lerp(end.z,body.z,progress/100*.65);}const flight=clamp(elapsed/.52,0,1);float.position.lerpVectors(rodStart,end,flight);float.position.y+=Math.sin(flight*Math.PI)*2.2;
    if(elapsed>=.52&&elapsed-dt<.52)splash(end);if((castPhase==='hook'||castPhase==='reel')&&now-lastSplash>.3){lastSplash=now;splash(end,4);}
    if(castPhase==='hook'){float.position.y-=.12+Math.sin(now*18)*.1;}if(castPhase==='reel'){float.position.x+=Math.sin(now*(struggle?11:5))*(struggle?.5:.16);float.position.z+=Math.cos(now*(struggle?9:4))*(struggle?.3:.1);}line.material.color.set(tension>90?0xff745c:struggle?0xffd28a:0xfff7e1);
    for(let i=0;i<=24;i++){const a=i/24;linePositions[i*3]=T.MathUtils.lerp(rodStart.x,float.position.x,a);linePositions[i*3+1]=T.MathUtils.lerp(rodStart.y,float.position.y,a)-Math.sin(a*Math.PI)*(castPhase==='reel'?.06:.25);linePositions[i*3+2]=T.MathUtils.lerp(rodStart.z,float.position.z,a);}lineGeo.attributes.position.needsUpdate=true;
@@ -135,7 +155,7 @@ function createFishingWorld(container,onSpot,onMotion){
   pool.forEach(p=>{if(p.life<=0)return;p.life-=dt;p.v.y-=dt*5;p.mesh.position.addScaledVector(p.v,dt);p.mesh.scale.setScalar(Math.max(.01,p.life));if(p.life<=0)p.mesh.visible=false;});
   ripples.forEach(r=>{if(r.life<=0)return;r.life-=dt*.75;r.mesh.material.opacity=Math.max(0,r.life*.38);r.mesh.scale.setScalar(r.base+(1-r.life)*.9);if(r.life<=0)r.mesh.visible=false;});
   markerLife=Math.max(0,markerLife-dt);targetMarker.material.opacity=markerLife*.7;targetMarker.scale.setScalar(1+(1-markerLife)*2);
-  const jumping=now-jumpAt;if(jumping<.85){catchModel.visible=true;const p=SPOTS[selected],t=jumping/.85;catchModel.position.set(T.MathUtils.lerp(p.x,body.x,t),.4+Math.sin(t*Math.PI)*3,T.MathUtils.lerp(p.z,body.z,t));catchModel.scale.setScalar(1.8);catchModel.rotation.set(t*2,now*3,-t*4);}else catchModel.visible=false;
+  const jumping=now-jumpAt;if(jumping<.85){catchModel.visible=true;const p=SPOTS[selected],t=jumping/.85;catchModel.position.set(T.MathUtils.lerp(p.x,body.x,t),.4+Math.sin(t*Math.PI)*(reduced?.5:2.8),T.MathUtils.lerp(p.z,body.z,t));catchModel.scale.setScalar(.62);catchModel.rotation.set(Math.sin(t*Math.PI)*.25,-body.heading+Math.PI/2,Math.sin(t*Math.PI)*.6);}else catchModel.visible=false;
   birds.forEach((b,i)=>{b.position.set(Math.sin(now*.08+i*2)*8,6+i,Math.cos(now*.08+i*2)*9-2);b.rotation.y=-now*.08-i*2;});
   const w=container.clientWidth,h=container.clientHeight;
   hitButtons.forEach((button,i)=>{const p=SPOTS[i].clone().project(camera);button.style.left=(p.x*.5+.5)*w+'px';button.style.top=(-p.y*.5+.5)*h+'px';const size=2.65/(camera.right-camera.left)*w*camera.zoom;button.style.width=button.style.height=size+'px';button.classList.toggle('selected',i===selected);button.setAttribute('aria-pressed',String(i===selected));button.hidden=casting;});
@@ -143,5 +163,5 @@ function createFishingWorld(container,onSpot,onMotion){
   renderer.render(scene,camera);
  }
  animate();
- return {setStyle(style){const custom=style.id!=='coast';pennant.visible=custom;sail.material.color.set(style.color);rim.material.color.set(custom?style.color:0xffe3ad);container.dataset.style=style.id;},select,approach,cancelApproach(){target={x:body.x,z:body.z};body.speed=0;setMoving(false);arrivalResolvers.splice(0).forEach(resolve=>resolve());},cast,feedback,catchFish,freeze(v){paused=v;},isMoving:()=>moving,zone(z){zone=z;water.material.uniforms.coral.value=Math.min(1,z);},reset(){select(selected);},getInfo:()=>renderer.info};
+ return {setStyle(style){const custom=style.id!=='coast';pennant.visible=custom;sail.material.color.set(style.color);rim.material.color.set(custom?style.color:0xffe3ad);container.dataset.style=style.id;},select,approach,cancelApproach(){target={x:body.x,z:body.z};body.speed=0;setMoving(false);arrivalResolvers.splice(0).forEach(resolve=>resolve());},cast,feedback,catchFish,freeze(v){paused=v;},isMoving:()=>moving,zone(z){if(zone!==z||!container.dataset.seaTheme){zone=z;dressSea(z);}},reset(){select(selected);},getInfo:()=>renderer.info};
 }
