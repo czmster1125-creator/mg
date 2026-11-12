@@ -1,3 +1,4 @@
+import {voyageReady} from '../shared/expedition.js';
 import {ORDER_DEFS} from '../shared/orders.js';
 import {GUIDES} from '../shared/adventure.js';
 import {CHAPTERS,chapterReady,journeyValues} from '../shared/journey.js';
@@ -15,8 +16,8 @@ export function dailySummary(s,tab){
 }
 export function activityView(s,c,tab,icon){
  const d=dailySummary(s,tab),labels={catch:'捕获 8 条鱼',adventure:'完成 3 次海上事件',growth:'扩张／升级／培养 2 次'};
- const tasksReady=chapterReady(s)||weeklyReady(s);
- return `<button id="orders-entry" class="daily-preview ${d.ready?'ready':''}" data-act="orders" aria-label="每日订单，${d.order?labels[d.order.id]+'，进度 '+d.count+'/'+d.order.target:'今日全部完成'}${d.ready?'，可领取奖励':''}"><span class="daily-emblem">${icon(d.ready?'gift':'flag')}</span><span class="daily-copy"><span class="daily-heading">每日订单 <small>${d.ready?d.readyCount+' 单可领奖':d.claimed+'/3 已领取'}</small></span><strong>${d.order?labels[d.order.id]:'今日订单已全部完成'} <b>${d.order?d.count+'/'+d.order.target:'✓'}</b></strong><span class="daily-reward">${d.order?rewardLabel(d.order.reward):'明日再来，继续出海发现新伙伴'}</span><span class="progress-track"><span style="width:${d.order?d.count/d.order.target*100:100}%"></span></span></span>${icon('chevron-right')}</button><button class="task-entry ${tasksReady?'ready':''}" data-act="tasks" aria-label="任务总览，主线故事、新手引导与每周委托">${icon('book-open')}<strong>任务</strong><small>${tasksReady?'可领奖':'主线 · 每周'}</small></button>`;
+ const tasksReady=chapterReady(s)||weeklyReady(s)||voyageReady(s)||(s.rivalTrail.step===3&&!s.rivalTrail.claimed);
+ return `<button id="orders-entry" class="daily-preview ${d.ready?'ready':''}" data-act="orders" aria-label="每日订单，${d.order?labels[d.order.id]+'，进度 '+d.count+'/'+d.order.target:'今日全部完成'}${d.ready?'，可领取奖励':''}"><span class="daily-emblem">${icon(d.ready?'gift':'flag')}</span><span class="daily-copy"><span class="daily-heading">每日订单 <small>${d.ready?d.readyCount+' 单可领奖':d.claimed+'/3 已领取'}</small></span><strong>${d.order?labels[d.order.id]:'今日订单已全部完成'} <b>${d.order?d.count+'/'+d.order.target:'✓'}</b></strong><span class="daily-reward">${d.order?rewardLabel(d.order.reward):'明日再来，继续出海发现新伙伴'}</span><span class="progress-track"><span style="width:${d.order?d.count/d.order.target*100:100}%"></span></span></span>${icon('chevron-right')}</button><button class="task-entry ${tasksReady?'ready':''}" data-act="tasks" aria-label="任务总览，主线故事、新手引导与每周委托">${icon('book-open')}<strong>任务</strong><small>${tasksReady?'可领奖':'航海 '+s.voyage.points}</small></button>`;
 }
 export function taskView(s,c,icon){
  const g=GUIDES[s.guide],goal=nextObjective(s,c),chapter=CHAPTERS[s.journey.chapter],v=journeyValues(s);

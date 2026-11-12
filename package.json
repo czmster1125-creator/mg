@@ -1,6 +1,6 @@
 {
   "name": "tidebloom",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "private": true,
   "type": "module",
   "description": "Tidebloom — a cozy 3D fishing and island-building demo",
@@ -8,7 +8,7 @@
     "dev": "node server/index.js",
     "build": "node scripts/build.mjs",
     "start": "NODE_ENV=production node server/index.js",
-    "test": "node tests/engine.test.js && node tests/motion.test.js && node tests/town-models.test.js && node tests/adventure.test.js && node tests/fishing.test.js && node tests/progression.test.js && node tests/online.test.js && node tests/content.test.js && node tests/home-treasure.test.js && node tests/spin.test.js && node tests/equipment-captain.test.js",
+    "test": "node tests/engine.test.js && node tests/motion.test.js && node tests/town-models.test.js && node tests/adventure.test.js && node tests/fishing.test.js && node tests/progression.test.js && node tests/online.test.js && node tests/content.test.js && node tests/home-treasure.test.js && node tests/spin.test.js && node tests/equipment-captain.test.js && node tests/expedition.test.js && node tests/cooperation.test.js",
     "test:e2e": "playwright test",
     "balance": "node scripts/balance.mjs",
     "test:pwa": "node scripts/test-pwa.mjs"

@@ -1,3 +1,6 @@
+import {createCooperation} from './cooperation.js';
+import {loopSnapshot,recordLoop} from './expedition.js';
+import {ensureOuting} from '../shared/expedition.js';
 import {activityXP} from '../shared/captain.js';
 import {weeklyProgress} from '../shared/weekly.js';
 import http from 'node:http';
@@ -16,9 +19,9 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const data=process.env.DATA_DIR||path.join(root,'.data');mkdirSync(data,{recursive:true});
 const db=new DatabaseSync(path.join(data,'tidebloom.sqlite'));db.exec('PRAGMA journal_mode=WAL; CREATE TABLE IF NOT EXISTS players (id TEXT PRIMARY KEY, state TEXT NOT NULL); CREATE TABLE IF NOT EXISTS transactions (player TEXT, request TEXT, type TEXT, result TEXT, PRIMARY KEY(player,request));');
 const get=db.prepare('SELECT state FROM players WHERE id=?'),put=db.prepare('INSERT OR REPLACE INTO players VALUES (?,?)');
-const accounts=createAccounts(db),social=createSocial(db,accounts);
+const accounts=createAccounts(db),social=createSocial(db,accounts),coop=createCooperation(db,accounts);
 const read=id=>{const row=get.get(id);return row?JSON.parse(row.state):initialState();};
-const body=(id,s,result)=>({state:publicState(s),result,social:social.panel(id,s)});
+const body=(id,s,result)=>({state:publicState(s),result,social:{...social.panel(id,s),coop:coop.panel(id,s)}});
 const vite=process.env.NODE_ENV==='production'?null:await (await import('vite')).createServer({root,server:{middlewareMode:true,allowedHosts:true},appType:'spa'});
 const send=(res,status,value)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(JSON.stringify(value));};
 const server=http.createServer(async(req,res)=>{
@@ -27,7 +30,7 @@ const server=http.createServer(async(req,res)=>{
    if(req.url==='/api/health')return send(res,200,{ok:true,version:config.version});
    const id=accounts.resolve(req,res);
    if(req.method==='GET'&&req.url==='/api/bootstrap'){
-    db.exec('BEGIN IMMEDIATE');try{social.expire();const s=read(id);settle(s);put.run(id,JSON.stringify(s));const out={...body(id,s),config};db.exec('COMMIT');return send(res,200,out);}catch(e){db.exec('ROLLBACK');throw e;}
+    db.exec('BEGIN IMMEDIATE');try{social.expire();const s=read(id);settle(s);coop.contribute(id,s);put.run(id,JSON.stringify(s));const out={...body(id,s),config};db.exec('COMMIT');return send(res,200,out);}catch(e){db.exec('ROLLBACK');throw e;}
    }
    if(req.method!=='POST')return send(res,404,{error:'接口不存在'});
    if(req.headers.origin&&req.headers.origin!==`${req.headers['x-forwarded-proto']||'http'}://${req.headers.host}`){const origin=new URL(req.headers.origin);if(origin.host!==req.headers.host)return send(res,403,{error:'请求来源不匹配'});}
@@ -37,9 +40,9 @@ const server=http.createServer(async(req,res)=>{
    db.exec('BEGIN IMMEDIATE');
    try{
     const prior=db.prepare('SELECT type,result FROM transactions WHERE player=? AND request=?').get(id,p.requestId);if(prior){if(prior.type!==type)throw Error('请求编号已用于其他操作');db.exec('COMMIT');return send(res,200,JSON.parse(prior.result));}
-    social.expire();const s=read(id);settle(s);let result=social.action(id,s,type,p),context;
-    if(!result){context=social.complete(id,s,type,p);if(context?.type==='attack'){result=context;result.xpGain=activityXP(s,type,p,result);recordJourney(s,result);weeklyProgress(s,'attack');progressOrder(s,'adventure');}else{result=action(s,type,p);if(type==='fishing'&&result.event)social.convert(id,s,p.bet);social.finishRaid(context,result,s);}}
-    put.run(id,JSON.stringify(s));const out=body(id,s,result);db.prepare('INSERT INTO transactions VALUES (?,?,?,?)').run(id,p.requestId,type,JSON.stringify(out));db.exec('COMMIT');return send(res,200,out);
+    social.expire();const s=read(id);settle(s);const loopBefore=loopSnapshot(s);let result=coop.action(id,s,type,p)||social.action(id,s,type,p),context,external=!!result;
+    if(!result){context=social.complete(id,s,type,p);if(context?.type==='attack'){result=context;external=true;result.xpGain=activityXP(s,type,p,result);recordJourney(s,result);weeklyProgress(s,'attack');progressOrder(s,'adventure');}else{result=action(s,type,p);if(type==='fishing'&&result.event)social.convert(id,s,p.bet);social.finishRaid(context,result,s);}}
+    if(external){if(type==='social/start'){ensureOuting(s,Date.now());s.outing.spent++;s.voyage.points++;}recordLoop(s,type,p,result,loopBefore,Date.now());}coop.contribute(id,s);put.run(id,JSON.stringify(s));const out=body(id,s,result);db.prepare('INSERT INTO transactions VALUES (?,?,?,?)').run(id,p.requestId,type,JSON.stringify(out));db.exec('COMMIT');return send(res,200,out);
    }catch(e){db.exec('ROLLBACK');throw e;}
   }catch(e){return send(res,e.status||400,{error:e.message||'请求失败，请重试'});}
  }

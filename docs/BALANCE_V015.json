@@ -1,0 +1,4190 @@
+{
+  "assumptions": [
+    "8 deterministic seeds per scenario; 14 days, two logins 12 hours apart, up to 40 casts each",
+    "same level-1 recovery in first-island scenarios; late scenarios start with max buildings and gear and the final sea",
+    "immediate claim of available daily, weekly and updated voyage rewards; no chapter/collection/captain claims, no ads/payment or cooperative reward",
+    "one safe NPC raid attempt, then retreat; shell cells opened sequentially; no hidden-board knowledge",
+    "updated uses region ability whenever ready; appearance purchases and available weekly island festivals only in late scenario with a 5000-coin reserve",
+    "this checks bounded progress, reward budgets and accumulation; it is not a retention or final economy measurement"
+  ],
+  "summary": [
+    {
+      "scenario": "first-island",
+      "updated": false,
+      "casts": [
+        1120,
+        1120
+      ],
+      "themeBait": [
+        0,
+        0
+      ],
+      "featureUses": [
+        0,
+        0
+      ],
+      "appearanceSpend": [
+        0,
+        0
+      ],
+      "festivalSpend": [
+        0,
+        0
+      ],
+      "day14Coins": [
+        70122,
+        75609
+      ],
+      "day14Supplies": [
+        548,
+        868
+      ],
+      "day14Food": [
+        481,
+        581
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": true,
+      "casts": [
+        1120,
+        1120
+      ],
+      "themeBait": [
+        72,
+        72
+      ],
+      "featureUses": [
+        122,
+        123
+      ],
+      "appearanceSpend": [
+        0,
+        0
+      ],
+      "festivalSpend": [
+        0,
+        0
+      ],
+      "day14Coins": [
+        75393,
+        78334
+      ],
+      "day14Supplies": [
+        557,
+        876
+      ],
+      "day14Food": [
+        558,
+        632
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": false,
+      "casts": [
+        1120,
+        1120
+      ],
+      "themeBait": [
+        0,
+        0
+      ],
+      "featureUses": [
+        0,
+        0
+      ],
+      "appearanceSpend": [
+        0,
+        0
+      ],
+      "festivalSpend": [
+        0,
+        0
+      ],
+      "day14Coins": [
+        339953,
+        405774
+      ],
+      "day14Supplies": [
+        2245,
+        3836
+      ],
+      "day14Food": [
+        777,
+        1208
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": true,
+      "casts": [
+        1120,
+        1120
+      ],
+      "themeBait": [
+        72,
+        72
+      ],
+      "featureUses": [
+        65,
+        65
+      ],
+      "appearanceSpend": [
+        100000,
+        100000
+      ],
+      "festivalSpend": [
+        255000,
+        285000
+      ],
+      "day14Coins": [
+        16556,
+        53135
+      ],
+      "day14Supplies": [
+        1521,
+        3140
+      ],
+      "day14Food": [
+        937,
+        1237
+      ]
+    }
+  ],
+  "results": [
+    {
+      "scenario": "first-island",
+      "updated": false,
+      "seed": 1,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 646,
+          "bait": 93,
+          "supplies": 57,
+          "food": 25,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6121,
+          "bait": 57,
+          "supplies": 99,
+          "food": 78,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11841,
+          "bait": 17,
+          "supplies": 130,
+          "food": 103,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 18199,
+          "bait": 12,
+          "supplies": 172,
+          "food": 139,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24866,
+          "bait": 23,
+          "supplies": 218,
+          "food": 187,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29725,
+          "bait": 16,
+          "supplies": 248,
+          "food": 211,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 35113,
+          "bait": 20,
+          "supplies": 288,
+          "food": 238,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 40846,
+          "bait": 15,
+          "supplies": 321,
+          "food": 269,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45766,
+          "bait": 22,
+          "supplies": 359,
+          "food": 310,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 51713,
+          "bait": 14,
+          "supplies": 394,
+          "food": 348,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 57066,
+          "bait": 16,
+          "supplies": 434,
+          "food": 380,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 62556,
+          "bait": 20,
+          "supplies": 480,
+          "food": 418,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 68515,
+          "bait": 16,
+          "supplies": 519,
+          "food": 456,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 73393,
+          "bait": 15,
+          "supplies": 550,
+          "food": 492,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": false,
+      "seed": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1438,
+          "bait": 104,
+          "supplies": 63,
+          "food": 48,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 7788,
+          "bait": 55,
+          "supplies": 124,
+          "food": 87,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 13564,
+          "bait": 32,
+          "supplies": 180,
+          "food": 124,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 19154,
+          "bait": 14,
+          "supplies": 239,
+          "food": 162,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 25760,
+          "bait": 20,
+          "supplies": 303,
+          "food": 212,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 31185,
+          "bait": 15,
+          "supplies": 363,
+          "food": 248,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 37528,
+          "bait": 13,
+          "supplies": 424,
+          "food": 285,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 43214,
+          "bait": 17,
+          "supplies": 481,
+          "food": 321,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 49031,
+          "bait": 16,
+          "supplies": 545,
+          "food": 351,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 54255,
+          "bait": 18,
+          "supplies": 608,
+          "food": 384,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 59517,
+          "bait": 16,
+          "supplies": 669,
+          "food": 422,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 65968,
+          "bait": 26,
+          "supplies": 737,
+          "food": 468,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 70244,
+          "bait": 26,
+          "supplies": 792,
+          "food": 494,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 75609,
+          "bait": 22,
+          "supplies": 857,
+          "food": 544,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": false,
+      "seed": 3,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1200,
+          "bait": 110,
+          "supplies": 74,
+          "food": 51,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6243,
+          "bait": 62,
+          "supplies": 131,
+          "food": 91,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11911,
+          "bait": 20,
+          "supplies": 188,
+          "food": 133,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17964,
+          "bait": 17,
+          "supplies": 253,
+          "food": 168,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24415,
+          "bait": 26,
+          "supplies": 316,
+          "food": 209,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 30001,
+          "bait": 14,
+          "supplies": 376,
+          "food": 242,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 35260,
+          "bait": 22,
+          "supplies": 438,
+          "food": 283,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 40238,
+          "bait": 19,
+          "supplies": 499,
+          "food": 317,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45848,
+          "bait": 18,
+          "supplies": 561,
+          "food": 351,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 52034,
+          "bait": 10,
+          "supplies": 620,
+          "food": 395,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 57225,
+          "bait": 14,
+          "supplies": 676,
+          "food": 431,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 62304,
+          "bait": 26,
+          "supplies": 748,
+          "food": 480,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 67960,
+          "bait": 18,
+          "supplies": 803,
+          "food": 520,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 73394,
+          "bait": 14,
+          "supplies": 865,
+          "food": 560,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": false,
+      "seed": 4,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1461,
+          "bait": 106,
+          "supplies": 59,
+          "food": 41,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6618,
+          "bait": 62,
+          "supplies": 91,
+          "food": 84,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11134,
+          "bait": 23,
+          "supplies": 124,
+          "food": 120,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16343,
+          "bait": 19,
+          "supplies": 166,
+          "food": 155,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22162,
+          "bait": 24,
+          "supplies": 204,
+          "food": 202,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27837,
+          "bait": 14,
+          "supplies": 241,
+          "food": 243,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 32563,
+          "bait": 29,
+          "supplies": 289,
+          "food": 292,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 37717,
+          "bait": 13,
+          "supplies": 321,
+          "food": 330,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 42391,
+          "bait": 23,
+          "supplies": 356,
+          "food": 365,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 47619,
+          "bait": 16,
+          "supplies": 398,
+          "food": 411,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 53315,
+          "bait": 14,
+          "supplies": 436,
+          "food": 445,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 59293,
+          "bait": 20,
+          "supplies": 477,
+          "food": 485,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 64463,
+          "bait": 16,
+          "supplies": 514,
+          "food": 536,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 70122,
+          "bait": 13,
+          "supplies": 548,
+          "food": 581,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": false,
+      "seed": 5,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1305,
+          "bait": 80,
+          "supplies": 63,
+          "food": 42,
+          "land": 24
+        },
+        {
+          "day": 2,
+          "coin": 6480,
+          "bait": 60,
+          "supplies": 128,
+          "food": 76,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11708,
+          "bait": 16,
+          "supplies": 190,
+          "food": 116,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 16669,
+          "bait": 17,
+          "supplies": 249,
+          "food": 149,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 22934,
+          "bait": 24,
+          "supplies": 320,
+          "food": 191,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28168,
+          "bait": 18,
+          "supplies": 378,
+          "food": 229,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 34271,
+          "bait": 20,
+          "supplies": 441,
+          "food": 265,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39324,
+          "bait": 28,
+          "supplies": 498,
+          "food": 299,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45295,
+          "bait": 12,
+          "supplies": 554,
+          "food": 341,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 50299,
+          "bait": 20,
+          "supplies": 612,
+          "food": 370,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 55468,
+          "bait": 18,
+          "supplies": 664,
+          "food": 407,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 60974,
+          "bait": 16,
+          "supplies": 726,
+          "food": 443,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 66553,
+          "bait": 16,
+          "supplies": 794,
+          "food": 483,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 71507,
+          "bait": 24,
+          "supplies": 846,
+          "food": 498,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": false,
+      "seed": 6,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1231,
+          "bait": 82,
+          "supplies": 63,
+          "food": 36,
+          "land": 24
+        },
+        {
+          "day": 2,
+          "coin": 5806,
+          "bait": 72,
+          "supplies": 121,
+          "food": 77,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 12109,
+          "bait": 18,
+          "supplies": 180,
+          "food": 115,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17561,
+          "bait": 16,
+          "supplies": 240,
+          "food": 158,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24310,
+          "bait": 14,
+          "supplies": 301,
+          "food": 198,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29829,
+          "bait": 17,
+          "supplies": 361,
+          "food": 242,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 35788,
+          "bait": 17,
+          "supplies": 426,
+          "food": 281,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41398,
+          "bait": 23,
+          "supplies": 486,
+          "food": 322,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45882,
+          "bait": 24,
+          "supplies": 551,
+          "food": 355,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 51095,
+          "bait": 18,
+          "supplies": 624,
+          "food": 389,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 55736,
+          "bait": 18,
+          "supplies": 683,
+          "food": 416,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 62170,
+          "bait": 30,
+          "supplies": 749,
+          "food": 451,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 66577,
+          "bait": 24,
+          "supplies": 810,
+          "food": 485,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 72216,
+          "bait": 18,
+          "supplies": 868,
+          "food": 522,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": false,
+      "seed": 7,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 357,
+          "bait": 68,
+          "supplies": 71,
+          "food": 34,
+          "land": 24
+        },
+        {
+          "day": 2,
+          "coin": 5388,
+          "bait": 55,
+          "supplies": 123,
+          "food": 76,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 10867,
+          "bait": 22,
+          "supplies": 185,
+          "food": 110,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 15875,
+          "bait": 14,
+          "supplies": 247,
+          "food": 148,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 21936,
+          "bait": 22,
+          "supplies": 308,
+          "food": 189,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 27791,
+          "bait": 15,
+          "supplies": 364,
+          "food": 229,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 33091,
+          "bait": 22,
+          "supplies": 423,
+          "food": 265,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39070,
+          "bait": 14,
+          "supplies": 485,
+          "food": 314,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45113,
+          "bait": 17,
+          "supplies": 544,
+          "food": 361,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 50046,
+          "bait": 22,
+          "supplies": 604,
+          "food": 395,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 55413,
+          "bait": 20,
+          "supplies": 660,
+          "food": 437,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 62209,
+          "bait": 22,
+          "supplies": 735,
+          "food": 477,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 67299,
+          "bait": 26,
+          "supplies": 798,
+          "food": 527,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 73366,
+          "bait": 12,
+          "supplies": 860,
+          "food": 554,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": false,
+      "seed": 8,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1449,
+          "bait": 108,
+          "supplies": 67,
+          "food": 33,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 7135,
+          "bait": 58,
+          "supplies": 125,
+          "food": 61,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 12456,
+          "bait": 16,
+          "supplies": 185,
+          "food": 99,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17761,
+          "bait": 26,
+          "supplies": 240,
+          "food": 137,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23981,
+          "bait": 24,
+          "supplies": 306,
+          "food": 173,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29115,
+          "bait": 19,
+          "supplies": 364,
+          "food": 215,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 35507,
+          "bait": 19,
+          "supplies": 426,
+          "food": 247,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 40981,
+          "bait": 16,
+          "supplies": 484,
+          "food": 279,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 46949,
+          "bait": 14,
+          "supplies": 540,
+          "food": 304,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 52057,
+          "bait": 18,
+          "supplies": 596,
+          "food": 336,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 57438,
+          "bait": 12,
+          "supplies": 652,
+          "food": 378,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 63327,
+          "bait": 22,
+          "supplies": 718,
+          "food": 415,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 68612,
+          "bait": 32,
+          "supplies": 782,
+          "food": 458,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 74438,
+          "bait": 16,
+          "supplies": 849,
+          "food": 481,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": true,
+      "seed": 1,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 122,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 871,
+          "bait": 87,
+          "supplies": 74,
+          "food": 43,
+          "land": 24
+        },
+        {
+          "day": 2,
+          "coin": 5960,
+          "bait": 72,
+          "supplies": 107,
+          "food": 78,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11435,
+          "bait": 20,
+          "supplies": 137,
+          "food": 99,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17558,
+          "bait": 18,
+          "supplies": 175,
+          "food": 137,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24559,
+          "bait": 22,
+          "supplies": 229,
+          "food": 198,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29529,
+          "bait": 22,
+          "supplies": 263,
+          "food": 236,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 34949,
+          "bait": 14,
+          "supplies": 300,
+          "food": 265,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 40559,
+          "bait": 14,
+          "supplies": 336,
+          "food": 293,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45711,
+          "bait": 22,
+          "supplies": 372,
+          "food": 328,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 52378,
+          "bait": 12,
+          "supplies": 403,
+          "food": 374,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 58347,
+          "bait": 14,
+          "supplies": 438,
+          "food": 415,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 64734,
+          "bait": 31,
+          "supplies": 490,
+          "food": 475,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 70169,
+          "bait": 14,
+          "supplies": 527,
+          "food": 523,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 76815,
+          "bait": 11,
+          "supplies": 572,
+          "food": 561,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": true,
+      "seed": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 2069,
+          "bait": 126,
+          "supplies": 80,
+          "food": 65,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 7479,
+          "bait": 69,
+          "supplies": 133,
+          "food": 97,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 13755,
+          "bait": 19,
+          "supplies": 180,
+          "food": 134,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 19135,
+          "bait": 19,
+          "supplies": 238,
+          "food": 168,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 26073,
+          "bait": 26,
+          "supplies": 311,
+          "food": 218,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 32040,
+          "bait": 14,
+          "supplies": 371,
+          "food": 260,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 37698,
+          "bait": 18,
+          "supplies": 434,
+          "food": 302,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 43083,
+          "bait": 23,
+          "supplies": 488,
+          "food": 339,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 48568,
+          "bait": 16,
+          "supplies": 542,
+          "food": 376,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 54595,
+          "bait": 16,
+          "supplies": 611,
+          "food": 420,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 60036,
+          "bait": 10,
+          "supplies": 664,
+          "food": 436,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 67425,
+          "bait": 38,
+          "supplies": 746,
+          "food": 510,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 73224,
+          "bait": 20,
+          "supplies": 798,
+          "food": 551,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 78334,
+          "bait": 22,
+          "supplies": 853,
+          "food": 583,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": true,
+      "seed": 3,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1268,
+          "bait": 112,
+          "supplies": 79,
+          "food": 45,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6693,
+          "bait": 71,
+          "supplies": 136,
+          "food": 84,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 12324,
+          "bait": 27,
+          "supplies": 193,
+          "food": 126,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 18354,
+          "bait": 17,
+          "supplies": 256,
+          "food": 155,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24992,
+          "bait": 32,
+          "supplies": 333,
+          "food": 226,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 30675,
+          "bait": 18,
+          "supplies": 394,
+          "food": 264,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 36357,
+          "bait": 12,
+          "supplies": 455,
+          "food": 293,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41921,
+          "bait": 18,
+          "supplies": 513,
+          "food": 331,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 47090,
+          "bait": 14,
+          "supplies": 570,
+          "food": 355,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 53206,
+          "bait": 17,
+          "supplies": 624,
+          "food": 394,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 59187,
+          "bait": 15,
+          "supplies": 681,
+          "food": 429,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 65481,
+          "bait": 28,
+          "supplies": 756,
+          "food": 496,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 70688,
+          "bait": 17,
+          "supplies": 816,
+          "food": 539,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 76277,
+          "bait": 18,
+          "supplies": 876,
+          "food": 566,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": true,
+      "seed": 4,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1301,
+          "bait": 118,
+          "supplies": 61,
+          "food": 57,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6866,
+          "bait": 90,
+          "supplies": 94,
+          "food": 102,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11813,
+          "bait": 46,
+          "supplies": 131,
+          "food": 132,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17573,
+          "bait": 17,
+          "supplies": 164,
+          "food": 158,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24021,
+          "bait": 24,
+          "supplies": 218,
+          "food": 208,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 30121,
+          "bait": 14,
+          "supplies": 258,
+          "food": 255,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 35802,
+          "bait": 22,
+          "supplies": 294,
+          "food": 295,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41127,
+          "bait": 20,
+          "supplies": 327,
+          "food": 331,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 46756,
+          "bait": 23,
+          "supplies": 367,
+          "food": 356,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 52222,
+          "bait": 14,
+          "supplies": 397,
+          "food": 383,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 57645,
+          "bait": 20,
+          "supplies": 436,
+          "food": 419,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 64229,
+          "bait": 32,
+          "supplies": 487,
+          "food": 473,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 70079,
+          "bait": 16,
+          "supplies": 529,
+          "food": 510,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 76502,
+          "bait": 16,
+          "supplies": 557,
+          "food": 558,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": true,
+      "seed": 5,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1808,
+          "bait": 119,
+          "supplies": 74,
+          "food": 57,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 7656,
+          "bait": 77,
+          "supplies": 140,
+          "food": 104,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 12852,
+          "bait": 28,
+          "supplies": 200,
+          "food": 138,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17841,
+          "bait": 20,
+          "supplies": 261,
+          "food": 180,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24130,
+          "bait": 27,
+          "supplies": 336,
+          "food": 230,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 29772,
+          "bait": 12,
+          "supplies": 388,
+          "food": 272,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 36086,
+          "bait": 14,
+          "supplies": 450,
+          "food": 315,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 41284,
+          "bait": 22,
+          "supplies": 507,
+          "food": 349,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 47107,
+          "bait": 11,
+          "supplies": 568,
+          "food": 383,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 52645,
+          "bait": 18,
+          "supplies": 618,
+          "food": 414,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 58220,
+          "bait": 13,
+          "supplies": 672,
+          "food": 447,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 64686,
+          "bait": 40,
+          "supplies": 746,
+          "food": 509,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 70511,
+          "bait": 12,
+          "supplies": 808,
+          "food": 537,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 76024,
+          "bait": 14,
+          "supplies": 861,
+          "food": 563,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": true,
+      "seed": 6,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 626,
+          "bait": 132,
+          "supplies": 76,
+          "food": 52,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6173,
+          "bait": 96,
+          "supplies": 130,
+          "food": 86,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11985,
+          "bait": 53,
+          "supplies": 191,
+          "food": 123,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 18362,
+          "bait": 16,
+          "supplies": 243,
+          "food": 159,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 24897,
+          "bait": 25,
+          "supplies": 318,
+          "food": 219,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 31139,
+          "bait": 12,
+          "supplies": 376,
+          "food": 265,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 36862,
+          "bait": 11,
+          "supplies": 425,
+          "food": 299,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 43016,
+          "bait": 14,
+          "supplies": 483,
+          "food": 325,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 48276,
+          "bait": 21,
+          "supplies": 547,
+          "food": 379,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 53721,
+          "bait": 19,
+          "supplies": 613,
+          "food": 414,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 59276,
+          "bait": 13,
+          "supplies": 672,
+          "food": 452,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 65593,
+          "bait": 20,
+          "supplies": 744,
+          "food": 491,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 72169,
+          "bait": 16,
+          "supplies": 798,
+          "food": 551,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 77480,
+          "bait": 24,
+          "supplies": 858,
+          "food": 579,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": true,
+      "seed": 7,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1012,
+          "bait": 116,
+          "supplies": 70,
+          "food": 58,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6199,
+          "bait": 77,
+          "supplies": 97,
+          "food": 92,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 11208,
+          "bait": 26,
+          "supplies": 126,
+          "food": 124,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 17394,
+          "bait": 12,
+          "supplies": 168,
+          "food": 151,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23507,
+          "bait": 23,
+          "supplies": 217,
+          "food": 198,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28990,
+          "bait": 10,
+          "supplies": 252,
+          "food": 229,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 34382,
+          "bait": 16,
+          "supplies": 294,
+          "food": 267,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 39798,
+          "bait": 14,
+          "supplies": 332,
+          "food": 305,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 45912,
+          "bait": 18,
+          "supplies": 371,
+          "food": 353,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 51044,
+          "bait": 17,
+          "supplies": 413,
+          "food": 384,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 56607,
+          "bait": 14,
+          "supplies": 444,
+          "food": 421,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 63911,
+          "bait": 42,
+          "supplies": 499,
+          "food": 498,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 69895,
+          "bait": 16,
+          "supplies": 536,
+          "food": 532,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 75393,
+          "bait": 18,
+          "supplies": 578,
+          "food": 572,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "first-island",
+      "updated": true,
+      "seed": 8,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 123,
+      "themeBait": 72,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 1718,
+          "bait": 113,
+          "supplies": 73,
+          "food": 45,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6985,
+          "bait": 69,
+          "supplies": 130,
+          "food": 86,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 13508,
+          "bait": 15,
+          "supplies": 188,
+          "food": 132,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 19398,
+          "bait": 23,
+          "supplies": 249,
+          "food": 177,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 25650,
+          "bait": 27,
+          "supplies": 321,
+          "food": 239,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 32065,
+          "bait": 14,
+          "supplies": 373,
+          "food": 294,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 37297,
+          "bait": 26,
+          "supplies": 420,
+          "food": 340,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 43059,
+          "bait": 14,
+          "supplies": 456,
+          "food": 382,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 49048,
+          "bait": 11,
+          "supplies": 486,
+          "food": 411,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 54534,
+          "bait": 19,
+          "supplies": 523,
+          "food": 455,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 60130,
+          "bait": 12,
+          "supplies": 564,
+          "food": 487,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 66565,
+          "bait": 22,
+          "supplies": 612,
+          "food": 548,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 71520,
+          "bait": 22,
+          "supplies": 655,
+          "food": 588,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 77037,
+          "bait": 22,
+          "supplies": 697,
+          "food": 632,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": false,
+      "seed": 1,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 36050,
+          "bait": 11,
+          "supplies": 206,
+          "food": 41,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 60347,
+          "bait": 20,
+          "supplies": 372,
+          "food": 134,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 90227,
+          "bait": 17,
+          "supplies": 515,
+          "food": 207,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 119166,
+          "bait": 12,
+          "supplies": 687,
+          "food": 291,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 144933,
+          "bait": 15,
+          "supplies": 863,
+          "food": 379,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 172697,
+          "bait": 16,
+          "supplies": 1001,
+          "food": 451,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 202067,
+          "bait": 20,
+          "supplies": 1163,
+          "food": 526,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 232326,
+          "bait": 15,
+          "supplies": 1306,
+          "food": 593,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 256666,
+          "bait": 22,
+          "supplies": 1464,
+          "food": 658,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 286460,
+          "bait": 14,
+          "supplies": 1615,
+          "food": 720,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 310379,
+          "bait": 16,
+          "supplies": 1775,
+          "food": 776,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 338366,
+          "bait": 20,
+          "supplies": 1937,
+          "food": 846,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 364333,
+          "bait": 16,
+          "supplies": 2098,
+          "food": 900,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 391374,
+          "bait": 15,
+          "supplies": 2245,
+          "food": 960,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": false,
+      "seed": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 35048,
+          "bait": 14,
+          "supplies": 262,
+          "food": 56,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 62125,
+          "bait": 22,
+          "supplies": 544,
+          "food": 152,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 91337,
+          "bait": 25,
+          "supplies": 822,
+          "food": 239,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 116232,
+          "bait": 12,
+          "supplies": 1088,
+          "food": 324,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 145568,
+          "bait": 14,
+          "supplies": 1358,
+          "food": 408,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 172747,
+          "bait": 13,
+          "supplies": 1634,
+          "food": 489,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 204043,
+          "bait": 14,
+          "supplies": 1902,
+          "food": 573,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 231794,
+          "bait": 19,
+          "supplies": 2177,
+          "food": 663,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 262828,
+          "bait": 16,
+          "supplies": 2451,
+          "food": 741,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 290425,
+          "bait": 16,
+          "supplies": 2724,
+          "food": 818,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 316765,
+          "bait": 12,
+          "supplies": 2984,
+          "food": 896,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 345048,
+          "bait": 24,
+          "supplies": 3275,
+          "food": 998,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 369652,
+          "bait": 26,
+          "supplies": 3531,
+          "food": 1071,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 397807,
+          "bait": 19,
+          "supplies": 3810,
+          "food": 1164,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": false,
+      "seed": 3,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 36453,
+          "bait": 16,
+          "supplies": 286,
+          "food": 57,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 66409,
+          "bait": 18,
+          "supplies": 553,
+          "food": 115,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 93419,
+          "bait": 18,
+          "supplies": 822,
+          "food": 172,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 122796,
+          "bait": 18,
+          "supplies": 1112,
+          "food": 230,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 154618,
+          "bait": 17,
+          "supplies": 1385,
+          "food": 281,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 183089,
+          "bait": 14,
+          "supplies": 1659,
+          "food": 332,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 211872,
+          "bait": 19,
+          "supplies": 1928,
+          "food": 385,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 239697,
+          "bait": 19,
+          "supplies": 2203,
+          "food": 440,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 270847,
+          "bait": 20,
+          "supplies": 2476,
+          "food": 491,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 299712,
+          "bait": 10,
+          "supplies": 2740,
+          "food": 544,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 324300,
+          "bait": 14,
+          "supplies": 2995,
+          "food": 596,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 350757,
+          "bait": 31,
+          "supplies": 3276,
+          "food": 669,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 378900,
+          "bait": 12,
+          "supplies": 3554,
+          "food": 721,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 405774,
+          "bait": 13,
+          "supplies": 3819,
+          "food": 777,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": false,
+      "seed": 4,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 37868,
+          "bait": 26,
+          "supplies": 199,
+          "food": 47,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 58482,
+          "bait": 30,
+          "supplies": 361,
+          "food": 149,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 81541,
+          "bait": 18,
+          "supplies": 510,
+          "food": 230,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 102892,
+          "bait": 20,
+          "supplies": 677,
+          "food": 312,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 126408,
+          "bait": 14,
+          "supplies": 829,
+          "food": 399,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 147105,
+          "bait": 16,
+          "supplies": 993,
+          "food": 490,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 170051,
+          "bait": 30,
+          "supplies": 1169,
+          "food": 590,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 194308,
+          "bait": 14,
+          "supplies": 1315,
+          "food": 673,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 217007,
+          "bait": 26,
+          "supplies": 1474,
+          "food": 763,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 239208,
+          "bait": 16,
+          "supplies": 1636,
+          "food": 850,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 264698,
+          "bait": 14,
+          "supplies": 1794,
+          "food": 935,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 289777,
+          "bait": 21,
+          "supplies": 1942,
+          "food": 1021,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 316292,
+          "bait": 16,
+          "supplies": 2095,
+          "food": 1113,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 339953,
+          "bait": 12,
+          "supplies": 2256,
+          "food": 1208,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": false,
+      "seed": 5,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 37583,
+          "bait": 24,
+          "supplies": 246,
+          "food": 50,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 63870,
+          "bait": 18,
+          "supplies": 527,
+          "food": 132,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 90193,
+          "bait": 16,
+          "supplies": 799,
+          "food": 220,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 116158,
+          "bait": 17,
+          "supplies": 1068,
+          "food": 277,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 144752,
+          "bait": 24,
+          "supplies": 1367,
+          "food": 335,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 169996,
+          "bait": 18,
+          "supplies": 1645,
+          "food": 397,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 198470,
+          "bait": 20,
+          "supplies": 1928,
+          "food": 457,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 226557,
+          "bait": 28,
+          "supplies": 2195,
+          "food": 515,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 258119,
+          "bait": 12,
+          "supplies": 2465,
+          "food": 581,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 288051,
+          "bait": 20,
+          "supplies": 2731,
+          "food": 634,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 316466,
+          "bait": 18,
+          "supplies": 2993,
+          "food": 695,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 344389,
+          "bait": 24,
+          "supplies": 3263,
+          "food": 763,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 370056,
+          "bait": 16,
+          "supplies": 3549,
+          "food": 819,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 398107,
+          "bait": 24,
+          "supplies": 3801,
+          "food": 858,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": false,
+      "seed": 6,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 38722,
+          "bait": 26,
+          "supplies": 251,
+          "food": 51,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 65337,
+          "bait": 23,
+          "supplies": 514,
+          "food": 134,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 96163,
+          "bait": 16,
+          "supplies": 793,
+          "food": 230,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 122132,
+          "bait": 14,
+          "supplies": 1071,
+          "food": 311,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 152061,
+          "bait": 12,
+          "supplies": 1332,
+          "food": 394,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 179806,
+          "bait": 17,
+          "supplies": 1618,
+          "food": 492,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 207606,
+          "bait": 15,
+          "supplies": 1895,
+          "food": 582,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 228986,
+          "bait": 21,
+          "supplies": 2176,
+          "food": 669,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 249625,
+          "bait": 26,
+          "supplies": 2457,
+          "food": 754,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 271882,
+          "bait": 18,
+          "supplies": 2745,
+          "food": 840,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 293307,
+          "bait": 20,
+          "supplies": 3018,
+          "food": 928,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 321375,
+          "bait": 24,
+          "supplies": 3287,
+          "food": 1022,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 345438,
+          "bait": 21,
+          "supplies": 3561,
+          "food": 1105,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 367844,
+          "bait": 15,
+          "supplies": 3836,
+          "food": 1188,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": false,
+      "seed": 7,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 32352,
+          "bait": 12,
+          "supplies": 272,
+          "food": 50,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 60834,
+          "bait": 21,
+          "supplies": 528,
+          "food": 132,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 88908,
+          "bait": 22,
+          "supplies": 806,
+          "food": 214,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 114707,
+          "bait": 14,
+          "supplies": 1080,
+          "food": 300,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 144861,
+          "bait": 14,
+          "supplies": 1349,
+          "food": 381,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 175922,
+          "bait": 15,
+          "supplies": 1619,
+          "food": 469,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 202831,
+          "bait": 22,
+          "supplies": 1892,
+          "food": 553,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 232352,
+          "bait": 14,
+          "supplies": 2172,
+          "food": 650,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 257250,
+          "bait": 17,
+          "supplies": 2449,
+          "food": 745,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 284671,
+          "bait": 22,
+          "supplies": 2721,
+          "food": 827,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 310267,
+          "bait": 20,
+          "supplies": 2983,
+          "food": 917,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 339290,
+          "bait": 22,
+          "supplies": 3282,
+          "food": 1005,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 361810,
+          "bait": 26,
+          "supplies": 3563,
+          "food": 1103,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 392130,
+          "bait": 12,
+          "supplies": 3831,
+          "food": 1178,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": false,
+      "seed": 8,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 0,
+      "themeBait": 0,
+      "appearanceSpend": 0,
+      "festivalSpend": 0,
+      "paidStyles": 0,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 39459,
+          "bait": 16,
+          "supplies": 262,
+          "food": 29,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 67672,
+          "bait": 16,
+          "supplies": 531,
+          "food": 82,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 94547,
+          "bait": 14,
+          "supplies": 805,
+          "food": 141,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 119594,
+          "bait": 26,
+          "supplies": 1068,
+          "food": 203,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 149202,
+          "bait": 24,
+          "supplies": 1353,
+          "food": 257,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 173327,
+          "bait": 19,
+          "supplies": 1624,
+          "food": 321,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 203942,
+          "bait": 26,
+          "supplies": 1914,
+          "food": 385,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 230377,
+          "bait": 20,
+          "supplies": 2190,
+          "food": 444,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 259816,
+          "bait": 12,
+          "supplies": 2455,
+          "food": 492,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 285161,
+          "bait": 17,
+          "supplies": 2714,
+          "food": 549,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 309006,
+          "bait": 12,
+          "supplies": 2977,
+          "food": 610,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 334739,
+          "bait": 22,
+          "supplies": 3256,
+          "food": 677,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 355746,
+          "bait": 22,
+          "supplies": 3542,
+          "food": 739,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 381492,
+          "bait": 18,
+          "supplies": 3827,
+          "food": 787,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": true,
+      "seed": 1,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 12570,
+          "bait": 12,
+          "supplies": 160,
+          "food": 58,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 23106,
+          "bait": 22,
+          "supplies": 291,
+          "food": 149,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 7794,
+          "bait": 16,
+          "supplies": 352,
+          "food": 223,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 15335,
+          "bait": 14,
+          "supplies": 483,
+          "food": 319,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 15306,
+          "bait": 24,
+          "supplies": 606,
+          "food": 424,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 24085,
+          "bait": 17,
+          "supplies": 717,
+          "food": 500,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 27960,
+          "bait": 18,
+          "supplies": 818,
+          "food": 573,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 33192,
+          "bait": 14,
+          "supplies": 917,
+          "food": 653,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 62070,
+          "bait": 24,
+          "supplies": 1076,
+          "food": 741,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 33219,
+          "bait": 12,
+          "supplies": 1145,
+          "food": 838,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 60619,
+          "bait": 15,
+          "supplies": 1288,
+          "food": 918,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 14744,
+          "bait": 51,
+          "supplies": 1317,
+          "food": 1030,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 14558,
+          "bait": 13,
+          "supplies": 1405,
+          "food": 1108,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 44214,
+          "bait": 19,
+          "supplies": 1554,
+          "food": 1196,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": true,
+      "seed": 2,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 9555,
+          "bait": 28,
+          "supplies": 220,
+          "food": 69,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 23575,
+          "bait": 18,
+          "supplies": 463,
+          "food": 152,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 8498,
+          "bait": 19,
+          "supplies": 647,
+          "food": 242,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 9680,
+          "bait": 14,
+          "supplies": 868,
+          "food": 329,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 11419,
+          "bait": 42,
+          "supplies": 1089,
+          "food": 437,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 20350,
+          "bait": 14,
+          "supplies": 1320,
+          "food": 511,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 29371,
+          "bait": 12,
+          "supplies": 1547,
+          "food": 591,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 29265,
+          "bait": 25,
+          "supplies": 1760,
+          "food": 688,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 59815,
+          "bait": 17,
+          "supplies": 2012,
+          "food": 763,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 31972,
+          "bait": 28,
+          "supplies": 2213,
+          "food": 844,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 65894,
+          "bait": 20,
+          "supplies": 2461,
+          "food": 913,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 22068,
+          "bait": 38,
+          "supplies": 2607,
+          "food": 1029,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 23183,
+          "bait": 22,
+          "supplies": 2812,
+          "food": 1119,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 50295,
+          "bait": 17,
+          "supplies": 3080,
+          "food": 1194,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": true,
+      "seed": 3,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 260000,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 7795,
+          "bait": 32,
+          "supplies": 236,
+          "food": 63,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 18196,
+          "bait": 22,
+          "supplies": 481,
+          "food": 155,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 25531,
+          "bait": 18,
+          "supplies": 709,
+          "food": 243,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 21654,
+          "bait": 20,
+          "supplies": 954,
+          "food": 330,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 19780,
+          "bait": 34,
+          "supplies": 1181,
+          "food": 431,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 25244,
+          "bait": 15,
+          "supplies": 1408,
+          "food": 497,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 26626,
+          "bait": 22,
+          "supplies": 1624,
+          "food": 552,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 24100,
+          "bait": 17,
+          "supplies": 1835,
+          "food": 603,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 49585,
+          "bait": 11,
+          "supplies": 2094,
+          "food": 640,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 16465,
+          "bait": 18,
+          "supplies": 2276,
+          "food": 695,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 44813,
+          "bait": 10,
+          "supplies": 2530,
+          "food": 749,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 23469,
+          "bait": 30,
+          "supplies": 2711,
+          "food": 826,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 23131,
+          "bait": 18,
+          "supplies": 2932,
+          "food": 886,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 19468,
+          "bait": 18,
+          "supplies": 3140,
+          "food": 937,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": true,
+      "seed": 4,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 255000,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 9289,
+          "bait": 34,
+          "supplies": 174,
+          "food": 68,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 17597,
+          "bait": 20,
+          "supplies": 298,
+          "food": 160,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 21213,
+          "bait": 18,
+          "supplies": 408,
+          "food": 236,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 19194,
+          "bait": 18,
+          "supplies": 534,
+          "food": 320,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 15502,
+          "bait": 33,
+          "supplies": 648,
+          "food": 423,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 18395,
+          "bait": 19,
+          "supplies": 772,
+          "food": 514,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 20711,
+          "bait": 20,
+          "supplies": 884,
+          "food": 603,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 18753,
+          "bait": 14,
+          "supplies": 988,
+          "food": 682,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 15292,
+          "bait": 18,
+          "supplies": 1091,
+          "food": 771,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 41113,
+          "bait": 10,
+          "supplies": 1239,
+          "food": 849,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 8266,
+          "bait": 14,
+          "supplies": 1309,
+          "food": 934,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 7527,
+          "bait": 28,
+          "supplies": 1408,
+          "food": 1031,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 17162,
+          "bait": 12,
+          "supplies": 1516,
+          "food": 1107,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 16556,
+          "bait": 16,
+          "supplies": 1616,
+          "food": 1198,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": true,
+      "seed": 5,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 11906,
+          "bait": 30,
+          "supplies": 215,
+          "food": 66,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 5556,
+          "bait": 16,
+          "supplies": 409,
+          "food": 145,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 6204,
+          "bait": 14,
+          "supplies": 635,
+          "food": 227,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 7782,
+          "bait": 22,
+          "supplies": 856,
+          "food": 315,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 7163,
+          "bait": 36,
+          "supplies": 1104,
+          "food": 420,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 16561,
+          "bait": 15,
+          "supplies": 1336,
+          "food": 502,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 18467,
+          "bait": 14,
+          "supplies": 1577,
+          "food": 589,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 19793,
+          "bait": 24,
+          "supplies": 1787,
+          "food": 672,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 52574,
+          "bait": 12,
+          "supplies": 2050,
+          "food": 752,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 24732,
+          "bait": 16,
+          "supplies": 2231,
+          "food": 832,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 54746,
+          "bait": 14,
+          "supplies": 2492,
+          "food": 924,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 9190,
+          "bait": 48,
+          "supplies": 2623,
+          "food": 1035,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 6245,
+          "bait": 19,
+          "supplies": 2840,
+          "food": 1111,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 36283,
+          "bait": 23,
+          "supplies": 3088,
+          "food": 1177,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": true,
+      "seed": 6,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 14587,
+          "bait": 24,
+          "supplies": 230,
+          "food": 68,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 9799,
+          "bait": 23,
+          "supplies": 420,
+          "food": 165,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 15320,
+          "bait": 16,
+          "supplies": 644,
+          "food": 246,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 20885,
+          "bait": 17,
+          "supplies": 862,
+          "food": 331,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 23821,
+          "bait": 12,
+          "supplies": 1092,
+          "food": 416,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 8030,
+          "bait": 16,
+          "supplies": 1276,
+          "food": 508,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 7065,
+          "bait": 12,
+          "supplies": 1491,
+          "food": 601,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 36728,
+          "bait": 12,
+          "supplies": 1763,
+          "food": 676,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 62698,
+          "bait": 27,
+          "supplies": 2053,
+          "food": 762,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 32277,
+          "bait": 12,
+          "supplies": 2241,
+          "food": 844,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 63564,
+          "bait": 19,
+          "supplies": 2508,
+          "food": 895,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 23739,
+          "bait": 23,
+          "supplies": 2631,
+          "food": 965,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 25781,
+          "bait": 18,
+          "supplies": 2844,
+          "food": 1028,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 53135,
+          "bait": 20,
+          "supplies": 3125,
+          "food": 1091,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": true,
+      "seed": 7,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 8775,
+          "bait": 12,
+          "supplies": 218,
+          "food": 56,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 24141,
+          "bait": 14,
+          "supplies": 451,
+          "food": 152,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 5973,
+          "bait": 24,
+          "supplies": 648,
+          "food": 236,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 13028,
+          "bait": 14,
+          "supplies": 863,
+          "food": 325,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 18438,
+          "bait": 25,
+          "supplies": 1077,
+          "food": 420,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 28302,
+          "bait": 19,
+          "supplies": 1305,
+          "food": 509,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 31896,
+          "bait": 17,
+          "supplies": 1533,
+          "food": 591,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 31667,
+          "bait": 16,
+          "supplies": 1755,
+          "food": 683,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 62662,
+          "bait": 18,
+          "supplies": 2022,
+          "food": 772,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 32422,
+          "bait": 20,
+          "supplies": 2210,
+          "food": 857,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 59603,
+          "bait": 20,
+          "supplies": 2475,
+          "food": 952,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 14117,
+          "bait": 30,
+          "supplies": 2626,
+          "food": 1065,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 13826,
+          "bait": 14,
+          "supplies": 2841,
+          "food": 1154,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 43682,
+          "bait": 19,
+          "supplies": 3104,
+          "food": 1237,
+          "land": 25
+        }
+      ]
+    },
+    {
+      "scenario": "max-buildings-and-gear",
+      "updated": true,
+      "seed": 8,
+      "casts": 1120,
+      "drySessions": 0,
+      "featureUses": 65,
+      "themeBait": 72,
+      "appearanceSpend": 100000,
+      "festivalSpend": 285000,
+      "paidStyles": 3,
+      "daily": [
+        {
+          "day": 1,
+          "coin": 11671,
+          "bait": 24,
+          "supplies": 159,
+          "food": 51,
+          "land": 25
+        },
+        {
+          "day": 2,
+          "coin": 6704,
+          "bait": 16,
+          "supplies": 244,
+          "food": 131,
+          "land": 25
+        },
+        {
+          "day": 3,
+          "coin": 12358,
+          "bait": 12,
+          "supplies": 342,
+          "food": 211,
+          "land": 25
+        },
+        {
+          "day": 4,
+          "coin": 14183,
+          "bait": 22,
+          "supplies": 444,
+          "food": 292,
+          "land": 25
+        },
+        {
+          "day": 5,
+          "coin": 16645,
+          "bait": 25,
+          "supplies": 567,
+          "food": 389,
+          "land": 25
+        },
+        {
+          "day": 6,
+          "coin": 25126,
+          "bait": 19,
+          "supplies": 684,
+          "food": 494,
+          "land": 25
+        },
+        {
+          "day": 7,
+          "coin": 32518,
+          "bait": 26,
+          "supplies": 801,
+          "food": 581,
+          "land": 25
+        },
+        {
+          "day": 8,
+          "coin": 31786,
+          "bait": 25,
+          "supplies": 906,
+          "food": 665,
+          "land": 25
+        },
+        {
+          "day": 9,
+          "coin": 62258,
+          "bait": 12,
+          "supplies": 1042,
+          "food": 737,
+          "land": 25
+        },
+        {
+          "day": 10,
+          "coin": 30038,
+          "bait": 15,
+          "supplies": 1117,
+          "food": 820,
+          "land": 25
+        },
+        {
+          "day": 11,
+          "coin": 54906,
+          "bait": 12,
+          "supplies": 1271,
+          "food": 910,
+          "land": 25
+        },
+        {
+          "day": 12,
+          "coin": 12463,
+          "bait": 14,
+          "supplies": 1278,
+          "food": 1001,
+          "land": 25
+        },
+        {
+          "day": 13,
+          "coin": 6597,
+          "bait": 18,
+          "supplies": 1382,
+          "food": 1092,
+          "land": 25
+        },
+        {
+          "day": 14,
+          "coin": 33423,
+          "bait": 15,
+          "supplies": 1521,
+          "food": 1166,
+          "land": 25
+        }
+      ]
+    }
+  ]
+}

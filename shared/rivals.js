@@ -11,5 +11,5 @@ export function initRivals(s){
  if(s.event&&['raid','attack'].includes(s.event.type)&&!s.event.live&&!s.event.rival){s.event.rival=RIVALS.find(r=>r.id===s.rivalId)||RIVALS[0];s.event.targetName=s.event.rival.name;}
 }
 export function refillRivals(s){for(const r of Object.values(s.rivals))r.vault=Math.min(1800,r.vault+10);s.rivalVault=s.rivals[s.rivalId].vault;}
-export function chooseRival(s){const rival=RIVALS[s.rivalCursor%RIVALS.length],data=s.rivals[rival.id];s.rivalId=rival.id;s.rivalVault=data.vault;s.opponent=data.defense;return {rival,targetName:rival.name};}
+export function chooseRival(s){const tracked=s.rivalTrail?.follow&&s.rivalTrail.step===1?s.rivalTrail.rival:null;const rival=RIVALS.find(r=>r.id===tracked?.id)||RIVALS[s.rivalCursor%RIVALS.length],data=s.rivals[rival.id];s.rivalId=rival.id;s.rivalVault=data.vault;s.opponent=data.defense;return {rival,targetName:rival.name};}
 export function finishRival(s,e){if(e.live)return;const data=s.rivals[e.rival?.id||s.rivalId];if(data){data.vault=s.rivalVault;data.defense=s.opponent;}s.rivalCursor++;}
