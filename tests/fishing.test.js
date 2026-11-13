@@ -3,7 +3,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {FIGHT_PROFILES,createFight,stepFight,fightPhase,perfectCast} from '../shared/fishing.js';
 import {nextObjective} from '../shared/objectives.js';
-import {initialState,settle,action} from '../server/engine.js';
+import {settle,action} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';
 import {config as C} from '../server/config.js';
 
 const now=100000000;

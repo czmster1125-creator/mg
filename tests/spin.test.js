@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {initialState,settle,action} from '../server/engine.js';
+import {settle,action} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';
 import {proof} from './manual-helper.js';
 const now=Date.UTC(2026,10,11,2);
 const fresh=()=>{const s=initialState(now);settle(s,now);s.guide=8;return s;};

@@ -1,5 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';import * as T from 'three';
-import {initialState,settle,action} from '../server/engine.js';import {config as C} from '../server/config.js';
+import {settle,action} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';import {config as C} from '../server/config.js';
 import {publicState} from '../server/adventure.js';import {startSeaStory} from '../server/sea-stories.js';
 import {SEA_STORIES,STORY_FORMAT,storyChoices,initSeaStories} from '../shared/sea-stories.js';
 import {createStoryModel} from '../src/sea-story-scene.js';import {fishingBeat,SEA_PALETTES} from '../src/fishing-presentation.js';

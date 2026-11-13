@@ -1,5 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {initialState,settle,action} from '../server/engine.js';
+import {settle,action} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';
 import {featureStatus,VOYAGE_STEPS,voyageTheme,festivalOn} from '../shared/expedition.js';
 import {config as C} from '../server/config.js';
 const now=Date.UTC(2026,10,12,4),fresh=()=>{const s=initialState(now);settle(s,now);s.guide=8;s.bait=1000;return s;};

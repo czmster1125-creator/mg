@@ -1,3 +1,4 @@
+import {voyageBoat} from '../shared/onboarding.js';
 import {SEA_PALETTES} from './fishing-presentation.js';
 import {createFishModel} from './fish-preview.js';
 import {styleFor} from '../shared/expedition.js';
@@ -20,7 +21,7 @@ export function createWorld(container,onSpot,onBuilding,onMotion=()=>{},onBaseBu
   view(v){current=v;if(v==='map'&&!hex){hexHost=document.createElement('div');hexHost.className='world-layer';container.append(hexHost);hex=createHexWorld(hexHost,onBuilding,onBaseBuilding);if(lastState)hex.update(lastState,lastRegion);}if(v==='base'&&!island){islandHost=document.createElement('div');islandHost.className='world-layer';container.append(islandHost);island=createIslandWorld(islandHost,onBuilding,onBaseBuilding,onCollect);if(lastState)island.update(lastState,lastRegion);}fishingHost.hidden=v!=='fish';if(hexHost)hexHost.hidden=v!=='map';if(islandHost)islandHost.hidden=v!=='base';island?.view('base');api.freeze(frozen);},
   selectBuilding:i=>{if(current==='base')island?.select(i);},clearSelection:()=>island?.clearSelection(),collect:()=>island?.collect(),
   zone:z=>fishing.zone(z),
-  update(s,r=0){lastState=s;lastRegion=r;fishing.setStyle(styleFor(s));island?.update(s,r);hex?.update(s,r);},
+  update(s,r=0){lastState=s;lastRegion=r;fishing.setStyle(styleFor(s));fishing.setProgress(s);island?.update(s,r);hex?.update(s,r);},
   reset(){current==='map'?hex?.reset():current==='base'?island?.reset():fishing.reset();},
   getInfo:()=>fishing.getInfo(),
  };
@@ -83,6 +84,7 @@ function createFishingWorld(container,onSpot,onMotion){
  const inside=mesh(new T.SphereGeometry(1,20,12),0x9a613e,boat,0,.38,0);inside.scale.set(.47,.10,1.01);
  for(const z of [-.6,.25])box(.95,.1,.25,0xe8bd83,boat,0,.47,z);
  box(.08,.12,1.7,0xd88150,boat,-.51,.38,0);box(.08,.12,1.7,0xd88150,boat,.51,.38,0);
+ const canoeParts=boat.children.slice();const raft=new T.Group();boat.add(raft);for(let i=0;i<4;i++)box(.28,.12,1.9,0xbf945f,raft,(i-1.5)*.29,.34,0);for(const z of [-.6,.6])box(1.25,.04,.06,0x655444,raft,0,.42,z);raft.visible=false;
  const pennant=new T.Group();boat.add(pennant);pennant.position.set(-.42,.45,-.65);cylinder(.025,.025,1.25,0xf7e0a5,pennant,0,.6,0);const sail=box(.55,.32,.035,0x5bb9a3,pennant,.26,1.02,0);pennant.visible=false;
  const captain=new T.Group();boat.add(captain);captain.position.set(0,.48,-.2);
  const torso=sphere(.27,0x379c9c,captain,0,.28,0);torso.scale.set(1,.95,.8);sphere(.23,0xf1c18a,captain,0,.68,.03);
@@ -163,5 +165,5 @@ function createFishingWorld(container,onSpot,onMotion){
   renderer.render(scene,camera);
  }
  animate();
- return {setStyle(style){const custom=style.id!=='coast';pennant.visible=custom;sail.material.color.set(style.color);rim.material.color.set(custom?style.color:0xffe3ad);container.dataset.style=style.id;},select,approach,cancelApproach(){target={x:body.x,z:body.z};body.speed=0;setMoving(false);arrivalResolvers.splice(0).forEach(resolve=>resolve());},cast,feedback,catchFish,freeze(v){paused=v;},isMoving:()=>moving,zone(z){if(zone!==z||!container.dataset.seaTheme){zone=z;dressSea(z);}},reset(){select(selected);},getInfo:()=>renderer.info};
+ return {setProgress(s){const canoe=voyageBoat(s);canoeParts.forEach(p=>p.visible=canoe);raft.visible=!canoe;container.dataset.vessel=canoe?'canoe':'driftwood';},setStyle(style){const custom=style.id!=='coast';pennant.visible=custom;sail.material.color.set(style.color);rim.material.color.set(custom?style.color:0xffe3ad);container.dataset.style=style.id;},select,approach,cancelApproach(){target={x:body.x,z:body.z};body.speed=0;setMoving(false);arrivalResolvers.splice(0).forEach(resolve=>resolve());},cast,feedback,catchFish,freeze(v){paused=v;},isMoving:()=>moving,zone(z){if(zone!==z||!container.dataset.seaTheme){zone=z;dressSea(z);}},reset(){select(selected);},getInfo:()=>renderer.info};
 }

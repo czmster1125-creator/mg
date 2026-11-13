@@ -5,7 +5,8 @@ import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {DatabaseSync} from 'node:sqlite';
 import {randomUUID} from 'node:crypto';
-import {initialState,settle,action} from '../server/engine.js';
+import {settle,action} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';
 import {config as C} from '../server/config.js';
 import {frontier} from '../shared/hex.js';
 

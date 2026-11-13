@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './legacy-browser.js';
 test.use({serviceWorkers:'block',viewport:{width:390,height:844},hasTouch:true,isMobile:true});
 test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('tidebloom-rare-challenge','off'));});
 async function post(page,type,data={}){const r=await page.request.post('/api/'+type,{data:{...data,requestId:crypto.randomUUID()}});expect(r.ok(),await r.text()).toBe(true);return r.json();}

@@ -1,0 +1,2 @@
+// Frozen v0.18 character factory. Regression coverage uses real legacy saves.
+export function legacyState(now=Date.now()) {return {guideVersion:2,gearVersion:2,homeVersion:2,coin:350,bait:40,supplies:8,food:0,xp:0,cargo:[],book:{},zone:0,unlocked:[0],region:0,nodes:[[0,0,0,0,0],[0,0,0,0,0]],milestones:[[],[]],base:[1,1,0,0],pending:[0,24,4,1],gear:[0,0,0],mission:0,missionProgress:0,lastSettle:now,baitFraction:0,manual:null,catchCount:0,createdAt:now};}

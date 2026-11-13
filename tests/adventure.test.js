@@ -1,5 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {initialState,action,settle} from '../server/engine.js';import {publicState} from '../server/adventure.js';import {frontier} from '../shared/hex.js';
+import {action,settle} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';import {publicState} from '../server/adventure.js';import {frontier} from '../shared/hex.js';
 const now=100000000;const rng=()=>.5;function fresh(){return initialState(now);}const act=(s,type,p={},r=rng)=>action(s,type,p,now,r);
 const fish=s=>act(s,'fishing',{spot:0,bet:1});
 test('core onboarding reaches attack, treasure, shields and five land tiles without requiring pets',()=>{const s=fresh();fish(s);assert.equal(s.guide,1);assert.equal(s.bait,43);act(s,'expand',{region:0,tile:frontier(s,0)[0].id});assert.equal(s.guide,2);assert.equal(s.base[2],1);fish(s);assert.equal(s.event.type,'attack');act(s,'event/attack',{id:s.event.id,target:0});assert.equal(s.guide,3);fish(s);assert.equal(s.event.type,'treasure');for(let cell=0;s.event&&cell<12;cell++)act(s,'event/dig',{id:s.event.id,cell});assert.equal(s.guide,4);fish(s);assert.equal(s.shields,1);assert.equal(s.guide,5);s.coin=10000;while(s.nodes[0].reduce((a,b)=>a+b,0)<5)act(s,'expand',{region:0,tile:frontier(s,0)[0].id});assert.equal(s.guide,6);assert.equal(s.base[3],1);assert.deepEqual(s.equipped,[]);assert.equal(Object.values(s.pets)[0].level,1);});

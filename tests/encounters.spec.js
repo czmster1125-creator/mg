@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './legacy-browser.js';
 test.use({serviceWorkers:'block'});
 async function post(page,type,data={}){const r=await page.request.post('/api/'+type,{data:{...data,requestId:crypto.randomUUID()}});expect(r.ok()).toBe(true);return r.json();}
 test('first fishing raid mounts entry scene; closing during landing preserves progress; carrying and escape animate once',async({page})=>{

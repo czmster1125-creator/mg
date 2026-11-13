@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {initialState,settle,action} from '../server/engine.js';
+import {settle,action} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';
 import {publicState} from '../server/adventure.js';
 import {config as C} from '../server/config.js';
 import {frontier} from '../shared/hex.js';

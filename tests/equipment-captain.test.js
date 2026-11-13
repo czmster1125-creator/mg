@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {initialState,action,settle} from '../server/engine.js';
+import {action,settle} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';
 import {gearEffects,rarityProbabilities,chooseRarity,gearCost} from '../shared/equipment.js';
 import {captainLevel,captainTitle,captainReward} from '../shared/captain.js';
 import {RIVALS} from '../shared/rivals.js';

@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './legacy-browser.js';
 test.use({serviceWorkers:'block',hasTouch:true,isMobile:true,viewport:{width:390,height:844}});
 test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('tidebloom-rare-challenge','off'));});
 async function open(page){await page.goto('/');await expect(page.locator('#cast')).toBeVisible();}

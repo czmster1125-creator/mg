@@ -1,5 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {initialState,settle,action} from '../server/engine.js';import {publicState} from '../server/adventure.js';import {startSeaGame} from '../server/sea-games.js';
+import {settle,action} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';import {publicState} from '../server/adventure.js';import {startSeaGame} from '../server/sea-games.js';
 import {shieldCapacity} from '../shared/shields.js';import {SHELL_FORMAT,shellCounts} from '../shared/treasure.js';import {escortReachable} from '../shared/sea-games.js';
 const now=Date.now(),fresh=()=>{const s=initialState(now);settle(s,now);s.guide=6;s.nodes[0]=[5,0,0,0,0];s.bait=100;return s;};
 const act=(s,t,p={},rng=()=>.3)=>action(s,t,p,now,rng);

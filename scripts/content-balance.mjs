@@ -1,5 +1,6 @@
 import {ENCOUNTERS} from '../shared/encounters.js';
-import {initialState,settle,action} from '../server/engine.js';import{zoneOpen}from'../shared/content.js';import{config as C}from'../server/config.js';import{owned,frontier}from'../shared/hex.js';import{CHAPTERS,chapterReady,journeyValues}from'../shared/journey.js';import{weeklyDefs}from'../shared/weekly.js';import{ORDER_DEFS}from'../shared/orders.js';
+import {settle,action} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';import{zoneOpen}from'../shared/content.js';import{config as C}from'../server/config.js';import{owned,frontier}from'../shared/hex.js';import{CHAPTERS,chapterReady,journeyValues}from'../shared/journey.js';import{weeklyDefs}from'../shared/weekly.js';import{ORDER_DEFS}from'../shared/orders.js';
 function run(seed){let state=seed;const rng=()=>((state=(state*1664525+1013904223)>>>0)/4294967296);const start=Date.UTC(2026,10,11,2),s=initialState(start);s.guide=8;let now=start,casts=0,stops=0;const history=[],act=(t,p={})=>action(s,t,p,now,rng);
  for(let day=0;day<30;day++){
   for(let session=0;session<2;session++){

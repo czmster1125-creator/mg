@@ -1,5 +1,6 @@
 import {test,expect} from '@playwright/test';import {spawn} from 'node:child_process';import {mkdtempSync,rmSync} from 'node:fs';import {tmpdir} from 'node:os';import path from 'node:path';import {DatabaseSync} from 'node:sqlite';import {randomUUID} from 'node:crypto';
-import {initialState,settle} from '../server/engine.js';import {newOuting,voyageTheme} from '../shared/expedition.js';import {config as C} from '../server/config.js';import {RIVALS} from '../shared/rivals.js';
+import {settle} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';import {newOuting,voyageTheme} from '../shared/expedition.js';import {config as C} from '../server/config.js';import {RIVALS} from '../shared/rivals.js';
 const origin='http://127.0.0.1:5176';let folder,server,db;
 test.use({baseURL:origin,viewport:{width:390,height:844},hasTouch:true,isMobile:true,serviceWorkers:'block'});
 test.beforeAll(async()=>{folder=mkdtempSync(path.join(tmpdir(),'tidebloom-loop-e2e-'));db=new DatabaseSync(path.join(folder,'tidebloom.sqlite'));db.exec('CREATE TABLE players(id TEXT PRIMARY KEY,state TEXT)');server=spawn(process.execPath,['server/index.js'],{env:{...process.env,PORT:'5176',NODE_ENV:'production',DATA_DIR:folder},stdio:'ignore'});await expect.poll(async()=>{try{return(await fetch(origin+'/api/health')).ok;}catch{return false;}},{timeout:15000}).toBe(true);});

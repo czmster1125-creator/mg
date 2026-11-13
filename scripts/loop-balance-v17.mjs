@@ -1,5 +1,6 @@
 import {HABITATS,habitatCost,cared} from '../shared/research.js';
-import {initialState,settle,action} from '../server/engine.js';import {VOYAGE_STEPS,SHORE_STYLES,featureStatus,festivalOn} from '../shared/expedition.js';import {ORDER_DEFS} from '../shared/orders.js';import {weeklyDefs} from '../shared/weekly.js';import {config as C} from '../server/config.js';import {frontier} from '../shared/hex.js';import {writeFileSync} from 'node:fs';
+import {settle,action} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';import {VOYAGE_STEPS,SHORE_STYLES,featureStatus,festivalOn} from '../shared/expedition.js';import {ORDER_DEFS} from '../shared/orders.js';import {weeklyDefs} from '../shared/weekly.js';import {config as C} from '../server/config.js';import {frontier} from '../shared/hex.js';import {writeFileSync} from 'node:fs';
 const start=Date.UTC(2026,10,12,0),results=[];
 for(const late of [false,true])for(const strategy of ['leave','repair','explore','rescue'])for(let seed=1;seed<=8;seed++){
  let random=seed;const rng=()=>((random=(Math.imul(random,1664525)+1013904223)>>>0)/4294967296);const s=initialState(start);settle(s,start);s.guide=8;if(late){s.nodes=C.regions.map(()=>[5,5,5,5,5]);s.base=[5,5,5,5];s.gear=[10,10,10];s.unlocked=[0,1,2,3,4,5];s.zone=5;s.coin=10000;s.supplies=100;s.food=100;for(const f of C.fish){s.book[f.id]={count:1,best:f.min};s.pets[f.id]={level:10};}}

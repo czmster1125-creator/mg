@@ -1,11 +1,12 @@
 import {captainReward} from './captain.js';
+import {voyageGoal,newVoyage,homeUnlock} from './onboarding.js';
 import {weeklyReady} from './weekly.js';
 import {COLLECTION_KEYS,regionOpen,zoneOpen,landCount} from './content.js';
 import {chapterReady,CHAPTERS,journeyValues} from './journey.js';
 import {readyOrder} from './orders.js';
 import {repairCost} from './pets.js';
 import {bonuses} from './adventure.js';
-import {BUILD_UNLOCK,UPGRADE_COSTS,points} from './adventure.js';
+import {UPGRADE_COSTS,points} from './adventure.js';
 
 export function collectionReady(s,fish,key) {
   return typeof key==='number'?Object.keys(s.book).length>=key:typeof key==='string'&&/^sea[0-5]$/.test(key)&&fish.some(f=>f.zone===Number(key.slice(3)))&&fish.filter(f=>f.zone===Number(key.slice(3))).every(f=>s.book[f.id]);
@@ -13,6 +14,7 @@ export function collectionReady(s,fish,key) {
 
 // Recommendations have no separate reward ledger: they lead to existing actions.
 export function nextObjective(s,c) {
+  const voyage=voyageGoal(s);if(voyage)return {...voyage,action:voyage.action==='expand'?'island':voyage.action==='trade'?'onboarding-trade':'fish',region:0};
   if(s.event)return {title:'完成已保存的海上事件',detail:'奖励和选择已保存，继续完成后再抛竿。',action:'event'};
   if(s.orders&&readyOrder(s))return {title:'领取今日订单奖励',detail:'今日订单已完成，领取鱼饵与建设资源。每日北京时间 00:00 更新。',action:'orders'};
   if(s.journey&&chapterReady(s))return {title:'领取海岛故事章节奖励',detail:'这一章的条件已达成，领取资源并开启下一段旅程。',action:'journey'};
@@ -32,7 +34,7 @@ export function nextObjective(s,c) {
   const count=region<0?25:landCount(s,region);
   if(count<25) {
     const milestone=[1,5,10,15,20,25].find(n=>n>count);
-    const unlock=region===0?['解锁匠人小屋','解锁伙伴小屋和第二个随行位','领取物资和解锁第三个随行位','解锁探索码头与高级宝藏','领取建设鱼饵奖励','解锁下一座海岛'][[1,5,10,15,20,25].indexOf(milestone)]:'领取建设鱼饵奖励';
+    const unlock=region===0?(newVoyage(s)&&milestone===1?'铺好第一块落脚地':newVoyage(s)&&milestone===5?'迎来码头小铺与伙伴小屋':['解锁匠人小屋','解锁伙伴小屋和第二个随行位','领取物资和解锁第三个随行位','解锁探索码头与高级宝藏','领取建设鱼饵奖励','解锁下一座海岛'][[1,5,10,15,20,25].indexOf(milestone)]):'领取建设鱼饵奖励';
     const cost=c.buildCosts[Math.floor(count/5)]*(region+1);
     const material=count>=10&&(count+1)%5===0?2:0;
     if(s.supplies<material)return {title:'为功能土地收集海岛物资',detail:`还差 ${material-s.supplies} 海岛物资。领取匠人小屋产出，或在钓鱼中遇到寻宝和补给。`,action:'building',index:2};
@@ -42,7 +44,7 @@ export function nextObjective(s,c) {
   }
   const missing=c.fish.find(f=>!s.book[f.id]);
   if(missing)return {title:'发现更多鱼宠',detail:`${c.zones[missing.zone].name}还有未发现的鱼种。解锁对应海域后继续收集。`,action:'zones'};
-  const building=s.base.findIndex((lv,i)=>lv>0&&lv<5&&points(s)>=BUILD_UNLOCK[i]);
+  const building=s.base.findIndex((lv,i)=>lv>0&&lv<5&&points(s)>=homeUnlock(s,i));
   if(building>=0)return {title:'提升'+c.base[building].name,detail:`升级需要 ${UPGRADE_COSTS[s.base[building]]} 金币，查看产出变化后再决定。`,action:'building',index:building};
   if(s.weekly&&s.weekly.claimed.length<3)return {title:'完成本周航海委托',detail:'回访指定海域、完成事件并训练伙伴，收集永久远航徽章。',action:'weekly'};return {title:'培养更多伙伴的默契',detail:'本周委托已完成，可以继续收集伙伴默契，周一开启下一段航线。',action:'book'};
 }

@@ -1,5 +1,6 @@
 import {chromium,expect} from '@playwright/test';import {spawn} from 'node:child_process';import {mkdtempSync,mkdirSync,rmSync} from 'node:fs';import {tmpdir} from 'node:os';import path from 'node:path';import {DatabaseSync} from 'node:sqlite';import {randomUUID} from 'node:crypto';
-import {initialState,settle} from '../server/engine.js';import {newOuting,ISLAND_FEATURES} from '../shared/expedition.js';import {RIVALS} from '../shared/rivals.js';
+import {settle} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';import {newOuting,ISLAND_FEATURES} from '../shared/expedition.js';import {RIVALS} from '../shared/rivals.js';
 const folder=mkdtempSync(path.join(tmpdir(),'tidebloom-loop-shots-')),origin='http://127.0.0.1:5175',out='docs/screenshots/loop-v15';mkdirSync(out,{recursive:true});const db=new DatabaseSync(path.join(folder,'tidebloom.sqlite'));db.exec('CREATE TABLE players(id TEXT PRIMARY KEY,state TEXT)');
 const make=edit=>{const s=initialState();settle(s);s.guide=8;edit?.(s);const id=randomUUID();db.prepare('INSERT INTO players VALUES(?,?)').run(id,JSON.stringify(s));return id;};
 const id=make(s=>{s.coin=150000;s.supplies=300;s.food=40;s.bait=55;s.xp=950;s.base=[3,3,2,2];s.nodes[0]=[5,5,0,0,0];s.islandSkills[0]=8;s.voyage.points=100;s.rivalTrail.step=1;s.rivalTrail.rival=RIVALS[0];s.book.clown={count:6,best:900};s.pets.clown={level:2};s.petBond.clown=1;});

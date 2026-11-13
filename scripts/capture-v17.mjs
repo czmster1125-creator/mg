@@ -1,5 +1,6 @@
 import {chromium,expect} from '@playwright/test';import {spawn} from 'node:child_process';import {mkdtempSync,mkdirSync,rmSync} from 'node:fs';import {tmpdir} from 'node:os';import path from 'node:path';import {DatabaseSync} from 'node:sqlite';import {randomUUID} from 'node:crypto';
-import {initialState,settle} from '../server/engine.js';import {startSeaStory} from '../server/sea-stories.js';import {config as C} from '../server/config.js';import {RIVALS} from '../shared/rivals.js';
+import {settle} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';import {startSeaStory} from '../server/sea-stories.js';import {config as C} from '../server/config.js';import {RIVALS} from '../shared/rivals.js';
 const folder=mkdtempSync(path.join(tmpdir(),'tidebloom-presentation-shots-')),origin='http://127.0.0.1:5179',out='docs/screenshots/presentation-v17',videoOut='docs/videos/v17';mkdirSync(out,{recursive:true});mkdirSync(videoOut,{recursive:true});const db=new DatabaseSync(path.join(folder,'tidebloom.sqlite'));db.exec('CREATE TABLE players(id TEXT PRIMARY KEY,state TEXT)');
 function veteran(s){s.guide=6;s.coin=20000;s.supplies=500;s.food=200;s.bait=50;s.nodes=C.regions.map(()=>[5,5,5,5,5]);s.unlocked=[0,1,2,3,4,5];s.pets.sardine={level:5};s.book.sardine={count:1,best:400};s.equipped=['sardine'];}
 const make=edit=>{const s=initialState();settle(s);edit?.(s);const id=randomUUID();db.prepare('INSERT INTO players VALUES(?,?)').run(id,JSON.stringify(s));return {id,s};};

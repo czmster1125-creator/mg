@@ -1,6 +1,7 @@
 import {npcAttackPayout} from '../shared/rivals.js';
 import test from 'node:test';import assert from 'node:assert/strict';import * as T from 'three';
-import {initialState,settle,action} from '../server/engine.js';import {config as C} from '../server/config.js';import {GUIDES,bonuses} from '../shared/adventure.js';import {journalReady,AQUARIUM_THEMES,weekRemaining} from '../shared/research.js';import {createFeatureModel} from '../src/feature-models.js';import {summarizePlaytest} from '../shared/playtest.js';
+import {settle,action} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';import {config as C} from '../server/config.js';import {GUIDES,bonuses} from '../shared/adventure.js';import {journalReady,AQUARIUM_THEMES,weekRemaining} from '../shared/research.js';import {createFeatureModel} from '../src/feature-models.js';import {summarizePlaytest} from '../shared/playtest.js';
 const now=Date.UTC(2026,10,12,4),fresh=()=>{const s=initialState(now);settle(s,now);s.guide=GUIDES.length;return s;};const act=(s,type,p={},rng=()=>.4,time=now)=>action(s,type,p,time,rng);
 function reserve(s,species,weight){s.manual={id:'fixture-fish',source:'encounter',stage:'offered',started:now,spot:0,species,profile:0,pendingFish:[{species,id:'fish-'+s.catchCount,weight,price:10,locked:false,firstDiscovery:!s.book[species]}]};return act(s,'manual/auto',{session:'fixture-fish'});}
 

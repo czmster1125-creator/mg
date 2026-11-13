@@ -1,4 +1,5 @@
-import {initialState,settle,action} from '../server/engine.js';
+import {settle,action} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';
 import {frontier,owned} from '../shared/hex.js';
 import {ORDER_DEFS} from '../shared/orders.js';
 import {BANK_RATES,UPGRADE_COSTS} from '../shared/adventure.js';

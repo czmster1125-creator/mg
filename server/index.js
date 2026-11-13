@@ -1,4 +1,5 @@
 import {createCooperation} from './cooperation.js';
+import {assertVoyageAction} from '../shared/onboarding.js';
 import {loopSnapshot,recordLoop} from './expedition.js';
 import {ensureOuting} from '../shared/expedition.js';
 import {activityXP} from '../shared/captain.js';
@@ -40,7 +41,7 @@ const server=http.createServer(async(req,res)=>{
    db.exec('BEGIN IMMEDIATE');
    try{
     const prior=db.prepare('SELECT type,result FROM transactions WHERE player=? AND request=?').get(id,p.requestId);if(prior){if(prior.type!==type)throw Error('请求编号已用于其他操作');db.exec('COMMIT');return send(res,200,JSON.parse(prior.result));}
-    social.expire();const s=read(id);settle(s);const loopBefore=loopSnapshot(s);let result=coop.action(id,s,type,p)||social.action(id,s,type,p),context,external=!!result;
+    social.expire();const s=read(id);settle(s);assertVoyageAction(s,type,p);const loopBefore=loopSnapshot(s);let result=coop.action(id,s,type,p)||social.action(id,s,type,p),context,external=!!result;
     if(!result){context=social.complete(id,s,type,p);if(context?.type==='attack'){result=context;external=true;result.xpGain=activityXP(s,type,p,result);recordJourney(s,result);weeklyProgress(s,'attack');progressOrder(s,'adventure');}else{result=action(s,type,p);if(type==='fishing'&&result.event)social.convert(id,s,p.bet);social.finishRaid(context,result,s);}}
     if(external){if(type==='social/start'){ensureOuting(s,Date.now());s.outing.spent++;s.voyage.points++;}recordLoop(s,type,p,result,loopBefore,Date.now());}coop.contribute(id,s);put.run(id,JSON.stringify(s));const out=body(id,s,result);db.prepare('INSERT INTO transactions VALUES (?,?,?,?)').run(id,p.requestId,type,JSON.stringify(out));db.exec('COMMIT');return send(res,200,out);
    }catch(e){db.exec('ROLLBACK');throw e;}

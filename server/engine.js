@@ -1,3 +1,4 @@
+import {newVoyage,coreVoyage,homeUnlock,assertVoyageAction,voyageLand} from '../shared/onboarding.js';
 import {seaGameAction} from './sea-games.js';
 import {initResearch} from '../shared/research.js';
 import {researchAction} from './research.js';
@@ -16,13 +17,13 @@ import {replayFight} from '../shared/manual-proof.js';
 import {settleOrders,progressOrder} from '../shared/orders.js';
 import {orderAction} from './orders.js';
 import {normalize,guide,roll,adventureAction} from './adventure.js';
-import {BANK_RATES,UPGRADE_COSTS,BUILD_UNLOCK,rates,bonuses,points} from '../shared/adventure.js';
+import {BANK_RATES,UPGRADE_COSTS,rates,bonuses,points} from '../shared/adventure.js';
 import {randomUUID,randomInt} from 'node:crypto';
 import {config as C} from './config.js';
 import {tiles,owned,frontier} from '../shared/hex.js';
 export class GameError extends Error {constructor(message){super(message);this.status=400;}}
 const fail = message=>{throw new GameError(message);};
-export function initialState(now=Date.now()) {return {guideVersion:2,gearVersion:2,homeVersion:2,coin:350,bait:40,supplies:8,food:0,xp:0,cargo:[],book:{},zone:0,unlocked:[0],region:0,nodes:[[0,0,0,0,0],[0,0,0,0,0]],milestones:[[],[]],base:[1,1,0,0],pending:[0,24,4,1],gear:[0,0,0],mission:0,missionProgress:0,lastSettle:now,baitFraction:0,manual:null,catchCount:0,createdAt:now};}
+export function initialState(now=Date.now()) {return {guideVersion:2,gearVersion:2,homeVersion:2,guide:6,coin:80,bait:20,supplies:0,food:0,xp:0,cargo:[],book:{},zone:0,unlocked:[0],region:0,nodes:[[0,0,0,0,0],[0,0,0,0,0]],milestones:[[],[]],base:[0,0,0,0],pending:[0,0,0,0],gear:[0,0,0],mission:0,missionProgress:0,lastSettle:now,baitFraction:0,manual:null,catchCount:0,createdAt:now,onboarding:{version:1,intro:'pending',complete:false,casts:0,trade:null,lessons:{},lastLessonCast:0}};}
 export function settle(s,now=Date.now()) {
  normalize(s);migrateHome(s,now,C.fish);migrateEquipment(s);s.captainClaimed??=1;s.discoveryDry||=[];while(s.discoveryDry.length<C.zones.length)s.discoveryDry.push(0);while(s.nodes.length<C.regions.length)s.nodes.push([0,0,0,0,0]);while(s.milestones.length<C.regions.length)s.milestones.push([]);if(s.expansion)while(s.expansion.length<C.regions.length)s.expansion.push([]);s.decor||=[];while(s.decor.length<C.regions.length)s.decor.push(0);initJourney(s);settleOrders(s,now);settleWeekly(s,now);initExpedition(s,now);initResearch(s,C.fish,now);
  if(!s.autoSettlement){s.coin+=s.cargo.reduce((n,f)=>n+f.price,0);s.cargo=[];s.autoSettlement=true;}
@@ -34,7 +35,7 @@ export function settle(s,now=Date.now()) {
  if(s.outing?.active&&!s.event&&!s.manual){const progress=outingProgress(s.outing);if(progress.count>=progress.target)finishOuting(s,now,true);}
  return s;
 }
-function mission(s,event,n=1){const m=C.missions[s.mission];if(!m||m.event!==event)return null;s.missionProgress+=n;if(s.missionProgress<m.target)return null;for(const k of ['coin','bait','supplies','xp'])s[k]+=m[k]||0;s.mission++;s.missionProgress=0;return m.name;}
+function mission(s,event,n=1){if(coreVoyage(s))return null;const m=C.missions[s.mission];if(!m||m.event!==event)return null;s.missionProgress+=n;if(s.missionProgress<m.target)return null;for(const k of ['coin','bait','supplies','xp'])s[k]+=m[k]||0;s.mission++;s.missionProgress=0;return m.name;}
 function spend(s,key,n){if(s[key]<n)fail(key==='coin'?'金币不足，去钓鱼或领取基地收益吧':key==='bait'?'鱼饵不足，稍后恢复或完成建设里程碑':'装备海岛物资不足，可从基地领取');s[key]-=n;}
 function index(v,len){if(!Number.isInteger(v)||v<0||v>=len)fail('无效的选择');return v;}
 function fish(s,spot,manual=false,rng=()=>randomInt(1000000)/1000000,species=null,feature=null){
@@ -47,19 +48,30 @@ function fish(s,spot,manual=false,rng=()=>randomInt(1000000)/1000000,species=nul
 function awardFish(s,catches){for(const result of catches){const f=C.fish.find(f=>f.id===result.species);recordFish(s,result,f);s.coin+=result.price;s.discoveryDry[s.zone]=result.firstDiscovery?0:Math.min(19,s.discoveryDry[s.zone]+1);const b=s.book[f.id]||{count:0,best:0};b.count++;b.best=Math.max(b.best,result.weight);s.book[f.id]=b;s.pets[f.id]||={level:1};s.catchCount++;progressOrder(s,'catch');weeklyProgress(s,'catch',{zone:s.zone,rarity:f.rarity});s.xp+=XP_RULES.catch+(result.firstDiscovery?XP_RULES.discovery:0);}}
 function finishEncounter(s,success){const m=s.manual;const catches=m.pendingFish;awardFish(s,catches);const bonus=success?Math.floor(catches.reduce((n,f)=>n+f.price,0)*.2):0;s.coin+=bonus;s.manual=null;return {fish:catches,bonus,guaranteed:!success,mission:mission(s,C.missions[s.mission]?.event==='sell'?'sell':'catch',catches.length),guide:guide(s,'catch')};}
 function performAction(s,type,p={},now=Date.now(),rng){
- settle(s,now);rng ||= ()=>randomInt(1000000)/1000000;let result={};
+ settle(s,now);assertVoyageAction(s,type,p);rng ||= ()=>randomInt(1000000)/1000000;let result={};
  if(s.event&&['fishing','manual/start'].includes(type))fail('请先完成已保存的海上事件');
  if(s.manual&&!['manual/finish','manual/cancel','manual/engage','manual/auto'].includes(type))fail('请先完成或退出当前手动挑战');
  const seaGame=seaGameAction(s,type,p);if(seaGame){if(!seaGame.event)progressOrder(s,'adventure');return seaGame;}const research=researchAction(s,type,p,now);if(research){if(['habitat/build','habitat/care'].includes(type))progressOrder(s,'growth');return research;}const expedition=expeditionAction(s,type,p,now);if(expedition){if(type==='shore/festival')progressOrder(s,'growth');return expedition;}const week=weeklyAction(s,type,p);if(week)return week;const journey=journeyAction(s,type,p,now);if(journey){if(type==='event/encounter'&&!journey.event)progressOrder(s,'adventure');if(type==='pet/train')progressOrder(s,'growth');return journey;}const before=s.coin;const order=orderAction(s,type,p);if(order)return order;const extra=adventureAction(s,type,p,rng);if(extra){recordJourney(s,extra);if(['attack','raid','treasure'].includes(extra.type)&&!extra.event)weeklyProgress(s,extra.type);if(['attack','treasure','raid'].includes(extra.type)&&!extra.event)progressOrder(s,'adventure');if(type==='pet/feed')progressOrder(s,'growth');return extra;}
  switch(type){
- case 'fishing':{if(![1,2,5].includes(p.bet))fail('不支持的倍率');index(p.spot,3);if(p.challenge!==undefined&&typeof p.challenge!=='boolean')fail('挑战设置无效');if(p.feature!==undefined&&typeof p.feature!=='boolean')fail('特殊出海设置无效');const feature=featureStatus(s,s.zone,p.bet);if(p.feature&&!feature.ready)fail('设施未开放或观测进度不足');spend(s,'bait',p.bet);ensureOuting(s,now);if(p.feature)s.islandSkills[s.zone]-=feature.need;const outcome=p.feature?(feature.feature.kind==='treasure'?startShellTreasure(s,p.bet,rng,C.fish):{type:'fish'}):roll(s,p.bet,rng);if(outcome.type!=='fish'){result=outcome;s.economy.casts++;if(['shield','supply'].includes(outcome.type))progressOrder(s,'adventure');break;}s.economy.casts++;
+ case 'onboarding/land':{if(!newVoyage(s))fail('此角色已有自己的航程');const first=s.onboarding.intro!=='done';s.onboarding.intro='done';result={message:first?'应急袋已收好：80 金币、20 次钓鱼。先找一片浅礁落脚。':'落脚地已保存',first};break;}
+ case 'onboarding/trade':{const o=s.onboarding;if(!o?.trade)fail('这桶鱼已经交易完成');const sale=o.trade;awardFish(s,[sale]);o.trade=null;o.firstSale=true;result={fish:[sale],coin:sale.price,message:'买家收下了另一条鱼，80 金币已到账。留下的小丑鱼继续陪着你。'};break;}
+
+ case 'fishing':{if(![1,2,5].includes(p.bet))fail('不支持的倍率');index(p.spot,3);if(p.challenge!==undefined&&typeof p.challenge!=='boolean')fail('挑战设置无效');if(p.feature!==undefined&&typeof p.feature!=='boolean')fail('特殊出海设置无效');const feature=featureStatus(s,s.zone,p.bet);if(p.feature&&!feature.ready)fail('设施未开放或观测进度不足');if(coreVoyage(s)){
+   spend(s,'bait',1);s.onboarding.casts++;s.adventureCasts++;s.economy.casts++;ensureOuting(s,now);
+   const first=s.onboarding.casts===1;const f=C.fish.find(f=>f.id==='clown');
+   const price=first?80:s.onboarding.casts<=3?40:Math.max(35,Math.round(42+(rng()-.5)*16));
+   const catchFish={id:randomUUID(),species:f.id,weight:650,price,locked:false,firstDiscovery:!s.book[f.id]};
+   if(first){const kept={...catchFish,id:randomUUID(),price:0,kept:true};awardFish(s,[kept]);catchFish.firstDiscovery=false;s.onboarding.trade=catchFish;result={type:'first-haul',fish:[kept],trade:true};}
+   else {awardFish(s,[catchFish]);result={fish:[catchFish],returnReady:s.coin>=80};}
+   break;
+  }spend(s,'bait',p.bet);ensureOuting(s,now);if(p.feature)s.islandSkills[s.zone]-=feature.need;const outcome=p.feature?(feature.feature.kind==='treasure'?startShellTreasure(s,p.bet,rng,C.fish):{type:'fish'}):roll(s,p.bet,rng);if(outcome.type!=='fish'){result=outcome;s.economy.casts++;if(['shield','supply'].includes(outcome.type))progressOrder(s,'adventure');break;}s.economy.casts++;
   const shadow=structuredClone(s),catches=Array.from({length:p.bet},(_,i)=>fish(shadow,p.spot,false,rng,null,p.feature?(feature.feature.kind==='discovery'&&i>0?'weight':feature.feature.kind):null));const best=catches.reduce((a,b)=>C.fish.find(f=>f.id===b.species).rarity>C.fish.find(f=>f.id===a.species).rarity?b:a);
   if(p.challenge&&C.fish.find(f=>f.id===best.species).rarity>=2){const profile=(p.spot+(best.species==='tuna'?1:best.species==='manta'?2:0))%3;s.manual={id:randomUUID(),source:'encounter',stage:'offered',started:now,spot:p.spot,species:best.species,profile,power:0,gear:gearEffects(s).control,pendingFish:catches};result={type:'rare',session:s.manual.id,species:best.species,profile};break;}
   awardFish(s,catches);result.fish=catches;result.mission=mission(s,C.missions[s.mission]?.event==='sell'?'sell':'catch',p.bet);result.guide=guide(s,'catch');break;}
  case 'manual/engage':{const m=s.manual;if(!m||m.source!=='encounter'||m.id!==p.session)fail('稀有鱼挑战已结束');if(m.stage!=='offered')fail('挑战已开始，不能重置计时');m.stage='fight';m.started=now;result={session:m.id,species:m.species,profile:m.profile};break;}
  case 'manual/auto':{const m=s.manual;if(!m||m.source!=='encounter'||m.id!==p.session)fail('稀有鱼挑战已结束');result=finishEncounter(s,false);break;}
 
- case 'expand':{const r=index(p.region,C.regions.length);if(!regionOpen(s,r))fail('先完成'+C.regions[r-1].name+' 25 个建设点');const before=owned(s,r).slice();if(!frontier(s,r).some(t=>t.id===p.tile))fail('请选择与海岛相邻的未解锁地块');const cost=C.buildCosts[Math.floor(before.length/5)]*(r+1);const materialCost=before.length>=10&&((before.length+1)%5===0)?2:0;if(s.supplies<materialCost)fail('海岛物资不足，可从匠人小屋或宝藏探索获得');spend(s,'coin',cost);s.supplies-=materialCost;s.expansion ||= C.regions.map((_,i)=>owned(s,i).slice());s.expansion[r].push(p.tile);const n=s.nodes[r].findIndex(l=>l<5);s.nodes[r][n]++;const points=before.length+1;result.milestones=[];for(const m of [5,10,15,20,25])if(points>=m&&!s.milestones[r].includes(m)){s.milestones[r].push(m);s.bait+=m===25?30:10;s.supplies+=m===10?4:m===15?5:0;result.milestones.push(m);}result.mission=mission(s,'build');for(let i=2;i<C.base.length;i++)if(points>=BUILD_UNLOCK[i]&&!s.base[i]){s.base[i]=1;}result.guide=guide(s,'expand');break;}
+ case 'expand':{const r=index(p.region,C.regions.length);if(!regionOpen(s,r))fail('先完成'+C.regions[r-1].name+' 25 个建设点');const before=owned(s,r).slice();if(!frontier(s,r).some(t=>t.id===p.tile))fail('请选择与海岛相邻的未解锁地块');const cost=C.buildCosts[Math.floor(before.length/5)]*(r+1);const materialCost=before.length>=10&&((before.length+1)%5===0)?2:0;if(s.supplies<materialCost)fail('海岛物资不足，可从匠人小屋或宝藏探索获得');spend(s,'coin',cost);s.supplies-=materialCost;s.expansion ||= C.regions.map((_,i)=>owned(s,i).slice());s.expansion[r].push(p.tile);const n=s.nodes[r].findIndex(l=>l<5);s.nodes[r][n]++;const points=before.length+1;result.milestones=[];for(const m of [5,10,15,20,25])if(points>=m&&!s.milestones[r].includes(m)){s.milestones[r].push(m);s.bait+=m===25?30:10;s.supplies+=m===10?4:m===15?5:0;result.milestones.push(m);}result.mission=mission(s,'build');for(let i=newVoyage(s)?0:2;i<C.base.length;i++)if(points>=homeUnlock(s,i)&&!s.base[i]){s.base[i]=1;}result.guide=guide(s,'expand');if(coreVoyage(s)&&points>=5){s.onboarding.complete=true;s.onboarding.completedAt=now;s.onboarding.lastLessonCast=s.adventureCasts;result.voyageComplete=true;result.message='五块家园落成！小铺开张，伙伴有了家。';}break;}
  case 'build':fail('请点击相邻地块扩张海岛');break;
  case 'base/collect':{let total=0;const keys=C.base.map(b=>b.resource);for(let i=1;i<C.base.length;i++){const n=Math.floor(s.pending[i]);s[keys[i]]+=n;s.pending[i]-=n;total+=n;}if(!total)fail('收益正在累积，稍后再来');result.mission=mission(s,'collect');break;}
  case 'base/upgrade':{const i=index(p.index,C.base.length);if(s.base[i]>=5)fail('已达到最高等级');if(!s.base[i])fail('请先扩张海岛解锁该建筑');spend(s,'coin',UPGRADE_COSTS[s.base[i]]);s.base[i]++;break;}

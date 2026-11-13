@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './legacy-browser.js';
 test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('tidebloom-rare-challenge','off'));});
 test('portrait framing stays narrow on desktop and fits small phones',async({page})=>{
  await page.goto('/');await expect(page.locator('#cast')).toBeVisible();const frame=await page.locator('#app').boundingBox();expect(frame.width).toBeLessThanOrEqual(480);expect(frame.height).toBeGreaterThan(frame.width*1.6);

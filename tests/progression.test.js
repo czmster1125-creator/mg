@@ -1,7 +1,8 @@
 import {proof} from './manual-helper.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {initialState,settle,action} from '../server/engine.js';
+import {settle,action} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';
 import {publicState} from '../server/adventure.js';
 import {bonuses,rates} from '../shared/adventure.js';
 import {PET_SKILLS,petDescription,repairCost} from '../shared/pets.js';

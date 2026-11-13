@@ -1,7 +1,8 @@
 import {proof} from './manual-helper.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {initialState,action,settle} from '../server/engine.js';
+import {action,settle} from '../server/engine.js';
+import {legacyState as initialState} from '../tests/legacy-state.js';
 import {frontier,owned,tiles} from '../shared/hex.js';
 const now=100000000, rng=()=>.5;
 const make=()=>{const s=initialState(now);s.guide=8;s.base=[1,1,1,1];return s;};
