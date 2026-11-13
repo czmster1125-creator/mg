@@ -1,4 +1,4 @@
-import {newVoyage,voyageLand} from '../shared/onboarding.js';
+import {newVoyage,voyageLand,HARBOR_EVENTS} from '../shared/onboarding.js';
 import {startSeaGame} from './sea-games.js';
 import {shieldCapacity} from '../shared/shields.js';
 import {initSeaStories} from '../shared/sea-stories.js';
@@ -19,7 +19,7 @@ export function publicState(s){const p=structuredClone(s);if(p.event?.type==='tr
 export function roll(s,bet,rng){s.adventureCasts++;refillRivals(s);const g=GUIDES[s.guide];let draw=null,type,lessonType=null;if(g?.event==='catch')type='fish';else if(['attack','treasure','shield'].includes(g?.event))type=g.event;else if(s.dry>=9)type=['attack','raid','treasure'][Math.min(2,Math.floor(rng()*3))];else{const r=draw=rng();type=r<.52?'fish':r<.64?'attack':r<.74?'raid':r<.86?'treasure':r<.94?'shield':'supply';}if(!g&&points(s)>=5&&type==='fish'&&draw>=.44&&draw<.52)type='sea-game';s.dry=['attack','raid','treasure','sea-game'].includes(type)?0:s.dry+1;
  if(newVoyage(s)){
   const o=s.onboarding,n=voyageLand(s),gap=s.adventureCasts-o.lastLessonCast;
-  const lesson=[['salvage',5],['treasure',6],['shield',8],['attack',9],['raid',10]].find(([k,land])=>n>=land&&!o.lessons[k]);
+  const lesson=HARBOR_EVENTS.find(([k,land])=>n>=land&&!o.lessons[k]);
   if(lesson&&gap>=2){const k=lesson[0];o.lessons[k]=true;o.lastLessonCast=s.adventureCasts;
    if(k==='salvage'){const result=startSeaGame(s,'salvage',bet,rng);s.event.openingCargo=true;return result;}type=k;lessonType=k;
   }else {

@@ -1,5 +1,5 @@
 import {captainReward} from './captain.js';
-import {voyageGoal,newVoyage,homeUnlock} from './onboarding.js';
+import {voyageGoal,harborGoal,newVoyage,homeUnlock} from './onboarding.js';
 import {weeklyReady} from './weekly.js';
 import {COLLECTION_KEYS,regionOpen,zoneOpen,landCount} from './content.js';
 import {chapterReady,CHAPTERS,journeyValues} from './journey.js';
@@ -14,6 +14,7 @@ export function collectionReady(s,fish,key) {
 
 // Recommendations have no separate reward ledger: they lead to existing actions.
 export function nextObjective(s,c) {
+  const harbor=harborGoal(s,c);if(harbor)return {...harbor,action:harbor.action==='expand'?'island':harbor.action,region:0};
   const voyage=voyageGoal(s);if(voyage)return {...voyage,action:voyage.action==='expand'?'island':voyage.action==='trade'?'onboarding-trade':'fish',region:0};
   if(s.event)return {title:'完成已保存的海上事件',detail:'奖励和选择已保存，继续完成后再抛竿。',action:'event'};
   if(s.orders&&readyOrder(s))return {title:'领取今日订单奖励',detail:'今日订单已完成，领取鱼饵与建设资源。每日北京时间 00:00 更新。',action:'orders'};

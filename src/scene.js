@@ -23,6 +23,7 @@ export function createWorld(container,onSpot,onBuilding,onMotion=()=>{},onBaseBu
   zone:z=>fishing.zone(z),
   update(s,r=0){lastState=s;lastRegion=r;fishing.setStyle(styleFor(s));fishing.setProgress(s);island?.update(s,r);hex?.update(s,r);},
   reset(){current==='map'?hex?.reset():current==='base'?island?.reset():fishing.reset();},
+  presentBuild:(plan,onFrame)=>current==='map'&&hex?hex.present(plan,onFrame):Promise.resolve(),skipBuild:()=>hex?.skipBuild(),
   getInfo:()=>fishing.getInfo(),
  };
  return api;
