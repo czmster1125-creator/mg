@@ -1,6 +1,9 @@
 import {gearEffects} from './equipment.js';
 import {bonuses,points} from './adventure.js';
-export const SHELL_FORMAT='shell-match-v1';
+export const SHELL_FORMAT='shell-match-v2';
+export const LEGACY_SHELL_FORMAT='shell-match-v1';
+export const SHELL_DISTRIBUTION={coins:3,crate:4,pearl:5};
+export const shellBoardSize=e=>e.boardSize||(e.format===LEGACY_SHELL_FORMAT?9:12);
 export const SHELL_SYMBOLS=[
  {id:'coins',name:'漂流金币',icon:'coins'},
  {id:'crate',name:'海岛补给',icon:'package'},

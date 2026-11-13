@@ -6,5 +6,5 @@ export function captainReward(s){const through=s.captainClaimed??1,level=Math.mi
 export function activityXP(s,type,p,result){
  const simple={'expand':'expand','base/upgrade':'building','gear/upgrade':'gear','pet/feed':'pet','orders/claim':'order','journey/claim':'chapter','weekly/claim':'weekly','collection/claim':'collection','pet/mastery':'mastery','island/decorate':'decorate','event/encounter':'encounter'};
  if(type==='event/encounter'&&result.event)return 0;
- const key=simple[type]||(['attack','raid','treasure'].includes(result.type)&&!result.event?result.type:null),n=XP_RULES[key]||0;s.xp+=n;return n;
+ const key=(!result.event&&result.type==='encounter'?'encounter':simple[type])||(['attack','raid','treasure'].includes(result.type)&&!result.event?result.type:null),n=XP_RULES[key]||0;s.xp+=n;return n;
 }

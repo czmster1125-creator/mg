@@ -2,7 +2,7 @@ import {EQUIPMENT} from '../shared/equipment.js';
 import {HOME_BUILDINGS} from '../shared/home.js';
 import {EXTRA_FISH,WORLD_REGIONS,WORLD_ZONES} from '../shared/content.js';
 export const config = {
- version:'tidebloom-0.17.0', capacity:12, baitCap:50,
+ version:'tidebloom-0.18.0', capacity:12, baitCap:50,
  fish:[
   {id:'clown',name:'小丑鱼',en:'Clownfish',rarity:0,color:'#ed8e55',base:42,min:350,max:950,zone:0},
   {id:'blue',name:'蓝倒吊',en:'Blue tang',rarity:0,color:'#4d99bd',base:48,min:500,max:1500,zone:0},

@@ -34,13 +34,13 @@ test('supplies pay gear and mastery from one balance without charging twice',()=
  const s=fresh();s.supplies=13;s.pets.clown={level:5};act(s,'gear/upgrade',{index:0});assert.equal(s.supplies,11);act(s,'pet/mastery',{id:'clown',branch:'economy'});assert.equal(s.supplies,0);
  const coin=s.coin;assert.throws(()=>act(s,'gear/upgrade',{index:1}),/物资不足/);assert.equal(s.coin,coin);
 });
-test('shell board contains three of each symbol and exposes only revealed symbols',()=>{
- const s=treasure(),e=s.event,p=publicState(s).event;assert.equal(e.board.length,9);for(const n of Object.values(shellCounts(e.board.map(symbol=>({symbol})))))assert.equal(n,3);
+test('shell board contains twelve cells with five grand, four middle and three small symbols and exposes only revealed symbols',()=>{
+ const s=treasure(),e=s.event,p=publicState(s).event;assert.equal(e.board.length,12);assert.deepEqual(shellCounts(e.board.map(symbol=>({symbol}))),{coins:3,crate:4,pearl:5});
  assert.equal(p.board,undefined);assert.equal(p.loot,undefined);assert.equal(p.picks.length,0);assert.ok(p.prizes.pearl.coin>p.prizes.crate.coin);
  const before=JSON.stringify(e);assert.throws(()=>act(s,'fishing',{spot:0,bet:1}),/先完成/);assert.equal(JSON.stringify(e),before);
 });
 test('third same symbol pays exactly one prize; mixed first three do not finish; reload keeps layout',()=>{
- const s=treasure(),id=s.event.id;s.event.board=['coins','crate','pearl','coins','crate','pearl','coins','crate','pearl'];const before=s.coin,bait=s.bait;
+ const s=treasure(),id=s.event.id;s.event.board=['coins','crate','pearl','coins','crate','pearl','coins','crate','pearl','pearl','pearl','crate'];const before=s.coin,bait=s.bait;
  for(let cell=0;cell<3;cell++)assert.equal(act(s,'event/dig',{id,cell}).type,'shell');assert.equal(s.coin,before);assert.equal(s.event.picks.length,3);
  const saved=JSON.parse(JSON.stringify(s));for(let cell=3;cell<6;cell++)act(saved,'event/dig',{id,cell});const r=act(saved,'event/dig',{id,cell:6});
  assert.equal(r.symbol,'coins');assert.deepEqual(r.matched,[0,3,6]);assert.equal(saved.coin,before+60);assert.equal(saved.bait,bait);assert.equal(saved.event,null);
@@ -49,7 +49,7 @@ test('third same symbol pays exactly one prize; mixed first three do not finish;
 test('shell invalid and duplicate picks cannot progress or pay; all three prize routes honor bet',()=>{
  for(const symbol of ['coins','crate','pearl']){
   const s=treasure(5),e=s.event,before={coin:s.coin,supplies:s.supplies,food:s.food};
-  for(const cell of [-1,9,1.5,'0'])assert.throws(()=>act(s,'event/dig',{id:e.id,cell}),/未打开/);
+  for(const cell of [-1,12,1.5,'0'])assert.throws(()=>act(s,'event/dig',{id:e.id,cell}),/未打开/);
   assert.throws(()=>act(s,'event/dig',{id:'forged',cell:0}),/编号/);assert.equal(e.picks.length,0);
   const cells=e.board.flatMap((v,i)=>v===symbol?[i]:[]);act(s,'event/dig',{id:e.id,cell:cells[0]});assert.throws(()=>act(s,'event/dig',{id:e.id,cell:cells[0]}),/未打开/);
   act(s,'event/dig',{id:e.id,cell:cells[1]});const r=act(s,'event/dig',{id:e.id,cell:cells[2]});for(const k of Object.keys(before))assert.equal(s[k],before[k]+r.total[k]);assert.equal(r.total.coin,e.prizes[symbol].coin);

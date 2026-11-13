@@ -9,7 +9,7 @@ for(const late of [false,true])for(const strategy of ['leave','repair','explore'
    const time=start+day*86400000+session*43200000;settle(s,time);const act=(type,p={})=>action(s,type,p,time,rng);if(s.pending.slice(1).some(v=>v>=1))act('base/collect');
    for(let i=0;i<40;i++){
     if(s.bait<1){drySessions++;break;}const special=featureStatus(s).ready;let r=act('fishing',{spot:1,bet:1,challenge:false,...(special?{feature:true}:{})});casts++;if(special)featureUses++;
-    const e=s.event;if(e?.type==='attack')act('event/attack',{id:e.id,target:casts%3});else if(e?.type==='raid'){act('event/infiltrate',{id:e.id});act('event/steal',{id:e.id,route:0});if(s.event)act('event/bank',{id:e.id});}else if(e?.type==='treasure'){for(let cell=0;cell<9&&s.event;cell++)act('event/dig',{id:e.id,cell});}else if(e?.type==='encounter'){
+    const e=s.event;if(e?.type==='attack')act('event/attack',{id:e.id,target:casts%3});else if(e?.type==='raid'){act('event/infiltrate',{id:e.id});act('event/steal',{id:e.id,route:0});if(s.event)act('event/bank',{id:e.id});}else if(e?.type==='treasure'){for(let cell=0;cell<12&&s.event;cell++)act('event/dig',{id:e.id,cell});}else if(e?.type==='sea-game')act('event/sea-return',{id:e.id});else if(e?.type==='encounter'){
      if(e.format&&strategy!=='leave'&&(strategy==='rescue'?s.food>=10:s.coin>=200)){
       const coin=s.coin,food=s.food;act('event/encounter',{id:e.id,stage:e.stage,choice:strategy==='rescue'?'help':'investigate'});storyPaidCoin+=coin-s.coin;storyPaidFood+=food-s.food;
       const r=act('event/encounter',{id:e.id,stage:s.event.stage,choice:strategy==='rescue'?'escort':strategy});storyVisits++;storyBait+=r.reward.bait||0;if(r.failed)storyFailures++;

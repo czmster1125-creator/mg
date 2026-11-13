@@ -13,7 +13,7 @@ function run(seed){let state=seed;const rng=()=>((state=(state*1664525+101390422
     if(s.unlocked.includes(zone)&&s.zone!==zone)act('zone',{zone});
     if(s.bait<1){if(now-s.rescueAt>=6*3600000)act('rescue/claim');else{stops++;break;}}
     act('fishing',{spot:0,bet:1});casts++;
-    const e=s.event;if(e?.type==='attack')act('event/attack',{id:e.id,target:0});if(e?.type==='raid'){act('event/infiltrate',{id:e.id});while(s.event)act('event/steal',{id:e.id,route:0});}if(e?.type==='treasure')for(let cell=0;s.event?.type==='treasure'&&cell<9;cell++)act('event/dig',{id:e.id,cell});if(e?.type==='encounter')act('event/encounter',{id:e.id,choice:e.format?'leave':s.food>=ENCOUNTERS[e.kind].food?'rescue':'leave',stage:e.stage});
+    const e=s.event;if(e?.type==='attack')act('event/attack',{id:e.id,target:0});if(e?.type==='raid'){act('event/infiltrate',{id:e.id});while(s.event)act('event/steal',{id:e.id,route:0});}if(e?.type==='treasure')for(let cell=0;s.event?.type==='treasure'&&cell<12;cell++)act('event/dig',{id:e.id,cell});if(e?.type==='sea-game')act('event/sea-return',{id:e.id});if(e?.type==='encounter')act('event/encounter',{id:e.id,choice:e.format?'leave':s.food>=ENCOUNTERS[e.kind].food?'rescue':'leave',stage:e.stage});
     for(const d of ORDER_DEFS)if(s.orders.counts[d.id]>=d.target&&!s.orders.claimed.includes(d.id))act('orders/claim',{id:d.id});
     for(const d of weeklyDefs(s.weekly))if(s.weekly.counts[d.id]>=d.target&&!s.weekly.claimed.includes(d.id))act('weekly/claim',{id:d.id});
     for(let k=1;k<C.base.length;k++)if(s.damage[k]&&s.coin>=20*s.base[k])act('base/repair',{index:k});

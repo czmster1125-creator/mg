@@ -11,8 +11,8 @@ function run(seed){let random=seed;const rng=()=>((random=(random*1664525+101390
    if(s.bait<1){empty++;break;}spent++;casts++;act('fishing',{bet:1,spot:0});
    if(s.event?.type==='attack')act('event/attack',{id:s.event.id,target:0});
    if(s.event?.type==='raid'){const id=s.event.id;act('event/infiltrate',{id});while(s.event)act('event/steal',{id,route:0});}
-   if(s.event?.type==='encounter')act('event/encounter',{id:s.event.id,choice:'leave',stage:s.event.stage});
-   if(s.event?.type==='treasure'){const id=s.event.id;for(let cell=0;s.event?.type==='treasure'&&cell<9;cell++)act('event/dig',{id,cell});}
+   if(s.event?.type==='sea-game')act('event/sea-return',{id:s.event.id});if(s.event?.type==='encounter')act('event/encounter',{id:s.event.id,choice:'leave',stage:s.event.stage});
+   if(s.event?.type==='treasure'){const id=s.event.id;for(let cell=0;s.event?.type==='treasure'&&cell<12;cell++)act('event/dig',{id,cell});}
    for(const d of ORDER_DEFS)if(s.orders.counts[d.id]>=d.target&&!s.orders.claimed.includes(d.id))act('orders/claim',{id:d.id});
    for(let i=1;i<C.base.length;i++)if(s.damage[i]&&s.coin>=20*s.base[i]){act('base/repair',{index:i});repairs++;}
    const region=Math.min(C.regions.length-1,C.regions.findIndex((_,i)=>owned(s,i).length<25)<0?C.regions.length-1:C.regions.findIndex((_,i)=>owned(s,i).length<25)),n=owned(s,region).length,cost=C.buildCosts[Math.floor(n/5)]*(region+1),supplies=n>=10&&(n+1)%5===0?2:0;
